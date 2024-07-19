@@ -3,7 +3,15 @@ import styled from "styled-components";
 export const QuestionsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 2rem;
+  padding: 0rem 2.5rem;
+  margin-bottom: 3rem;
+
+  .title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+  }
 
   h4 {
     color: #456e2a;

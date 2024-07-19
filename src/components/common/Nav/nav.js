@@ -1,27 +1,16 @@
 import styled from "styled-components";
 
-export const Header = styled.header`
-  width: 100%;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-`;
-
 export const LogoContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   padding: 0 100px;
+  color: #456e2a;
 
   img {
-    max-width: 150px;
-    max-height: 150px;
-    height: auto;
     width: auto;
-  }
-
-  h3 {
-    color: #456e2a;
+    height: auto;
+    max-height: 150px;
   }
 
   span {
@@ -33,10 +22,8 @@ export const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 4rem;
+  padding: 0.3rem 4rem;
   border-top: 2px solid #456e2a;
-  width: 100%;
-  box-sizing: border-box;
 `;
 
 export const MenuContainer = styled.div`
@@ -44,8 +31,6 @@ export const MenuContainer = styled.div`
 
   ul {
     display: flex;
-    width: auto;
-    height: 100%;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -80,20 +65,17 @@ export const MenuContainer = styled.div`
 export const SearchContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
   padding: 1rem 2rem;
   position: relative;
 
   div {
     display: flex;
-    padding-left: 15px;
+    padding-left: 1rem;
   }
 `;
 
 export const SearchWrapper = styled.div`
   position: relative;
-  display: flex;
-  align-items: center;
   background-color: ${({ value }) => (value ? "#ffffff" : "#456E2A")};
   border: 1px solid ${({ value }) => (value ? "#456E2A" : "#ffffff")};
   border-radius: 20px;
@@ -101,8 +83,8 @@ export const SearchWrapper = styled.div`
 
   span {
     position: absolute;
-    top: 0%;
-    right: 10px;
+    top: -5%;
+    right: 4%;
     color: ${({ value }) => (value ? "#456E2A" : "#ffffff")};
   }
 `;

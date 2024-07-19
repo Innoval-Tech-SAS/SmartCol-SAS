@@ -2,12 +2,15 @@ import styled from "styled-components";
 
 export const CategorysContainer = styled.div`
   background: linear-gradient(135deg, #b0d48f, #89b35d, #6b8f3e, #456e2a);
+
   padding: 2rem 2rem;
+  margin: 3rem 0rem;
 
   .slider-container {
     width: auto;
     margin: 0 auto;
     text-align: center;
+    margin-bottom: 1.5rem;
   }
   .slick-prev,
   .slick-next {
@@ -21,13 +24,15 @@ export const CategorysContainer = styled.div`
     font-size: 40px;
     color: f9f9f6;
   }
-`;
 
-export const Title = styled.h2`
-  color: #f9f9f6;
-  font-size: 3rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
+  h3 {
+    text-align: center;
+    color: #f9f9f6;
+    font-size: 3rem;
+    font-weight: 600;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+  }
 `;
 
 export const Card = styled.div`
@@ -40,6 +45,7 @@ export const Card = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 1.5rem;
 
   .card-image {
     background: url(${(props) => props.$img});
@@ -62,7 +68,7 @@ export const Card = styled.div`
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 2; /* Número máximo de líneas */
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
   }
 

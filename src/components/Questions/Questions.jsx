@@ -11,7 +11,8 @@ import { TitleContainer } from "../common/Contact/Contact";
 const accordionData = [
   {
     question: "¿Qué tipos de materias primas ofrece SmartCol SAS?",
-    answer: "Respuesta a la pregunta 1...",
+    answer:
+      " Smartcol S.A.S. ofrece una amplia gama de materias primas, incluyendo: \n - Aditivos, Conservantes y Estabilizantes: Ácido cítrico, ácido acético, ácido fosfórico, ácido láctico, benzoato de sodio, bicarbonato de sodio, entre otros.\n- Almidones de Maíz, Yuca y Papa: Almidón nativo, modificado y soluble en agua fría.\n - Edulcorantes y Glucosas: Aspartame, sucralosa, maltodextrina, glucosa líquida y en polvo.\n - Aminoácidos y Vitaminas: Creatina monohidratada, vitamina C.\n - Proteínas: Proteína aislada de soya, proteína de suero de leche.\n - Ingredientes Industriales y Farmacéuticos: Ácido ascórbico, cloruro de calcio,dióxido de titanio, entre otros",
   },
   {
     question: "¿En qué sectores industriales se especializa SmartCol SAS?",
@@ -54,9 +55,9 @@ const accordionStyles = {
 const Questions = () => {
   return (
     <QuestionsContainer>
-      <TitleContainer>
+      <div className="title-container">
         <h4>Preguntas Frecuentes</h4>
-      </TitleContainer>
+      </div>
       <CAccordion style={accordionStyles}>
         {accordionData.map((item, index) => (
           <CAccordionItem key={index}>

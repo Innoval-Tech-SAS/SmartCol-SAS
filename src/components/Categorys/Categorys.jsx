@@ -2,7 +2,7 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { CategorysContainer, Title, Card } from "../common/Category/Category";
+import { CategorysContainer, Card } from "../common/Category/Category";
 import { TitleContainer, CustomButton } from "../common/Contact/Contact";
 
 const Categorys = () => {
@@ -75,9 +75,9 @@ const Categorys = () => {
 
   return (
     <CategorysContainer>
-      <TitleContainer>
-        <Title>Explora Nuestra Gama de Productos</Title>
-      </TitleContainer>
+      <>
+        <h3>Explora Nuestra Gama de Productos</h3>
+      </>
       <div className="slider-container">
         <Slider {...settings} className="slider">
           {categories.map((category, index) => (

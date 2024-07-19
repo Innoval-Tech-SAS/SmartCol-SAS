@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import {
-  Header,
   LogoContainer,
   Nav,
   MenuContainer,
@@ -46,8 +45,8 @@ const FixedNav = styled(Nav)`
 `;
 
 const ScrollingLogoContainer = styled(LogoContainer)`
-  animation: ${({ isLoading, isScrolled }) =>
-      isLoading ? fadeIn : isScrolled ? fadeOut : fadeIn}
+  animation: ${({ $isLoading, $isScrolled }) =>
+      $isLoading ? fadeIn : $isScrolled ? fadeOut : fadeIn}
     0.5s ease-in-out;
   overflow: hidden;
 `;
@@ -68,10 +67,9 @@ const Navbar = () => {
 
     window.addEventListener("scroll", handleScroll);
 
-    // Simular el fin de la animación de carga
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 500); // La duración de la animación en milisegundos
+    }, 500);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -81,8 +79,8 @@ const Navbar = () => {
 
   return (
     <>
-      <Header>
-        <ScrollingLogoContainer isScrolled={isScrolled} isLoading={isLoading}>
+      <header>
+        <ScrollingLogoContainer $isScrolled={isScrolled} $isLoading={isLoading}>
           <img src="img/logo.png" alt="Logo SmartCol SAS " />
           <h3>
             La base de tu éxito, nuestra diversidad de{" "}
@@ -93,11 +91,12 @@ const Navbar = () => {
         {isScrolled ? (
           <FixedNav>
             <MenuContainer>
-              <span>
-                <FiMenu size={24} color="#456E2A" />
-              </span>
-
               <ul>
+                <li>
+                  <span>
+                    <FiMenu size={24} color="#456E2A" />
+                  </span>
+                </li>
                 <li>
                   <NavLink to="/">Inicio</NavLink>
                 </li>
@@ -179,7 +178,7 @@ const Navbar = () => {
             </SearchContainer>
           </Nav>
         )}
-      </Header>
+      </header>
     </>
   );
 };

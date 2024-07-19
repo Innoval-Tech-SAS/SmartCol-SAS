@@ -9,14 +9,16 @@ function App() {
   return (
     <Router>
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/products" element={<Construction />} />
-        <Route path="/blog" element={<Construction />} />
-        <Route path="/contact" element={<Construction />} />
-        <Route path="/about" element={<Construction />} />
-        <Route path="*" element={<Construction />} />
-      </Routes>
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/products" element={<Construction />} />
+          <Route path="/blog" element={<Construction />} />
+          <Route path="/contact" element={<Construction />} />
+          <Route path="/about" element={<Construction />} />
+          <Route path="*" element={<Construction />} />
+        </Routes>
+      </main>
       <Footer />
     </Router>
   );

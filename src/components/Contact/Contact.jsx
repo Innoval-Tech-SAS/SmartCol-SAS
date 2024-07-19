@@ -35,6 +35,7 @@ const Contact = () => {
       <TitleContainer onClick={handleClick}>
         <CustomButton title="EXPLORA NUESTRO CATÁLOGO" />
       </TitleContainer>
+
       <Container>
         <PhoneNumbers>
           <h4>CONTACTO</h4>
@@ -66,9 +67,17 @@ const Contact = () => {
             title="Nuestros Productos"
           />
 
-          <IconButton iconUrl="img/icons/Camion.png" title="Distribución" />
+          <IconButton
+            url=""
+            iconUrl="img/icons/Camion.png"
+            title="Distribución"
+          />
 
-          <IconButton iconUrl="img/icons/Localización.png" title="Sedes" />
+          <IconButton
+            url=""
+            iconUrl="img/icons/Localización.png"
+            title="Sedes"
+          />
         </IconsContainer>
       </Container>
     </>

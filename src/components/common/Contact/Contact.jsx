@@ -28,7 +28,7 @@ export const Container = styled.div`
   display: flex;
 `;
 
-const PhoneNumbersWrapper = styled.div`
+export const PhoneNumbers = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -66,7 +66,7 @@ const ButtonLarge = styled.button`
   }
 `;
 
-export const ButtonIcon = ({ title, url }) => {
+const ButtonIcon = ({ title, url }) => {
   return (
     <ButtonLarge>
       <Link to={url}>{title}</Link>
@@ -97,10 +97,6 @@ export const IconButton = ({ iconUrl, title, url }) => {
   );
 };
 
-export const PhoneNumbers = ({ children }) => {
-  return <PhoneNumbersWrapper>{children}</PhoneNumbersWrapper>;
-};
-
 export const IconsContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -119,8 +115,8 @@ export const ListContainer = styled.div`
   ul {
     display: flex;
     flex-direction: column;
-    justify-content: start;
-    align-items: start;
+    justify-content: center;
+    align-items: center;
     padding: 10px 1.5rem;
     flex-wrap: wrap;
   }
@@ -132,6 +128,9 @@ export const ListContainer = styled.div`
   }
 
   li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 0.5rem 0rem 0rem 2rem;
     font-size: 1rem;
     font-weight: 600;
