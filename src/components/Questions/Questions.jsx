@@ -5,8 +5,7 @@ import {
   CAccordionBody,
   CAccordionHeader,
 } from "@coreui/react";
-import { QuestionsContainer } from "../common/Question/Question";
-import { TitleContainer } from "../common/Contact/Contact";
+import { QuestionsContainer } from "../styles/Question/Question";
 
 const accordionData = [
   {
@@ -52,7 +51,7 @@ const accordionStyles = {
   "--cui-accordion-btn-focus-box-shadow": "0 0 0 0.3rem rgba(69, 110, 42, 0.5)",
 };
 
-const Questions = () => {
+const FrequentlyQuestions = () => {
   return (
     <QuestionsContainer>
       <div className="title-container">
@@ -72,4 +71,4 @@ const Questions = () => {
   );
 };
 
-export default Questions;
+export default FrequentlyQuestions;

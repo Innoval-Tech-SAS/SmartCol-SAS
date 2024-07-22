@@ -1,4 +1,4 @@
-import { BannerContainer } from "../common/Banner/banner";
+import { BannerContainer } from "../styles/Banner/banner";
 
 const Banner = () => {
   return (

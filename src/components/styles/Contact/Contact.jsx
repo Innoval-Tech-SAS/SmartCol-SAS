@@ -21,11 +21,12 @@ export const TitleContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 2rem 0 1rem 0;
+  padding: 2rem;
 `;
 
 export const Container = styled.div`
   display: flex;
+  background: #e6e6e8;
 `;
 
 export const PhoneNumbers = styled.div`

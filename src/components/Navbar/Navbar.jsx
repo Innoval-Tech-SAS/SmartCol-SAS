@@ -6,7 +6,7 @@ import {
   SearchContainer,
   SearchWrapper,
   SearchInput,
-} from "../common/Nav/nav";
+} from "../styles/Nav/nav";
 import { FiSearch, FiMenu, FiShoppingCart } from "react-icons/fi";
 import { NavLink } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
@@ -92,11 +92,11 @@ const Navbar = () => {
           <FixedNav>
             <MenuContainer>
               <ul>
-                <li>
+                {/* <li>
                   <span>
                     <FiMenu size={24} color="#456E2A" />
                   </span>
-                </li>
+                </li> */}
                 <li>
                   <NavLink to="/">Inicio</NavLink>
                 </li>
@@ -136,9 +136,9 @@ const Navbar = () => {
         ) : (
           <Nav>
             <MenuContainer>
-              <span>
+              {/* <span>
                 <FiMenu size={24} color="#456E2A" />
-              </span>
+              </span> */}
 
               <ul>
                 <li>

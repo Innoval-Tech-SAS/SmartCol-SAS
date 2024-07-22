@@ -6,7 +6,7 @@ import {
   PhoneNumbers,
   ListContainer,
   TitleContainer,
-} from "../common/Contact/Contact";
+} from "../styles/Contact/Contact";
 import { Link } from "react-router-dom";
 import { FaWhatsapp } from "react-icons/fa";
 
@@ -16,12 +16,12 @@ const cityContacts = [
     phoneNumbers: ["350 422 7737", "316 017 9783", "301 502 9279"],
   },
   {
-    city: "Medellín",
-    phoneNumbers: ["316 456 8409"],
-  },
-  {
     city: "Cali",
     phoneNumbers: ["301 430 5276"],
+  },
+  {
+    city: "Medellín",
+    phoneNumbers: ["316 456 8409"],
   },
 ];
 

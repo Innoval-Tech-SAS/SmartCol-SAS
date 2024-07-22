@@ -4,7 +4,7 @@ export const QuestionsContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0rem 2.5rem;
-  margin-bottom: 3rem;
+  margin-bottom: 5rem;
 
   .title-container {
     display: flex;

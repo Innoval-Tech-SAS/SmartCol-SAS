@@ -2,8 +2,8 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { CategorysContainer, Card } from "../common/Category/Category";
-import { TitleContainer, CustomButton } from "../common/Contact/Contact";
+import { CategorysContainer, Card } from "../styles/Category/Category";
+import { CustomButton } from "../styles/Contact/Contact";
 
 const Categorys = () => {
   const settings = {

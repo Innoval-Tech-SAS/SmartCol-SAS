@@ -1,7 +1,7 @@
 import Categorys from "../../components/Categorys/Categorys";
 import Contact from "../../components/Contact/Contact";
 import Banner from "../../components/Banner/Banner";
-import Questions from "../../components/Questions/Questions";
+import FrequentlyQuestions from "../../components/Questions/Questions";
 
 const Home = () => {
   return (
@@ -9,7 +9,7 @@ const Home = () => {
       <Banner />
       <Contact />
       <Categorys />
-      <Questions />
+      <FrequentlyQuestions />
     </>
   );
 };
