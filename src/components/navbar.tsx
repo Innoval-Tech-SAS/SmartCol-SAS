@@ -36,7 +36,7 @@ export const Navbar: React.FC = () => {
     <Input
       aria-label="Search"
       classNames={{
-        inputWrapper: "bg-default-100",
+        inputWrapper: "bg-primary/50 shadow-md",
         input: "text-sm placeholder-primary",
       }}
       endContent={
@@ -45,6 +45,7 @@ export const Navbar: React.FC = () => {
       labelPlacement="outside"
       placeholder="Buscar Productos..."
       type="search"
+
     />
   );
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "@nextui-org/link";
 import { Button } from "@nextui-org/button";
 
 interface IconButtonProps {
@@ -20,9 +20,7 @@ const IconButton: React.FC<IconButtonProps> = ({ url, title, iconName }) => {
             setIconSrc(formattedIconName);
         };
 
-
         updateIconSrc();
-
 
         const observer = new MutationObserver(updateIconSrc);
         observer.observe(document.documentElement, {
@@ -35,15 +33,19 @@ const IconButton: React.FC<IconButtonProps> = ({ url, title, iconName }) => {
 
     return (
         <div className="flex flex-col items-center justify-center gap-5">
-            <div id="img-container">
-                <img className="w-auto h-32" src={iconSrc} alt={title} />
+            <div className="w-full max-w-xs flex justify-center items-center">
+                <img
+                    className="w-auto max-h-32 sm:h-24"
+                    src={iconSrc}
+                    alt={title}
+                />
             </div>
             <div className="flex items-center justify-center w-full" id="button-container">
-                <Button className="w-2/3 sm:w-full mb-4" color="primary" radius="full">
-                    <Link title={title} className="text-white w-full font-bold text-lg flex justify-center dark:text-background" to={url}>
+                <Link title={title} className="w-1/3" href={url}>
+                    <Button className="w-full text-white font-bold sm:text-sm flex justify-center dark:text-background" color="primary" radius="full">
                         {title}
-                    </Link>
-                </Button>
+                    </Button>
+                </Link>
             </div>
         </div>
     );
