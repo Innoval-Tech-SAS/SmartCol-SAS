@@ -13,6 +13,16 @@ const CommercialAllies: React.FC = () => {
     slidesToShow: 4,
     slidesToScroll: 1,
     centerMode: false,
+    responsive: [
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+    ],
   };
 
   return (

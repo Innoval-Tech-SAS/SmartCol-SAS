@@ -46,7 +46,7 @@ const Description: React.FC = () => {
           <h2 className={titleStyle}>¿Porque Elegir SmartCol S.A.S.?</h2>
         </div>
 
-        <div className=" flex flex-col sm:flex-row items-center justify-center gap-52">
+        <div className=" flex flex-col sm:flex-row items-center justify-center gap-32">
           <IconButton
             iconName="experiencia.png"
             darkTextColor=""
