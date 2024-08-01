@@ -3,15 +3,30 @@ import { Link } from "@nextui-org/link";
 import { Button } from "@nextui-org/button";
 
 interface IconButtonProps {
-  url: string | undefined
+  url?: string | undefined;
   title: string;
   iconName: string;
-  variant: "solid" | "ghost" | "bordered" | "light" | "flat" | "faded" | "shadow" | undefined,
-  textColor: string,
-  darkTextColor: string
+  variant:
+    | "solid"
+    | "ghost"
+    | "bordered"
+    | "light"
+    | "flat"
+    | "faded"
+    | "shadow"
+    | undefined;
+  textColor: string;
+  darkTextColor: string;
 }
 
-const IconButton: React.FC<IconButtonProps> = ({ darkTextColor, url, title, iconName, textColor, variant }) => {
+const IconButton: React.FC<IconButtonProps> = ({
+  darkTextColor,
+  url,
+  title,
+  iconName,
+  textColor,
+  variant,
+}) => {
   const [iconSrc, setIconSrc] = useState("");
   const iconsRoute = "icons/";
 
@@ -43,15 +58,13 @@ const IconButton: React.FC<IconButtonProps> = ({ darkTextColor, url, title, icon
       </div>
       <div
         className="flex items-center justify-center w-full"
-        id="button-container"
-      >
+        id="button-container">
         <Link className="w-5/6" href={url} title={title}>
           <Button
             className={`w-full ${textColor} font-bold sm:text-sm flex justify-center ${darkTextColor}`}
             color="primary"
             radius="full"
-            variant={variant}
-          >
+            variant={variant}>
             {title}
           </Button>
         </Link>

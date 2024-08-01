@@ -30,7 +30,7 @@
   },
   "include": [
     "src"
-  ],
+, "src/components/banner.tsx"  ],
   "references": [
     {
       "path": "./tsconfig.node.json"

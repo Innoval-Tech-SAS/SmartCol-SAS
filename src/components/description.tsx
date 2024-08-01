@@ -5,64 +5,84 @@ import Vision from "./vision";
 
 const Description: React.FC = () => {
   const titleStyle: string = "text-center text-3xl font-bold text-primary py-4";
+  const textStyle: string =
+    "text-xl font-semibold text-justify text-indent py-2";
 
   return (
-    <div className="container mx-auto my-8">
-      <div className="flex flex-row-reverse">
-        <div className="w-1/2 px-10">
+    <div className="container mx-auto my-8 px-4">
+      <div className="flex flex-col sm:flex-row-reverse">
+        <div className="sm:w-full px-4 sm:px-10">
           <h2 className={titleStyle}>¿Quienes Somos?</h2>
-          <p className="text-xl font-semibold text-justify text-indent py-4">
-            Somos una empresa familiar con una amplia experiencia en la
-            distribución de materias primas e insumos para las industrias
-            alimentaria, industrial y farmacéutica. Nos esforzamos por satisfacer
-            las necesidades de nuestros clientes, cumpliendo con los más altos
-            estándares de calidad y eficiencia.
+
+          <p className={textStyle}>
+            Somos una empresa familiar con una vasta y sólida experiencia en la
+            distribución de materias primas e insumos para diversas industrias,
+            incluyendo la alimentaria, industrial y farmacéutica.
+          </p>
+
+          <p className={textStyle}>
+            A lo largo de más de 10 años, hemos cultivado una profunda
+            comprensión de las necesidades y demandas específicas de estos
+            sectores, lo que nos permite ofrecer soluciones personalizadas y
+            efectivas. Nos comprometemos firmemente a satisfacer las
+            expectativas de nuestros clientes, asegurando que cada producto
+            cumpla con los más rigurosos estándares de calidad y eficiencia.
+          </p>
+
+          <p className={textStyle}>
+            Además, nuestro equipo dedicado y apasionado trabaja incansablemente
+            para garantizar una atención al cliente excepcional, con el objetivo
+            de establecer relaciones de confianza y a largo plazo con cada uno
+            de nuestros socios comerciales. Nos enorgullece ser un referente en
+            nuestro campo, proporcionando no solo productos de alta calidad,
+            sino también un servicio que va más allá de la simple
+            transacción comercial.
           </p>
         </div>
+      </div>
 
-        <div className="flex flex-col w-1/2">
-
-          <div className="text-center pb-10">
-            <h2 className={titleStyle}>¿Porque Elegir SmartCol S.A.S.?</h2>
-          </div>
-
-          <div className="flex items-center justify-around">
-            <IconButton
-              iconName="experiencia.png"
-              darkTextColor=""
-              textColor=""
-              variant="flat"
-              url=""
-              title="Experiencia"
-            />
-
-            <IconButton
-              iconName="calidad.png"
-              darkTextColor=""
-              textColor=""
-              variant="flat"
-              url=""
-              title="Calidad"
-            />
-
-            <IconButton
-              iconName="productos.png"
-              darkTextColor=""
-              textColor=""
-              variant="flat"
-              url=""
-              title="Productos"
-
-            />
-          </div>
-
-
+      <div className="my-6">
+        <div className="text-center pb-10">
+          <h2 className={titleStyle}>¿Porque Elegir SmartCol S.A.S.?</h2>
         </div>
 
+        <div className=" flex flex-col sm:flex-row items-center justify-center gap-52">
+          <IconButton
+            iconName="experiencia.png"
+            darkTextColor=""
+            textColor=""
+            variant="flat"
+            title="Experiencia"
+          />
+
+          <IconButton
+            iconName="calidad.png"
+            darkTextColor=""
+            textColor=""
+            variant="flat"
+            title="Calidad"
+          />
+
+          <IconButton
+            iconName="eficacia.png"
+            darkTextColor=""
+            textColor=""
+            variant="flat"
+            title="Eficiencia"
+          />
+
+          <IconButton
+            iconName="servicio.png"
+            darkTextColor=""
+            textColor=""
+            variant="flat"
+            title="Servicio"
+          />
+        </div>
       </div>
-      <div className="flex justify-around items-center py-5">
-        <Mision imgName="" titleStyle={titleStyle} />
-        <Vision imgName="" titleStyle={titleStyle} />
+      <div className="flex flex-col sm:flex-row justify-around items-center my-10 gap-20">
+        <Mision imgName="" titleStyle={titleStyle} textStyle={textStyle} />
+        <Vision imgName="" titleStyle={titleStyle} textStyle={textStyle} />
       </div>
     </div>
   );

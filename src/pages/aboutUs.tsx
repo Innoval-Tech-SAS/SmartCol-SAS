@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import DefaultLayout from "@/layouts/default";
-import Banner from "@/components/banner";
+import Banner from "../components/banner";
 import Description from "@/components/description";
 
 export default function AboutUsPage() {
