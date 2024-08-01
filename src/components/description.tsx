@@ -1,10 +1,10 @@
 import React from "react";
+
 import Mision from "./mision";
 import Vision from "./vision";
 
-const Description:React.FC = () => {
-  
-  const titleStyle:string = "text-center text-3xl font-bold text-primary py-4"
+const Description: React.FC = () => {
+  const titleStyle: string = "text-center text-3xl font-bold text-primary py-4";
 
   return (
     <div className="container mx-auto my-8">
@@ -19,8 +19,8 @@ const Description:React.FC = () => {
         </p>
       </div>
       <div className="flex justify-around items-center py-5">
-        <Mision imgName="" titleStyle={titleStyle}/>
-        <Vision imgName="" titleStyle={titleStyle}/>
+        <Mision imgName="" titleStyle={titleStyle} />
+        <Vision imgName="" titleStyle={titleStyle} />
       </div>
     </div>
   );

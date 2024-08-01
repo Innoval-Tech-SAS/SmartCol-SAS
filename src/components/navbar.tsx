@@ -45,17 +45,16 @@ export const Navbar: React.FC = () => {
       labelPlacement="outside"
       placeholder="Buscar Productos..."
       type="search"
-
     />
   );
 
   return (
     <NextUINavbar
-      maxWidth="2xl"
       className={clsx(
         "border-t-2 border-t-primary z-50 transition-all duration-300",
-        isSticky ? "fixed top-0 left-0 right-0" : "relative"
+        isSticky ? "fixed top-0 left-0 right-0" : "relative",
       )}
+      maxWidth="2xl"
     >
       <NavbarContent className="basis-2/5 sm:basis-full">
         {isSticky && (
@@ -65,7 +64,7 @@ export const Navbar: React.FC = () => {
               color="primary"
               href="/"
             >
-              <img src="img/logo.png" alt="Logo" className="h-8" />
+              <img alt="Logo" className="h-8" src="img/logo.png" />
             </Link>
           </NavbarBrand>
         )}
@@ -76,7 +75,7 @@ export const Navbar: React.FC = () => {
                 className={clsx(
                   linkStyles({ color: "primary" }),
                   "data-[active=true]:text-primary data-[active=true]:font-medium",
-                  "font-semibold"
+                  "font-semibold",
                 )}
                 color="primary"
                 href={item.href}

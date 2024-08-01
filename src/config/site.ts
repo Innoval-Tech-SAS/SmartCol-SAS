@@ -35,14 +35,17 @@ export const siteConfig = {
   },
 };
 
-
 export const cityContacts = [
   {
     city: "Bogotá",
-    cellphoneNumbers: ["350 422 7737", "316 017 9783", "301 502 9279", "350 422 7733"],
+    cellphoneNumbers: [
+      "350 422 7737",
+      "316 017 9783",
+      "301 502 9279",
+      "350 422 7733",
+    ],
     phoneNumber: "601 573 6413",
     address: "Cl. 66 #75 - 11",
-
   },
   {
     city: "Medellín",
@@ -140,25 +143,51 @@ interface FAQ {
 export const smartcolFAQ: FAQ = {
   "¿Qué tipos de materias primas ofrece Smartcol S.A.S?": {
     "Aditivos, Conservantes y Estabilizantes": [
-      "Ácido cítrico", "Ácido acético", "Ácido fosfórico", "Ácido láctico", "Benzoato de sodio", "Bicarbonato de sodio"
+      "Ácido cítrico",
+      "Ácido acético",
+      "Ácido fosfórico",
+      "Ácido láctico",
+      "Benzoato de sodio",
+      "Bicarbonato de sodio",
     ],
-    "Almidones de Maíz, Yuca y Papa": "Almidón nativo, modificado y soluble en agua fría",
-    "Edulcorantes y Glucosas": ["Aspartame", "Sucralosa", "Maltodextrina", "Glucosa líquida y en polvo"],
+    "Almidones de Maíz, Yuca y Papa":
+      "Almidón nativo, modificado y soluble en agua fría",
+    "Edulcorantes y Glucosas": [
+      "Aspartame",
+      "Sucralosa",
+      "Maltodextrina",
+      "Glucosa líquida y en polvo",
+    ],
     "Aminoácidos y Vitaminas": ["Creatina monohidratada", "Vitamina C"],
-    "Proteínas": ["Proteína aislada de soya", "Proteína de suero de leche"],
-    "Ingredientes Industriales y Farmacéuticos": ["Ácido ascórbico", "Cloruro de calcio", "Dióxido de titanio"]
+    Proteínas: ["Proteína aislada de soya", "Proteína de suero de leche"],
+    "Ingredientes Industriales y Farmacéuticos": [
+      "Ácido ascórbico",
+      "Cloruro de calcio",
+      "Dióxido de titanio",
+    ],
   },
-  "¿En qué sectores industriales se especializa Smartcol S.A.S?": "Smartcol S.A.S. se especializa en los sectores de: Industria de alimentos, Sector industrial, Industria farmacéutica",
-  "¿Cómo puedo mejorar la calidad de mis productos utilizando los productos de Smartcol S.A.S?": {
-    "Aditivos y Estabilizantes": "Carragenina y goma guar para mejorar la textura y estabilidad",
-    "Proteínas": "Proteína de suero de leche para mejorar la consistencia y el valor nutricional",
-    "Almidones Modificados": "Para mejorar la textura y estabilidad en productos procesados"
-  },
-  "¿Dónde realiza entregas Smartcol S.A.S?": "Smartcol S.A.S. realiza entregas en varias ciudades principales de Colombia: Bogotá, Medellín, Cali",
-  "¿Cómo puedo mejorar el sabor de mis productos utilizando los servicios de Smartcol S.A.S?": {
-    "Edulcorantes y Saborizantes": "Stevia y sucralosa para mejorar el sabor sin añadir calorías",
-    "Colorantes y Aditivos": "Dióxido de titanio y color caramelo para mejorar la apariencia",
-    "Estabilizantes y Emulsionantes": "Goma xanthan y la CMC para mejorar la textura y consistencia"
-  },
-  "¿Por qué debería elegir a Smartcol S.A.S como proveedor de materias primas?": "Deberías elegir a Smartcol S.A.S. porque tienen 10 años de experiencia en el mercado nacional, ofrecen una amplia variedad de productos de alta calidad, cuentan con un equipo de ingenieros entrenados para asesorar y guiar en la selección de productos, se comprometen con la calidad, seguridad, entregas oportunas y precios competitivos, y poseen un fuerte sentido de pertenencia y dedicación al trabajo."
+  "¿En qué sectores industriales se especializa Smartcol S.A.S?":
+    "Smartcol S.A.S. se especializa en los sectores de: Industria de alimentos, Sector industrial, Industria farmacéutica",
+  "¿Cómo puedo mejorar la calidad de mis productos utilizando los productos de Smartcol S.A.S?":
+    {
+      "Aditivos y Estabilizantes":
+        "Carragenina y goma guar para mejorar la textura y estabilidad",
+      Proteínas:
+        "Proteína de suero de leche para mejorar la consistencia y el valor nutricional",
+      "Almidones Modificados":
+        "Para mejorar la textura y estabilidad en productos procesados",
+    },
+  "¿Dónde realiza entregas Smartcol S.A.S?":
+    "Smartcol S.A.S. realiza entregas en varias ciudades principales de Colombia: Bogotá, Medellín, Cali",
+  "¿Cómo puedo mejorar el sabor de mis productos utilizando los servicios de Smartcol S.A.S?":
+    {
+      "Edulcorantes y Saborizantes":
+        "Stevia y sucralosa para mejorar el sabor sin añadir calorías",
+      "Colorantes y Aditivos":
+        "Dióxido de titanio y color caramelo para mejorar la apariencia",
+      "Estabilizantes y Emulsionantes":
+        "Goma xanthan y la CMC para mejorar la textura y consistencia",
+    },
+  "¿Por qué debería elegir a Smartcol S.A.S como proveedor de materias primas?":
+    "Deberías elegir a Smartcol S.A.S. porque tienen 10 años de experiencia en el mercado nacional, ofrecen una amplia variedad de productos de alta calidad, cuentan con un equipo de ingenieros entrenados para asesorar y guiar en la selección de productos, se comprometen con la calidad, seguridad, entregas oportunas y precios competitivos, y poseen un fuerte sentido de pertenencia y dedicación al trabajo.",
 };

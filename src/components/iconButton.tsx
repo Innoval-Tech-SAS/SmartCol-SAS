@@ -3,52 +3,57 @@ import { Link } from "@nextui-org/link";
 import { Button } from "@nextui-org/button";
 
 interface IconButtonProps {
-    url: string;
-    title: string;
-    iconName: string;
+  url: string;
+  title: string;
+  iconName: string;
 }
 
 const IconButton: React.FC<IconButtonProps> = ({ url, title, iconName }) => {
-    const [iconSrc, setIconSrc] = useState("");
-    const iconsRoute = "icons/";
+  const [iconSrc, setIconSrc] = useState("");
+  const iconsRoute = "icons/";
 
-    useEffect(() => {
-        const updateIconSrc = () => {
-            const isDark = document.documentElement.classList.contains('dark');
-            const prefix = isDark ? "dark-" : "light-";
-            const formattedIconName = `${iconsRoute}${prefix}${iconName}`;
-            setIconSrc(formattedIconName);
-        };
+  useEffect(() => {
+    const updateIconSrc = () => {
+      const isDark = document.documentElement.classList.contains("dark");
+      const prefix = isDark ? "dark-" : "light-";
+      const formattedIconName = `${iconsRoute}${prefix}${iconName}`;
 
-        updateIconSrc();
+      setIconSrc(formattedIconName);
+    };
 
-        const observer = new MutationObserver(updateIconSrc);
-        observer.observe(document.documentElement, {
-            attributes: true,
-            attributeFilter: ['class'],
-        });
+    updateIconSrc();
 
-        return () => observer.disconnect();
-    }, [iconName, iconsRoute]);
+    const observer = new MutationObserver(updateIconSrc);
 
-    return (
-        <div className="flex flex-col items-center justify-center gap-5">
-            <div className="w-full max-w-xs flex justify-center items-center">
-                <img
-                    className="w-auto max-h-32 sm:h-24"
-                    src={iconSrc}
-                    alt={title}
-                />
-            </div>
-            <div className="flex items-center justify-center w-full" id="button-container">
-                <Link title={title} className="w-5/6" href={url}>
-                    <Button className="w-full text-white font-bold sm:text-sm flex justify-center dark:text-background" color="primary" radius="full">
-                        {title}
-                    </Button>
-                </Link>
-            </div>
-        </div>
-    );
-}
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    return () => observer.disconnect();
+  }, [iconName, iconsRoute]);
+
+  return (
+    <div className="flex flex-col items-center justify-center gap-5">
+      <div className="w-full max-w-xs flex justify-center items-center">
+        <img alt={title} className="w-auto max-h-32 sm:h-24" src={iconSrc} />
+      </div>
+      <div
+        className="flex items-center justify-center w-full"
+        id="button-container"
+      >
+        <Link className="w-5/6" href={url} title={title}>
+          <Button
+            className="w-full text-white font-bold sm:text-sm flex justify-center dark:text-background"
+            color="primary"
+            radius="full"
+          >
+            {title}
+          </Button>
+        </Link>
+      </div>
+    </div>
+  );
+};
 
 export default IconButton;
