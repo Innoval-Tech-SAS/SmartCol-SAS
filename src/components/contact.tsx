@@ -97,12 +97,29 @@ const Contact: React.FC<ContactProps> = ({ title }) => {
         </div>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 px-12 sm:w-1/2">
-        <IconButton iconName="caja.png" title="Productos" url="/products" />
-        <IconButton iconName="camion.png" title="Distribución" url="/" />
+        <IconButton iconName="caja.png"
+          title="Productos"
+          url="/products"
+          variant="solid"
+          darkTextColor="dark:text-background"
+          textColor="text-white"
+          className=""
+        />
+        <IconButton iconName="camion.png"
+          title="Distribución"
+          url="/" variant="solid"
+          darkTextColor="dark:text-background"
+          textColor="text-white"
+          className=""
+        />
         <IconButton
           iconName="logo.png"
           title="¿Quienes Somos?"
           url="/aboutUs"
+          variant="solid"
+          darkTextColor="dark:text-background"
+          textColor="text-white"
+          className=""
         />
       </div>
     </div>
