@@ -44,7 +44,7 @@ const Categorys: React.FC = () => {
                         <div className='p-2 my-4' key={index}>
                             <Card className='bg-white/10 backdrop-blur-lg border border-white/30 rounded-3xl shadow-2xl mx-4 opacity-100 z-0'>
                                 <CardHeader className='pb-0 pt-2 px-4 flex-col items-start'>
-                                    <h4 className='text-white font-bold text-lg sm:text-md md:text-lg lg:text-xl line-clamp-2'>{category.title}</h4>
+                                    <h4 className='text-white font-bold text-lg line-clamp-2'>{category.title}</h4>
                                 </CardHeader>
                                 <CardBody className="overflow-visible py-2">
                                     <Image className="object-cover rounded-xl" src={category.img} alt={category.title} height={270} width={390} />

@@ -17,19 +17,19 @@ export const siteConfig = {
       href: "/aboutUs",
     },
     {
-      label: "Blog",
-      href: "/blog",
-    },
-    {
       label: "Contacto",
       href: "/contact",
+    },
+    {
+      label: "Blog",
+      href: "/blog",
     },
   ],
   links: {
     facebook: "https://www.facebook.com/profile.php?id=61562468776130",
     twitter: "https://x.com/Smartcol_",
     instagram: "https://www.instagram.com/smartcol_sas",
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/company/smartcol-s-a-s/",
     youtube: "https://www.youtube.com/@SMARTCOLS.A.S-n5u",
     tiktok: "https://www.tiktok.com/@smartcol.s.a.s?_t=8o8QdKmQ1Ab&_r=1",
   },
@@ -45,33 +45,33 @@ export const cityContacts = [
 
   },
   {
-    city: "Cali",
-    cellphoneNumbers: ["301 430 5276"],
-    address: "Av. 2b Nte. #1",
-  },
-  {
     city: "Medellín",
     cellphoneNumbers: ["316 456 8409"],
     address: "Cl 45D #75A-12",
+  },
+  {
+    city: "Cali",
+    cellphoneNumbers: ["301 430 5276"],
+    address: "Av. 2b Nte. #1",
   },
 ];
 
 export const categories = [
   {
-    title: "Insumos para Panadería y Derivados",
+    title: "Insumos para Panadería, Repostería y Derivados",
     img: "img/Panaderia.png.webp",
   },
   {
-    title: "Insumos para Confitería y Derivados.",
+    title: "Insumos para Confitería, Dulces y Derivados.",
     img: "img/Dulces.png.webp",
   },
   {
-    title: "Insumos para Lácteos y Derivados.",
+    title: "Insumos para la Industria Láctea y Derivados.",
     img: "img/Lacteos.png.webp",
   },
 
   {
-    title: "Insumos para Helados y Derivados.",
+    title: "Insumos para Helados, Yogures y Derivados.",
     img: "img/Helados.png.webp",
   },
   {
@@ -79,11 +79,11 @@ export const categories = [
     img: "img/Mermeladas.png.webp",
   },
   {
-    title: "Insumos para Farmacéuticos y Derivados",
+    title: "Insumos para Industria Farmacéutica y Derivados",
     img: "img/Farmaceutica.jpg",
   },
   {
-    title: "Insumos para Cartón y Derivados.",
+    title: "Insumos para Industria del Cartón y Derivados.",
     img: "img/carton.webp",
   },
 ];
@@ -148,7 +148,7 @@ export const smartcolFAQ: FAQ = {
     "Proteínas": ["Proteína aislada de soya", "Proteína de suero de leche"],
     "Ingredientes Industriales y Farmacéuticos": ["Ácido ascórbico", "Cloruro de calcio", "Dióxido de titanio"]
   },
-  "¿En qué sectores industriales se especializa Smartcol S.A.S?": "Smartcol S.A.S. se especializa en los sectores de: Industria de alimentos, Industria industrial, Industria farmacéutica",
+  "¿En qué sectores industriales se especializa Smartcol S.A.S?": "Smartcol S.A.S. se especializa en los sectores de: Industria de alimentos, Sector industrial, Industria farmacéutica",
   "¿Cómo puedo mejorar la calidad de mis productos utilizando los productos de Smartcol S.A.S?": {
     "Aditivos y Estabilizantes": "Carragenina y goma guar para mejorar la textura y estabilidad",
     "Proteínas": "Proteína de suero de leche para mejorar la consistencia y el valor nutricional",

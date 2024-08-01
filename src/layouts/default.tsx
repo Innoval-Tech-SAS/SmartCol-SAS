@@ -3,6 +3,7 @@ import Header from "@/components/header";
 import { Navbar } from "@/components/navbar";
 import Contact from "@/components/contact";
 import SocialMedia from "@/components/socialMedia";
+import Policies from "@/components/policies";
 
 export default function DefaultLayout({
   children,
@@ -17,8 +18,9 @@ export default function DefaultLayout({
         {children}
       </main>
       <footer className="w-full flex flex-col items-center justify-center py-3">
-        <Contact />
+        <Contact title="Nuestras Sedes" />
         <SocialMedia />
+        <Policies />
         <span className="text-foreground font-semibold my-1">Todos los Derechos Reservados</span>
         <Link
           isExternal

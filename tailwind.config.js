@@ -10,11 +10,11 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-custom': 'linear-gradient(135deg, #b0d48f, #89b35d, #6b8f3e, #456e2a)', // Degradado para modo claro
-      },
       colors: {
-        'dark-background': '#1a202c', // Color sólido para modo oscuro
+        "dark-background": "#1a202c",
+      },
+      spacing: {
+        indent: "2rem",
       },
     },
   },
@@ -27,8 +27,8 @@ module.exports = {
             primary: "#456E2A",
             secondary: "#E6D38E",
             foreground: "#565656",
-            background:"#F8F8FF",
-            gray: "#5b5757"
+            background: "#F8F8FF",
+            gray: "#5b5757",
           },
         },
         dark: {
@@ -37,7 +37,7 @@ module.exports = {
             secondary: "#654321",
             foreground: "#f9f9f6",
             background: "#1E293B",
-            gray: "#5b5757"
+            gray: "#5b5757",
           },
         },
       },

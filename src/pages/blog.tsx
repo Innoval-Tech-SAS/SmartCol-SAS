@@ -1,13 +1,22 @@
-import { title } from "@/components/primitives";
 import DefaultLayout from "@/layouts/default";
+import { useState, useEffect } from "react";
+import Banner from "@/components/banner";
 
 export default function BlogPage() {
+
+  const [pageTitle, setPageTitle] = useState("")
+  const bannerTitle = "SMARTCOL S.A.S.";
+  const bannerSubTitle = "Blog";
+
+  useEffect(() => {
+    setPageTitle("SmartCol S.A.S. - Blog")
+    document.title = pageTitle
+  }, [pageTitle, setPageTitle])
+
   return (
     <DefaultLayout>
-      <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-        <div className="inline-block max-w-lg text-center justify-center">
-          <h1 className={title()}>Blog</h1>
-        </div>
+      <section className="">
+        <Banner bannerName="banner.jpg" bannerTitle={bannerTitle} bannerSubtitle={bannerSubTitle} />
       </section>
     </DefaultLayout>
   );

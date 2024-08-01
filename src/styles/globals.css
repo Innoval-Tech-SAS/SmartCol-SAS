@@ -5,3 +5,7 @@
 /* body {
     cursor: url('assets/my-cursor.png'), auto;
 } */
+
+.text-indent {
+    text-indent: 3rem; 
+  }

@@ -41,7 +41,7 @@ const IconButton: React.FC<IconButtonProps> = ({ url, title, iconName }) => {
                 />
             </div>
             <div className="flex items-center justify-center w-full" id="button-container">
-                <Link title={title} className="w-1/3" href={url}>
+                <Link title={title} className="w-5/6" href={url}>
                     <Button className="w-full text-white font-bold sm:text-sm flex justify-center dark:text-background" color="primary" radius="full">
                         {title}
                     </Button>

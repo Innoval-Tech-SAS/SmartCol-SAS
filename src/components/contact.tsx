@@ -5,7 +5,11 @@ import { cityContacts } from "../config/site";
 import IconButton from './iconButton';
 import { Link } from "@nextui-org/link";
 
-const Contact: React.FC = () => {
+interface ContactProps {
+    title: string
+}
+
+const Contact: React.FC<ContactProps> = ({ title }) => {
     const [iconColor, setIconColor] = useState("");
 
     useEffect(() => {
@@ -27,13 +31,13 @@ const Contact: React.FC = () => {
     }, []);
 
     return (
-        <div className="flex flex-col sm:flex-row justify-evenly w-full my-5 p-4">
-            <div className="flex flex-col p-5 w-full sm:w-1/3">
-                <h3 className="text-center text-primary font-bold text-3xl">CONTACTO</h3>
+        <div className="flex flex-col sm:flex-row justify-evenly w-full my-5">
+            <div className="flex flex-col p-5 w-full sm:w-1/2">
+                <h3 className="text-center text-primary font-bold text-3xl">{title}</h3>
                 <div className="flex flex-col sm:flex-row gap-10 mx-auto my-10">
                     {cityContacts.map((contact, index) => (
                         <div key={index} className="w-full sm:w-auto">
-                            <ul className="flex flex-col">
+                            <ul className="flex flex-col mx-6">
                                 <h3 className="text-center mb-1 text-2xl font-bold text-primary mt-4">{contact.city.toUpperCase()}</h3>
                                 <Link className="flex items-center my-1"
                                     title={`Direccion Sede ${contact.city}`}
@@ -55,7 +59,7 @@ const Contact: React.FC = () => {
                                         <Link
                                             isExternal
                                             href={`https://wa.me/+57${cellphone.replace(/\s+/g, '')}`}
-                                            title="Contacto Comercial">
+                                            title={`Contacto Comercial ${contact.city}`}>
                                             <FaWhatsapp size={20} style={{ marginRight: "8px", color: iconColor }} />
                                             <p className="pb-1 text-foreground">{cellphone}</p>
                                         </Link>
@@ -66,7 +70,7 @@ const Contact: React.FC = () => {
                     ))}
                 </div>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 px-12 w-full sm:w-2/3">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 px-12 sm:w-1/2">
                 <IconButton iconName="caja.png" title="Productos" url="/products" />
                 <IconButton iconName="camion.png" title="Distribución" url="/" />
                 <IconButton iconName="logo.png" title="¿Quienes Somos?" url="/aboutUs" />
