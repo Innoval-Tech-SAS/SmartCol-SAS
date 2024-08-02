@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { Link } from "@nextui-org/link";
 import { Input } from "@nextui-org/input";
 import {
@@ -10,6 +11,16 @@ import {
   NavbarMenu,
   NavbarMenuItem,
 } from "@nextui-org/navbar";
+
+import {
+  Dropdown,
+  DropdownTrigger,
+  DropdownMenu,
+  DropdownSection,
+  DropdownItem,
+} from "@nextui-org/react";
+
+import { Button } from "@nextui-org/button";
 import { link as linkStyles } from "@nextui-org/theme";
 import clsx from "clsx";
 
@@ -19,6 +30,7 @@ import { SearchIcon } from "@/components/icons";
 
 export const Navbar: React.FC = () => {
   const [isSticky, setIsSticky] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,6 +43,10 @@ export const Navbar: React.FC = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const isActive = (href: string) => {
+    return location.pathname === href;
+  };
 
   const searchInput = (
     <Input
@@ -52,46 +68,97 @@ export const Navbar: React.FC = () => {
     <NextUINavbar
       className={clsx(
         "border-t-2 border-t-primary z-50 transition-all duration-300",
-        isSticky ? "fixed top-0 left-0 right-0" : "relative",
+        isSticky ? "fixed top-0 left-0 right-0" : "relative"
       )}
-      maxWidth="2xl"
-    >
+      maxWidth="2xl">
       <NavbarContent className="basis-2/5 sm:basis-full">
         {isSticky && (
           <NavbarBrand className="gap-3 max-w-fit">
             <Link
               className="flex justify-start items-center gap-1"
               color="primary"
-              href="/"
-            >
+              href="/">
               <img alt="Logo" className="h-8" src="img/logo.png" />
             </Link>
           </NavbarBrand>
         )}
-        <div className="hidden md:flex gap-10 ml-2">
-          {siteConfig.navItems.map((item) => (
-            <NavbarItem key={item.href}>
-              <Link
-                className={clsx(
-                  linkStyles({ color: "primary" }),
-                  "data-[active=true]:text-primary data-[active=true]:font-medium",
-                  "font-semibold",
-                )}
-                color="primary"
-                href={item.href}
-                underline="hover"
-              >
-                {item.label}
-              </Link>
-            </NavbarItem>
-          ))}
+        <div className="hidden md:flex gap-5 ml-2">
+          {siteConfig.navItems.map((item) =>
+            item.label === "Contacto" ? (
+              <NavbarItem key={item.href}>
+                <Dropdown className="bg-background/90">
+                  <DropdownTrigger>
+                    <Button
+                      variant="light"
+                      className={clsx(
+                        "text-primary font-bold",
+                        isActive(item.href) && "bg-primary/10"
+                      )}
+                      color="primary">
+                      {item.label}
+                    </Button>
+                  </DropdownTrigger>
+                  <DropdownMenu aria-label="Contact Menu">
+                    <DropdownItem key="comercial">
+                      <Link
+                        className="font-bold"
+                        color="primary"
+                        href="/contacto-comercial">
+                        Contacto Comercial
+                      </Link>
+                    </DropdownItem>
+                    <DropdownItem key="compras">
+                      <Link
+                        className="font-bold"
+                        color="primary"
+                        href="/compras">
+                        Compras
+                      </Link>
+                    </DropdownItem>
+                    <DropdownItem key="contabilidad">
+                      <Link
+                        className="font-bold"
+                        color="primary"
+                        href="/contabilidad">
+                        Contabilidad
+                      </Link>
+                    </DropdownItem>
+                    <DropdownItem key="pqr">
+                      <Link className="font-bold" color="primary" href="/pqr">
+                        PQR
+                      </Link>
+                    </DropdownItem>
+                  </DropdownMenu>
+                </Dropdown>
+              </NavbarItem>
+            ) : (
+              <NavbarItem key={item.href}>
+                <Link
+                  className={clsx(
+                    linkStyles({ color: "primary" }),
+                    isActive(item.href) && "text-primary font-medium"
+                  )}
+                  color="primary"
+                  href={item.href}>
+                  <Button
+                    variant="light"
+                    className={clsx(
+                      "text-primary font-bold",
+                      isActive(item.href) && "bg-primary/10"
+                    )}
+                    color="primary">
+                    {item.label}
+                  </Button>
+                </Link>
+              </NavbarItem>
+            )
+          )}
         </div>
       </NavbarContent>
 
       <NavbarContent
         className="hidden md:flex basis-1/5 sm:basis-full"
-        justify="end"
-      >
+        justify="end">
         <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
         <NavbarItem className="hidden md:flex gap-2">
           <ThemeSwitch />
