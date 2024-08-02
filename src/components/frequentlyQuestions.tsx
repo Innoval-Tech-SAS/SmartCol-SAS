@@ -5,21 +5,20 @@ import { smartcolFAQ } from "../config/site";
 
 const FrequentlyQuestions: React.FC = () => {
   const renderFAQItems = (
-    questions: [string, string | { [key: string]: string | string[] }][],
+    questions: [string, string | { [key: string]: string | string[] }][]
   ) => {
     return questions.map(([question, answer], index) => (
       <AccordionItem
         key={index + 1}
         aria-label={`Accordion ${index + 1}`}
         subtitle="Click para ver"
-        title={question}
-      >
+        title={question}>
         <div className="font-semibold">
           {typeof answer === "string" ? (
-            <p className="py-1">{answer}</p>
+            <p className="py-1 text-indent">{answer}</p>
           ) : (
             Object.entries(answer).map(([category, items], idx) => (
-              <p key={idx} className="py-1">
+              <p key={idx} className="py-1 text-indent">
                 <strong>{`-${category}: `}</strong>
                 {Array.isArray(items) ? items.join(", ") : items}
               </p>

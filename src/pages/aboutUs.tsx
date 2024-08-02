@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import DefaultLayout from "@/layouts/default";
 import Banner from "../components/banner";
 import Description from "@/components/aboutUs";
+import BussinesValues from "@/components/bussinesValues";
 
 export default function AboutUsPage() {
   const [pageTitle, setPageTitle] = useState("");
@@ -23,6 +24,7 @@ export default function AboutUsPage() {
           bannerTitle={bannerTitle}
         />
         <Description />
+        <BussinesValues />
       </section>
     </DefaultLayout>
   );

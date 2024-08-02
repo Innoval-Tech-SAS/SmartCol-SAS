@@ -178,7 +178,7 @@ export const smartcolFAQ: FAQ = {
         "Para mejorar la textura y estabilidad en productos procesados",
     },
   "¿Dónde realiza entregas Smartcol S.A.S?":
-    "Smartcol S.A.S. realiza entregas en varias ciudades principales de Colombia: Bogotá, Medellín, Cali",
+    "Realizamos entregas en las principales ciudades de Colombia: Bogotá, Medellín, Cali. Además, hemos establecido relaciones comerciales optimas para asegurar que nuestros Productos estén disponibles a Nivel Nacional.",
   "¿Cómo puedo mejorar el sabor de mis productos utilizando los servicios de Smartcol S.A.S?":
     {
       "Edulcorantes y Saborizantes":

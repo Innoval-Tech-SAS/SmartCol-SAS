@@ -10,9 +10,7 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {
-        "dark-background": "#1a202c",
-      },
+      colors: {},
       spacing: {
         indent: "2rem",
       },
