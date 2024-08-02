@@ -6,7 +6,7 @@ interface IconButtonProps {
   url?: string | undefined;
   title: string;
   iconName: string;
-  variant:
+  variant?:
     | "solid"
     | "ghost"
     | "bordered"
@@ -15,8 +15,8 @@ interface IconButtonProps {
     | "faded"
     | "shadow"
     | undefined;
-  textColor: string;
-  darkTextColor: string;
+  textColor?: string;
+  darkTextColor?: string;
 }
 
 const IconButton: React.FC<IconButtonProps> = ({

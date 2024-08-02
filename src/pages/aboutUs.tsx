@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import DefaultLayout from "@/layouts/default";
 import Banner from "../components/banner";
-import Description from "@/components/description";
+import Description from "@/components/aboutUs";
 
 export default function AboutUsPage() {
   const [pageTitle, setPageTitle] = useState("");

@@ -1,15 +1,17 @@
 import React from "react";
+import IconButton from "./iconButton";
 
 interface VisionProps {
   imgName: string;
-  titleStyle: string;
   textStyle: string;
 }
 
-const Vision: React.FC<VisionProps> = ({ imgName, titleStyle, textStyle }) => {
+const Vision: React.FC<VisionProps> = ({ imgName, textStyle }) => {
   return (
-    <div className="w-50">
-      <h2 className={titleStyle}>Visión</h2>
+    <div className="w-50 flex flex-col items-center gap-10">
+      <div className="w-1/3">
+        <IconButton title="Visión" variant="flat" iconName={imgName} />
+      </div>
       <p className={textStyle}>
         Para el año 2027, aspiramos a ser una compañía reconocida tanto a nivel
         nacional como internacional en la comercialización de materias primas e

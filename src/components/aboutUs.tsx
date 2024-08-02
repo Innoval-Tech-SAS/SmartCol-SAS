@@ -6,7 +6,7 @@ import Vision from "./vision";
 const Description: React.FC = () => {
   const titleStyle: string = "text-center text-3xl font-bold text-primary py-4";
   const textStyle: string =
-    "text-xl font-semibold text-justify text-indent py-2";
+    "text-xl font-semibold text-justify text-indent py-2 px-10";
 
   return (
     <div className="container mx-auto my-8 px-4">
@@ -17,16 +17,13 @@ const Description: React.FC = () => {
           <p className={textStyle}>
             Somos una empresa familiar con una vasta y sólida experiencia en la
             distribución de materias primas e insumos para diversas industrias,
-            incluyendo la alimentaria, industrial y farmacéutica.
-          </p>
-
-          <p className={textStyle}>
-            A lo largo de más de 10 años, hemos cultivado una profunda
-            comprensión de las necesidades y demandas específicas de estos
-            sectores, lo que nos permite ofrecer soluciones personalizadas y
-            efectivas. Nos comprometemos firmemente a satisfacer las
-            expectativas de nuestros clientes, asegurando que cada producto
-            cumpla con los más rigurosos estándares de calidad y eficiencia.
+            incluyendo la alimentaria, industrial y farmacéutica. A lo largo de
+            más de 10 años, hemos cultivado una profunda comprensión de las
+            necesidades y demandas específicas de estos sectores, lo que nos
+            permite ofrecer soluciones personalizadas y efectivas. Nos
+            comprometemos firmemente a satisfacer las expectativas de nuestros
+            clientes, asegurando que cada producto cumpla con los más rigurosos
+            estándares de calidad y eficiencia.
           </p>
 
           <p className={textStyle}>
@@ -35,10 +32,15 @@ const Description: React.FC = () => {
             de establecer relaciones de confianza y a largo plazo con cada uno
             de nuestros socios comerciales. Nos enorgullece ser un referente en
             nuestro campo, proporcionando no solo productos de alta calidad,
-            sino también un servicio que va más allá de la simple
-            transacción comercial.
+            sino también un servicio que va más allá de la simple transacción
+            comercial.
           </p>
         </div>
+      </div>
+
+      <div className="flex flex-col sm:flex-row justify-around items-center my-10 gap-20">
+        <Mision imgName="mision.png" textStyle={textStyle} />
+        <Vision imgName="vision.png" textStyle={textStyle} />
       </div>
 
       <div className="my-6">
@@ -79,10 +81,6 @@ const Description: React.FC = () => {
             title="Servicio"
           />
         </div>
-      </div>
-      <div className="flex flex-col sm:flex-row justify-around items-center my-10 gap-20">
-        <Mision imgName="" titleStyle={titleStyle} textStyle={textStyle} />
-        <Vision imgName="" titleStyle={titleStyle} textStyle={textStyle} />
       </div>
     </div>
   );
