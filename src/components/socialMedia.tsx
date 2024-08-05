@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import {
   FaFacebook,
-  FaTwitter,
   FaInstagram,
   FaLinkedin,
   FaYoutube,
   FaTiktok,
 } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { Link } from "@nextui-org/link";
 
 import { siteConfig } from "@/config/site";
@@ -39,43 +39,37 @@ const SocialMedia: React.FC = () => {
       <Link
         isExternal
         className="flex items-center"
-        href={siteConfig.links.facebook}
-      >
+        href={siteConfig.links.facebook}>
         <FaFacebook size={30} style={{ color: iconColor }} />
       </Link>
       <Link
         isExternal
         className="flex items-center"
-        href={siteConfig.links.twitter}
-      >
-        <FaTwitter size={30} style={{ color: iconColor }} />
+        href={siteConfig.links.twitter}>
+        <FaXTwitter size={30} style={{ color: iconColor }} />
       </Link>
       <Link
         isExternal
         className="flex items-center"
-        href={siteConfig.links.instagram}
-      >
+        href={siteConfig.links.instagram}>
         <FaInstagram size={30} style={{ color: iconColor }} />
       </Link>
       <Link
         isExternal
         className="flex items-center"
-        href={siteConfig.links.youtube}
-      >
+        href={siteConfig.links.youtube}>
         <FaYoutube size={30} style={{ color: iconColor }} />
       </Link>
       <Link
         isExternal
         className="flex items-center"
-        href={siteConfig.links.tiktok}
-      >
+        href={siteConfig.links.tiktok}>
         <FaTiktok size={30} style={{ color: iconColor }} />
       </Link>
       <Link
         isExternal
         className="flex items-center"
-        href={siteConfig.links.linkedin}
-      >
+        href={siteConfig.links.linkedin}>
         <FaLinkedin size={30} style={{ color: iconColor }} />
       </Link>
     </div>

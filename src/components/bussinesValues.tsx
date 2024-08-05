@@ -11,7 +11,7 @@ const BussinesValues: React.FC<BussinesValuesProps> = () => {
     dots: false,
     infinite: true,
     autoplay: true,
-    speed: 600,
+    speed: 300,
     slidesToShow: 5,
     slidesToScroll: 1,
     centerMode: false,

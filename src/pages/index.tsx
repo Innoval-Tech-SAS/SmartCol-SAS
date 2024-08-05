@@ -26,9 +26,17 @@ export default function IndexPage() {
           bannerSubtitle={bannerSubTitle}
           bannerTitle={bannerTitle}
         />
+      </section>
+      <section className="">
         <Catalogue buttonTitle="Explora Nuestro Catálogo" />
+      </section>
+      <section className="">
         <Categorys />
+      </section>
+      <section className="">
         <FrequentlyQuestions />
+      </section>
+      <section className="">
         <CommercialAllies />
       </section>
     </DefaultLayout>

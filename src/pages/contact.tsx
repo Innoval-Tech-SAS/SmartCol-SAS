@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 import DefaultLayout from "@/layouts/default";
 import Banner from "../components/banner";
+import PQRForm from "@/components/pqrForm";
 
 export default function ContactPage() {
   const [pageTitle, setPageTitle] = useState("");
@@ -22,6 +23,17 @@ export default function ContactPage() {
           bannerSubtitle={bannerSubTitle}
           bannerTitle={bannerTitle}
         />
+      </section>
+      <section className="">
+        <div className="text-center my-12">
+          <h3 className="text-primary font-semibold text-lg">
+            Apreciamos mucho tus comentarios, para nosotros es muy importante la
+            satisfacción de nuestros clientes.
+          </h3>
+        </div>
+      </section>
+      <section className="">
+        <PQRForm inputGroupStyle="" />
       </section>
     </DefaultLayout>
   );

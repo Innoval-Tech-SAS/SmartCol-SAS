@@ -16,7 +16,6 @@ import {
   Dropdown,
   DropdownTrigger,
   DropdownMenu,
-  DropdownSection,
   DropdownItem,
 } from "@nextui-org/react";
 
@@ -67,7 +66,7 @@ export const Navbar: React.FC = () => {
   return (
     <NextUINavbar
       className={clsx(
-        "border-t-2 border-t-primary z-50 transition-all duration-300",
+        "border-t-2 border-t-primary z-50",
         isSticky ? "fixed top-0 left-0 right-0" : "relative"
       )}
       maxWidth="2xl">
