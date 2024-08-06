@@ -28,7 +28,7 @@ const IconButton: React.FC<IconButtonProps> = ({
   variant,
 }) => {
   const [iconSrc, setIconSrc] = useState("");
-  const iconsRoute = "icons/";
+  const iconsRoute = "/icons/";
 
   useEffect(() => {
     const updateIconSrc = () => {

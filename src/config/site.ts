@@ -38,12 +38,7 @@ export const siteConfig = {
 export const cityContacts = [
   {
     city: "Bogotá",
-    cellphoneNumbers: [
-      "350 422 7737",
-      "316 017 9783",
-      "301 502 9279",
-      "350 422 7733",
-    ],
+    cellphoneNumbers: [],
     phoneNumber: "601 573 6413",
     address: "Cl. 66 #75 - 11",
   },
@@ -226,3 +221,49 @@ export const capitalesColombia = [
   "Villavicencio",    // Meta
   "Yopal"             // Casanare
 ];
+
+export const colombiaCities = {
+  "Paula": [  
+    "Medellín",    
+    "Manizales",   
+    "Armenia",     
+    "Pereira",     
+    "Neiva",       
+    "Ibagué",      
+    "Arauca",      
+    "Yopal",       
+    "Villavicencio" 
+  ],
+  "Anna": [  
+    "Bogotá",      
+    "Tunja",       
+    "Pasto",       
+    "Popayán",     
+    "Leticia",     
+    "Florencia",   
+    "Inírida",     
+    "San José del Guaviare", 
+    "Mocoa"        
+  ],
+  "Erick": [  
+    "Barranquilla", 
+    "Cartagena",    
+    "Valledupar",   
+    "Montería",     
+    "Riohacha",     
+    "Santa Marta",  
+    "Sincelejo",    
+    "San Andrés"    
+  ],
+  "William": [  
+    "Cali",         
+    "Quibdó",       
+    "Puerto Carreño", 
+    "Mitu",         
+    "Guaviare",     
+    "Putumayo",     
+    "Guainía",      
+    "Meta",         
+    "Amazonas",     
+  ]
+};

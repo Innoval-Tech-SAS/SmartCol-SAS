@@ -4,7 +4,7 @@ import DefaultLayout from "@/layouts/default";
 import Banner from "../components/banner";
 import PQRForm from "@/components/pqrForm";
 
-export default function ContactPage() {
+export default function ContactPQR() {
   const [pageTitle, setPageTitle] = useState("");
 
   const bannerTitle = "SMARTCOL S.A.S.";
@@ -33,7 +33,7 @@ export default function ContactPage() {
         </div>
       </section>
       <section className="">
-        <PQRForm inputGroupStyle="" />
+        <PQRForm />
       </section>
     </DefaultLayout>
   );

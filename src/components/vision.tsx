@@ -1,17 +1,41 @@
-import React from "react";
-import IconButton from "./iconButton";
+import React, { useEffect, useState } from "react";
 
 interface VisionProps {
-  imgName: string;
-  textStyle: string;
+  iconName?: string;
+  textStyle?: string;
 }
 
-const Vision: React.FC<VisionProps> = ({ imgName, textStyle }) => {
+const Vision: React.FC<VisionProps> = ({ iconName, textStyle }) => {
+  const [iconSrc, setIconSrc] = useState("");
+
+  const iconsRoute = "/icons/";
+
+  useEffect(() => {
+    const updateIconSrc = () => {
+      const isDark = document.documentElement.classList.contains("dark");
+      const prefix = isDark ? "dark-" : "light-";
+      const formattedIconName = `${iconsRoute}${prefix}${iconName}`;
+
+      setIconSrc(formattedIconName);
+    };
+
+    updateIconSrc();
+
+    const observer = new MutationObserver(updateIconSrc);
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    return () => observer.disconnect();
+  }, [iconName, iconsRoute]);
+
   return (
     <div className="w-50 flex flex-col items-center gap-10">
-      <div className="w-1/3">
-        <IconButton title="Visión" variant="flat" iconName={imgName} />
-      </div>
+      <div className="w-1/3"></div>
+      <h3 className="text-primary text-3xl font-semibold">Visión</h3>
+      <img className="w-auto max-h-40" src={iconSrc} alt="" />
       <p className={textStyle}>
         Para el año 2027, aspiramos a ser una compañía reconocida tanto a nivel
         nacional como internacional en la comercialización de materias primas e

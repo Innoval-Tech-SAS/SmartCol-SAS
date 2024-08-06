@@ -38,49 +38,49 @@ const BussinesValues: React.FC<BussinesValuesProps> = () => {
             <IconButton
               title="Compromiso"
               iconName="compromiso.png"
-              variant="flat"
+              variant="light"
             />
           </div>
           <div className="" id="">
             <IconButton
               title="Calidad"
               iconName="garantizado.png"
-              variant="flat"
+              variant="light"
             />
           </div>
           <div className="" id="">
             <IconButton
               title="Responsabilidad"
               iconName="responsabilidad.png"
-              variant="flat"
+              variant="light"
             />
           </div>
           <div className="" id="">
             <IconButton
               title="Puntualidad"
               iconName="puntualidad.png"
-              variant="flat"
+              variant="light"
             />
           </div>
           <div className="" id="">
             <IconButton
               title="Profesionalismo"
               iconName="profesionalismo.png"
-              variant="flat"
+              variant="light"
             />
           </div>
           <div className="" id="">
             <IconButton
               title="Amor al Trabajo"
               iconName="trabajo.png"
-              variant="flat"
+              variant="light"
             />
           </div>
           <div className="" id="">
             <IconButton
               title="Competencia Sana"
               iconName="competencia.png"
-              variant="flat"
+              variant="light"
             />
           </div>
         </Slider>

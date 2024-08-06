@@ -30,14 +30,29 @@ const PQRForm: React.FC<PQRFormProps> = ({ inputGroupStyle }) => {
           variant="underlined"
           value={asunto}
           onChange={handleAsuntoChange}>
-          <SelectItem key="peticion" color="primary" value="Petición">
+          <SelectItem
+            key="peticion"
+            className="text-lg text-gray-800 font-semibold"
+            value="Petición">
             Petición
           </SelectItem>
-          <SelectItem key="queja" color="primary" value="Queja">
+          <SelectItem
+            key="queja"
+            className="text-lg text-gray-800 font-semibold"
+            value="Queja">
             Queja
           </SelectItem>
-          <SelectItem key="reclamo" color="primary" value="Reclamo">
+          <SelectItem
+            key="reclamo"
+            className="text-lg text-gray-800 font-semibold"
+            value="Reclamo">
             Reclamo
+          </SelectItem>
+          <SelectItem
+            key="sugerencia"
+            className="text-lg text-gray-800 font-semibold"
+            value="Sugerencias">
+            Sugerencias
           </SelectItem>
         </Select>
         <Select
@@ -48,7 +63,10 @@ const PQRForm: React.FC<PQRFormProps> = ({ inputGroupStyle }) => {
           value={ciudad}
           onChange={handleCiudadChange}>
           {capitalesColombia.map((capital, index) => (
-            <SelectItem key={index} color="primary" value={capital}>
+            <SelectItem
+              key={index}
+              className="text-lg text-gray-800 font-semibold"
+              value={capital}>
               {capital}
             </SelectItem>
           ))}
@@ -73,23 +91,14 @@ const PQRForm: React.FC<PQRFormProps> = ({ inputGroupStyle }) => {
               className="flex-1"
             />
           </div>
-          <Select
+          <Input
+            variant="underlined"
+            type="text"
+            label="Motivo"
             color="primary"
             isRequired
-            label="Producto por cual notifica"
-            variant="underlined"
-            value={asunto}
-            onChange={handleAsuntoChange}>
-            <SelectItem key="peticion" color="primary" value="Benzoato">
-              Benzoato
-            </SelectItem>
-            <SelectItem key="queja" color="primary" value="Potasio">
-              Potasio
-            </SelectItem>
-            <SelectItem key="reclamo" color="primary" value="Sorbato">
-              Sorbato
-            </SelectItem>
-          </Select>
+            className="flex-1"
+          />
           <div className="flex flex-col gap-4 sm:flex-row sm:gap-8">
             <Input
               variant="underlined"
@@ -112,7 +121,6 @@ const PQRForm: React.FC<PQRFormProps> = ({ inputGroupStyle }) => {
 
         <Textarea
           color="primary"
-          isRequired
           label="Déjanos tus comentarios"
           variant="underlined"
         />

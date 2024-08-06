@@ -1,18 +1,40 @@
-import React from "react";
-import IconButton from "./iconButton";
+import React, { useEffect, useState } from "react";
 
 interface MisionProps {
-  imgName: string;
+  iconName?: string;
   textStyle?: string;
 }
 
-const Mision: React.FC<MisionProps> = ({ imgName, textStyle }) => {
+const Mision: React.FC<MisionProps> = ({ iconName, textStyle }) => {
+  const [iconSrc, setIconSrc] = useState("");
+  const iconsRoute = "/icons/";
+
+  useEffect(() => {
+    const updateIconSrc = () => {
+      const isDark = document.documentElement.classList.contains("dark");
+      const prefix = isDark ? "dark-" : "light-";
+      const formattedIconName = `${iconsRoute}${prefix}${iconName}`;
+
+      setIconSrc(formattedIconName);
+    };
+
+    updateIconSrc();
+
+    const observer = new MutationObserver(updateIconSrc);
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    return () => observer.disconnect();
+  }, [iconName, iconsRoute]);
+
   return (
     <div className="w-50 flex flex-col items-center gap-10">
-      <div className="w-1/3">
-        <IconButton title="Misión" variant="flat" iconName={imgName} />
-      </div>
-
+      <div className="w-1/3"></div>
+      <h3 className="text-primary text-3xl font-semibold">Misión</h3>
+      <img className="w-auto max-h-40" src={iconSrc} alt="" />
       <p className={textStyle}>
         Smartcol S.A.S. tiene como propósito brindar soluciones eficaces a
         nuestros clientes en sus procesos productivos. Ofrecemos una amplia

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { Link } from "@nextui-org/link";
+import { Link as NextUILink } from "@nextui-org/link";
 import { Input } from "@nextui-org/input";
 import {
   Navbar as NextUINavbar,
@@ -11,18 +11,15 @@ import {
   NavbarMenu,
   NavbarMenuItem,
 } from "@nextui-org/navbar";
-
 import {
   Dropdown,
   DropdownTrigger,
   DropdownMenu,
   DropdownItem,
 } from "@nextui-org/react";
-
 import { Button } from "@nextui-org/button";
 import { link as linkStyles } from "@nextui-org/theme";
 import clsx from "clsx";
-
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
 import { SearchIcon } from "@/components/icons";
@@ -73,12 +70,12 @@ export const Navbar: React.FC = () => {
       <NavbarContent className="basis-2/5 sm:basis-full">
         {isSticky && (
           <NavbarBrand className="gap-3 max-w-fit">
-            <Link
+            <NextUILink
               className="flex justify-start items-center gap-1"
               color="primary"
               href="/">
-              <img alt="Logo" className="h-8" src="img/logo.png" />
-            </Link>
+              <img alt="Logo" className="h-8" src="/img/logo.png" />
+            </NextUILink>
           </NavbarBrand>
         )}
         <div className="hidden md:flex gap-5 ml-2">
@@ -99,40 +96,32 @@ export const Navbar: React.FC = () => {
                   </DropdownTrigger>
                   <DropdownMenu aria-label="Contact Menu">
                     <DropdownItem key="comercial">
-                      <Link
-                        className="font-bold"
-                        color="primary"
-                        href="/contacto-comercial">
-                        Contacto Comercial
-                      </Link>
+                      <a
+                        href="/contacto-comercial"
+                        className="block font-bold text-primary px-4 py-2">
+                        Contacta un Comercial
+                      </a>
                     </DropdownItem>
-                    <DropdownItem key="compras">
-                      <Link
-                        className="font-bold"
-                        color="primary"
-                        href="/compras">
-                        Compras
-                      </Link>
-                    </DropdownItem>
-                    <DropdownItem key="contabilidad">
-                      <Link
-                        className="font-bold"
-                        color="primary"
-                        href="/contabilidad">
-                        Contabilidad
-                      </Link>
+                    <DropdownItem key="contact">
+                      <a
+                        href="/contact"
+                        className="block font-bold text-primary px-4 py-2">
+                        Contacto
+                      </a>
                     </DropdownItem>
                     <DropdownItem key="pqr">
-                      <Link className="font-bold" color="primary" href="/pqr">
-                        PQR
-                      </Link>
+                      <a
+                        href="/contact/pqr"
+                        className="block font-bold text-primary px-4 py-2">
+                        PQRS
+                      </a>
                     </DropdownItem>
                   </DropdownMenu>
                 </Dropdown>
               </NavbarItem>
             ) : (
               <NavbarItem key={item.href}>
-                <Link
+                <NextUILink
                   className={clsx(
                     linkStyles({ color: "primary" }),
                     isActive(item.href) && "text-primary font-medium"
@@ -148,7 +137,7 @@ export const Navbar: React.FC = () => {
                     color="primary">
                     {item.label}
                   </Button>
-                </Link>
+                </NextUILink>
               </NavbarItem>
             )
           )}
@@ -174,9 +163,9 @@ export const Navbar: React.FC = () => {
         <div className="mx-4 mt-2 flex flex-col gap-2">
           {siteConfig.navItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
-              <Link color="primary" href={item.href} size="lg">
+              <NextUILink color="primary" href={item.href} size="lg">
                 {item.label}
-              </Link>
+              </NextUILink>
             </NavbarMenuItem>
           ))}
         </div>

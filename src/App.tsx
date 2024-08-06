@@ -3,8 +3,9 @@ import { Route, Routes } from "react-router-dom";
 import IndexPage from "@/pages/index";
 import AboutUsPage from "@/pages/aboutUs";
 import ProductsPage from "@/pages/products";
-import ContactPage from "@/pages/contact";
+import ContactPQR from "@/pages/contactPQRPage";
 import BlogPage from "@/pages/blog";
+import ContactPage from "./pages/contactFormPage";
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
       <Route element={<IndexPage />} path="/" />
       <Route element={<AboutUsPage />} path="/aboutUs" />
       <Route element={<ProductsPage />} path="/products" />
-      <Route element={<ContactPage />} path="/pqr" />
+      <Route element={<ContactPage />} path="/contact" />
+      <Route element={<ContactPQR />} path="/contact/pqr" />
       <Route element={<BlogPage />} path="/blog" />
     </Routes>
   );

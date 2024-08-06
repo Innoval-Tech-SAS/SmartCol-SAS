@@ -48,8 +48,7 @@ const Contact: React.FC<ContactProps> = ({ title }) => {
                 <Link
                   className="flex items-center my-1"
                   href=""
-                  title={`Direccion Sede ${contact.city}`}
-                >
+                  title={`Direccion Sede ${contact.city}`}>
                   <FaLocationDot
                     size={20}
                     style={{ marginRight: "8px", color: iconColor }}
@@ -62,8 +61,7 @@ const Contact: React.FC<ContactProps> = ({ title }) => {
                 {contact.phoneNumber && (
                   <Link
                     className="flex items-center my-1"
-                    href={`tel:${contact.phoneNumber.replace(/\s+/g, "")}`}
-                  >
+                    href={`tel:${contact.phoneNumber.replace(/\s+/g, "")}`}>
                     <FaPhone
                       size={18}
                       style={{ marginRight: "8px", color: iconColor }}
@@ -76,13 +74,11 @@ const Contact: React.FC<ContactProps> = ({ title }) => {
                 {contact.cellphoneNumbers.map((cellphone, phoneIndex) => (
                   <li
                     key={phoneIndex}
-                    className="flex my-1 items-center font-semibold whitespace-nowrap"
-                  >
+                    className="flex my-1 items-center font-semibold whitespace-nowrap">
                     <Link
                       isExternal
                       href={`https://wa.me/+57${cellphone.replace(/\s+/g, "")}`}
-                      title={`Contacto Comercial ${contact.city}`}
-                    >
+                      title={`Contacto Comercial ${contact.city}`}>
                       <FaWhatsapp
                         size={20}
                         style={{ marginRight: "8px", color: iconColor }}
@@ -97,20 +93,21 @@ const Contact: React.FC<ContactProps> = ({ title }) => {
         </div>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 px-12 sm:w-1/2">
-        <IconButton iconName="caja.png"
+        <IconButton
+          iconName="caja.png"
           title="Productos"
           url="/products"
           variant="solid"
           darkTextColor="dark:text-background"
           textColor="text-white"
-          className=""
         />
-        <IconButton iconName="camion.png"
+        <IconButton
+          iconName="camion.png"
           title="Distribución"
-          url="/" variant="solid"
+          url="/"
+          variant="solid"
           darkTextColor="dark:text-background"
           textColor="text-white"
-          className=""
         />
         <IconButton
           iconName="logo.png"
@@ -119,7 +116,6 @@ const Contact: React.FC<ContactProps> = ({ title }) => {
           variant="solid"
           darkTextColor="dark:text-background"
           textColor="text-white"
-          className=""
         />
       </div>
     </div>

@@ -39,8 +39,8 @@ const Description: React.FC = () => {
       </div>
 
       <div className="flex flex-col sm:flex-row justify-around items-center my-10 gap-20">
-        <Mision imgName="mision.png" textStyle={textStyle} />
-        <Vision imgName="vision.png" textStyle={textStyle} />
+        <Mision iconName="mision.png" textStyle={textStyle} />
+        <Vision iconName="vision.png" textStyle={textStyle} />
       </div>
 
       <div className="my-6">
@@ -53,7 +53,7 @@ const Description: React.FC = () => {
             iconName="experiencia.png"
             darkTextColor=""
             textColor=""
-            variant="flat"
+            variant="light"
             title="Experiencia"
           />
 
@@ -61,7 +61,7 @@ const Description: React.FC = () => {
             iconName="calidad.png"
             darkTextColor=""
             textColor=""
-            variant="flat"
+            variant="light"
             title="Calidad"
           />
 
@@ -69,7 +69,7 @@ const Description: React.FC = () => {
             iconName="eficacia.png"
             darkTextColor=""
             textColor=""
-            variant="flat"
+            variant="light"
             title="Eficiencia"
           />
 
@@ -77,7 +77,7 @@ const Description: React.FC = () => {
             iconName="servicio.png"
             darkTextColor=""
             textColor=""
-            variant="flat"
+            variant="light"
             title="Servicio"
           />
         </div>
