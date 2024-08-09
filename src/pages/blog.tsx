@@ -22,6 +22,17 @@ export default function BlogPage() {
           bannerTitle={bannerTitle}
         />
       </section>
+
+      <section className="container mx-auto my-10">
+        <div className="flex">
+          <aside className="w-3/9">
+            <p>Post</p>
+          </aside>
+          <div className="w-6/9">
+            <p></p>
+          </div>
+        </div>
+      </section>
     </DefaultLayout>
   );
 }

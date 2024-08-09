@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react";
-
+import AsideMenu from "@/components/asideMenu";
 import DefaultLayout from "@/layouts/default";
 import Banner from "../components/banner";
+import { exampleAsideMenuProps } from "@/components/primitives";
+import CardProduct from "@/components/cardProduct";
 
 export default function ProductsPage() {
   const [pageTitle, setPageTitle] = useState("");
 
   const bannerTitle = "SMARTCOL S.A.S.";
-  const bannerSubTitle = "Nuestros Productos";
+  const bannerSubTitle = "Conoce Nuestros Productos";
 
   useEffect(() => {
     setPageTitle("SmartCol S.A.S. - Productos");
@@ -22,6 +24,20 @@ export default function ProductsPage() {
           bannerSubtitle={bannerSubTitle}
           bannerTitle={bannerTitle}
         />
+      </section>
+      <section className="w-11/12 my-4 mx-auto my-10">
+        <div className="flex flex-col md:flex-row">
+          <aside className="w-full md:w-1/6 hidden md:block">
+            <AsideMenu {...exampleAsideMenuProps} />
+          </aside>
+          <div className="w-full md:w-5/6 px-3">
+            <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-3">
+              {Array.from({ length: 20 }).map((_, i) => (
+                <CardProduct key={i} />
+              ))}
+            </div>
+          </div>
+        </div>
       </section>
     </DefaultLayout>
   );

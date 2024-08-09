@@ -1,4 +1,5 @@
 import { tv } from "tailwind-variants";
+import { AsideMenuProps } from "./asideMenu";
 
 export const title = tv({
   base: "tracking-tight inline font-semibold",
@@ -51,3 +52,64 @@ export const subtitle = tv({
     fullWidth: true,
   },
 });
+
+
+export const exampleAsideMenuProps: AsideMenuProps = {
+  asideItems: [
+    {
+      title: "Granos",
+      subtitle: "Materias primas a base de granos",
+      url: "/granos",
+      content: [
+        "Arroz",
+        "Trigo",
+        "Maíz",
+        "Cebada",
+      ],
+    },
+    {
+      title: "Frutas",
+      subtitle: "Variedades de frutas frescas",
+      url: "/frutas",
+      content: [
+        "Manzanas",
+        "Naranjas",
+        "Bananas",
+        "Fresas",
+      ],
+    },
+    {
+      title: "Verduras",
+      subtitle: "Opciones de verduras y hortalizas",
+      url: "/verduras",
+      content: [
+        "Zanahorias",
+        "Tomates",
+        "Brócoli",
+        "Lechuga",
+      ],
+    },
+    {
+      title: "Lácteos",
+      subtitle: "Productos derivados de la leche",
+      url: "/lacteos",
+      content: [
+        "Leche",
+        "Queso",
+        "Yogur",
+        "Mantequilla",
+      ],
+    },
+    {
+      title: "Carnes",
+      subtitle: "Tipos de carne y sus cortes",
+      url: "/carnes",
+      content: [
+        "Pollo",
+        "Res",
+        "Cerdo",
+        "Cordero",
+      ],
+    },
+  ],
+};
