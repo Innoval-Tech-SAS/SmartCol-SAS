@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+// import React, { useState, useEffect } from "react";
 import {
   Card,
   CardProps,
@@ -14,9 +14,9 @@ import { BsCart } from "react-icons/bs";
 import { VscGraph } from "react-icons/vsc";
 
 const CardProduct: React.FC<CardProps> = () => {
-  const [color, SetColor] = useState("");
+  // const [color, SetColor] = useState("");
 
-  useEffect(() => {}, []);
+  // useEffect(() => {}, []);
   return (
     <Card className="px-6 py-1 bg-black/20 dark:bg-white/10 shadow-lg rounded-3xl">
       <CardHeader className="flex flex-col pb-0">
