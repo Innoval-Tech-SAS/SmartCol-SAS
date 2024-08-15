@@ -52,7 +52,7 @@ export const Navbar: React.FC = () => {
         input: "text-sm placeholder-primary",
       }}
       endContent={
-        <SearchIcon className="text-primary text-default-400 pointer-events-none flex-shrink-0" />
+        <SearchIcon className="text-primary pointer-events-none flex-shrink-0" />
       }
       labelPlacement="outside"
       placeholder="Buscar Productos..."
@@ -161,7 +161,7 @@ export const Navbar: React.FC = () => {
       <NavbarMenu>
         {searchInput}
         <div className="mx-4 mt-2 flex flex-col gap-2">
-          {siteConfig.navItems.map((item, index) => (
+          {siteConfig.navItemsMobile.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
               <NextUILink color="primary" href={item.href} size="lg">
                 {item.label}

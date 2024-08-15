@@ -25,6 +25,36 @@ export const siteConfig = {
       href: "/blog",
     },
   ],
+  navItemsMobile: [
+    {
+      label: "Inicio",
+      href: "/",
+    },
+    {
+      label: "Productos",
+      href: "/products",
+    },
+    {
+      label: "Nosotros",
+      href: "/aboutUs",
+    },
+    {
+      label: "Contacto Comercial",
+      href: "/contact-comercial",
+    },
+    {
+      label: "Contacto",
+      href: "/contact",
+    },
+    {
+      label: "PQRS",
+      href: "/contact/pqr",
+    },
+    {
+      label: "Blog",
+      href: "/blog",
+    },
+  ],
   links: {
     facebook: "https://www.facebook.com/profile.php?id=61562468776130",
     twitter: "https://x.com/Smartcol_",
@@ -97,6 +127,15 @@ export const settings = {
   responsive: [
     {
       breakpoint: 1400,
+      settings: {
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        infinite: true,
+        dots: true,
+      },
+    },
+    {
+      breakpoint: 1300,
       settings: {
         slidesToShow: 3,
         slidesToScroll: 1,
@@ -187,83 +226,82 @@ export const smartcolFAQ: FAQ = {
     "Deberías elegir a Smartcol S.A.S. porque tienen 10 años de experiencia en el mercado nacional, ofrecen una amplia variedad de productos de alta calidad, cuentan con un equipo de ingenieros entrenados para asesorar y guiar en la selección de productos, se comprometen con la calidad, seguridad, entregas oportunas y precios competitivos, y poseen un fuerte sentido de pertenencia y dedicación al trabajo.",
 };
 
-
 export const capitalesColombia = [
-  "Arauca",           // Arauca
-  "Armenia",          // Quindío
-  "Barranquilla",     // Atlántico
-  "Bogotá",           // Cundinamarca
-  "Bucaramanga",      // Santander
-  "Cartagena",        // Bolívar
-  "Cúcuta",           // Norte de Santander
-  "Florencia",        // Caquetá
-  "Inírida",          // Guainía
-  "Ibagué",           // Tolima
-  "Leticia",          // Amazonas
-  "Manizales",        // Caldas
-  "Medellín",         // Antioquia
-  "Mitú",             // Vaupés
-  "Mocoa",            // Putumayo
-  "Montería",         // Córdoba
-  "Neiva",            // Huila
-  "Pasto",            // Nariño
-  "Pereira",          // Risaralda
-  "Popayán",          // Cauca
-  "Puerto Carreño",   // Vichada
-  "Quibdó",           // Chocó
-  "Riohacha",         // La Guajira
-  "San Andrés",       // San Andrés y Providencia
+  "Arauca", // Arauca
+  "Armenia", // Quindío
+  "Barranquilla", // Atlántico
+  "Bogotá", // Cundinamarca
+  "Bucaramanga", // Santander
+  "Cartagena", // Bolívar
+  "Cúcuta", // Norte de Santander
+  "Florencia", // Caquetá
+  "Inírida", // Guainía
+  "Ibagué", // Tolima
+  "Leticia", // Amazonas
+  "Manizales", // Caldas
+  "Medellín", // Antioquia
+  "Mitú", // Vaupés
+  "Mocoa", // Putumayo
+  "Montería", // Córdoba
+  "Neiva", // Huila
+  "Pasto", // Nariño
+  "Pereira", // Risaralda
+  "Popayán", // Cauca
+  "Puerto Carreño", // Vichada
+  "Quibdó", // Chocó
+  "Riohacha", // La Guajira
+  "San Andrés", // San Andrés y Providencia
   "San José del Guaviare", // Guaviare
-  "Santa Marta",      // Magdalena
-  "Sincelejo",        // Sucre
-  "Tunja",            // Boyacá
-  "Valledupar",       // Cesar
-  "Villavicencio",    // Meta
-  "Yopal"             // Casanare
+  "Santa Marta", // Magdalena
+  "Sincelejo", // Sucre
+  "Tunja", // Boyacá
+  "Valledupar", // Cesar
+  "Villavicencio", // Meta
+  "Yopal", // Casanare
 ];
 
 export const colombiaCities = {
-  "Paula": [  
-    "Medellín",    
-    "Manizales",   
-    "Armenia",     
-    "Pereira",     
-    "Neiva",       
-    "Ibagué",      
-    "Arauca",      
-    "Yopal",       
-    "Villavicencio" 
+  Paula: [
+    "Medellín",
+    "Manizales",
+    "Armenia",
+    "Pereira",
+    "Neiva",
+    "Ibagué",
+    "Arauca",
+    "Yopal",
+    "Villavicencio",
   ],
-  "Anna": [  
-    "Bogotá",      
-    "Tunja",       
-    "Pasto",       
-    "Popayán",     
-    "Leticia",     
-    "Florencia",   
-    "Inírida",     
-    "San José del Guaviare", 
-    "Mocoa"        
+  Anna: [
+    "Bogotá",
+    "Tunja",
+    "Pasto",
+    "Popayán",
+    "Leticia",
+    "Florencia",
+    "Inírida",
+    "San José del Guaviare",
+    "Mocoa",
   ],
-  "Erick": [  
-    "Barranquilla", 
-    "Cartagena",    
-    "Valledupar",   
-    "Montería",     
-    "Riohacha",     
-    "Santa Marta",  
-    "Sincelejo",    
-    "San Andrés"    
+  Erick: [
+    "Barranquilla",
+    "Cartagena",
+    "Valledupar",
+    "Montería",
+    "Riohacha",
+    "Santa Marta",
+    "Sincelejo",
+    "San Andrés",
   ],
-  "William": [  
-    "Cali",         
-    "Quibdó",       
-    "Puerto Carreño", 
-    "Mitu",         
-    "Guaviare",     
-    "Putumayo",     
-    "Guainía",      
-    "Meta",         
-    "Amazonas",     
-  ]
+  William: [
+    "Cali",
+    "Quibdó",
+    "Puerto Carreño",
+    "Mitu",
+    "Guaviare",
+    "Putumayo",
+    "Guainía",
+    "Meta",
+    "Amazonas",
+  ],
 };

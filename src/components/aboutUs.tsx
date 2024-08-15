@@ -4,7 +4,7 @@ import Mision from "./mision";
 import Vision from "./vision";
 
 const Description: React.FC = () => {
-  const titleStyle: string = "text-center text-3xl font-bold text-primary py-4";
+  const titleStyle: string = "text-center ${} text-3xl font-bold text-primary py-4";
   const textStyle: string =
     "text-xl font-semibold text-justify text-indent py-2 px-10";
 
