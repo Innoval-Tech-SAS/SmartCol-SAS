@@ -3,7 +3,8 @@ import Form from "./Form";
 import { Input, Textarea } from "@nextui-org/input";
 import { Select, SelectItem } from "@nextui-org/react";
 import { capitalesColombia } from "@/config/site";
-import { sendFormData } from "@/services/sendFormData";
+import { sendPQRSData } from "@/services/sendPQRSData";
+import { validateEmail, validateName } from "@/services/validators";
 
 interface PQRFormProps {
   inputGroupStyle?: string;
@@ -49,16 +50,6 @@ const PQRForm: React.FC<PQRFormProps> = ({ inputGroupStyle }) => {
     });
   };
 
-  const validateName = (name: string) => {
-    const nombreRegex =
-      /^[a-zA-ZÁÉÍÓÚáéíóúÑñ]{2,}(\s+[a-zA-ZÁÉÍÓÚáéíóúÑñ]{2,})+$/;
-    return nombreRegex.test(name);
-  };
-
-  const validateEmail = (email: string) => {
-    return /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email);
-  };
-
   const validateForm = () => {
     const emailValid = validateEmail(formData.email);
     const nombreValid = validateName(formData.nombre);
@@ -99,7 +90,7 @@ const PQRForm: React.FC<PQRFormProps> = ({ inputGroupStyle }) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (validateForm()) {
-      sendFormData(formData);
+      sendPQRSData(formData);
       console.log("Formulario enviado");
     } else {
       console.log("Errores en el formulario");
@@ -107,7 +98,7 @@ const PQRForm: React.FC<PQRFormProps> = ({ inputGroupStyle }) => {
   };
 
   return (
-    <div className="p-5">
+    <div className="">
       <Form onSubmit={handleSubmit}>
         <div className="mb-4">
           <Select
@@ -163,7 +154,7 @@ const PQRForm: React.FC<PQRFormProps> = ({ inputGroupStyle }) => {
                 name="nombre"
                 value={formData.nombre}
                 onChange={handleInputChange}
-                isInvalid={errors.comentarios !== ""}
+                isInvalid={errors.nombre !== ""}
                 errorMessage={errors.nombre}
               />
             </div>
@@ -176,7 +167,7 @@ const PQRForm: React.FC<PQRFormProps> = ({ inputGroupStyle }) => {
                 name="documento"
                 value={formData.documento}
                 onChange={handleInputChange}
-                isInvalid={errors.comentarios !== ""}
+                isInvalid={errors.documento !== ""}
                 errorMessage={errors.documento}
               />
             </div>
@@ -192,7 +183,7 @@ const PQRForm: React.FC<PQRFormProps> = ({ inputGroupStyle }) => {
               name="motivo"
               value={formData.motivo}
               onChange={handleInputChange}
-              isInvalid={errors.comentarios !== ""}
+              isInvalid={errors.motivo !== ""}
               errorMessage={errors.motivo}
             />
           </div>
@@ -207,7 +198,7 @@ const PQRForm: React.FC<PQRFormProps> = ({ inputGroupStyle }) => {
                 name="email"
                 value={formData.email}
                 onChange={handleInputChange}
-                isInvalid={errors.comentarios !== ""}
+                isInvalid={errors.email !== ""}
                 errorMessage={errors.email}
               />
             </div>
@@ -220,7 +211,7 @@ const PQRForm: React.FC<PQRFormProps> = ({ inputGroupStyle }) => {
                 name="telefono"
                 value={formData.telefono}
                 onChange={handleInputChange}
-                isInvalid={errors.comentarios !== ""}
+                isInvalid={errors.telefono !== ""}
                 errorMessage={errors.telefono}
               />
             </div>

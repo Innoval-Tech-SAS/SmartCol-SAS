@@ -25,14 +25,14 @@ export default function ContactPQR() {
         />
       </section>
       <section className="">
-        <div className="text-center my-12">
+        <div className="text-center py-4">
           <h3 className="text-primary font-semibold text-lg">
             Apreciamos mucho tus comentarios, para nosotros es muy importante la
             satisfacción de nuestros clientes.
           </h3>
         </div>
       </section>
-      <section className="">
+      <section className="p-5">
         <PQRForm />
       </section>
     </DefaultLayout>

@@ -1,0 +1,50 @@
+{
+  "PQRData": [
+    {
+      "id": "cfe1",
+      "nombre": "Luis Guzman",
+      "documento": "5465465465",
+      "motivo": "Hola q alse",
+      "email": "ola@kase.com",
+      "telefono": "159632478",
+      "comentarios": "ggg ggg ggg ggg ola"
+    },
+    {
+      "id": "243b",
+      "nombre": "Luis Guzman",
+      "documento": "5465465465",
+      "motivo": "Hola q alse",
+      "email": "ola@kase.com",
+      "telefono": "159632478",
+      "comentarios": "ggg ggg ggg ggg ola"
+    },
+    {
+      "id": "fb78",
+      "nombre": "Luis Guzman",
+      "documento": "5465465465",
+      "motivo": "Hola q alse",
+      "email": "ola@kase.com",
+      "telefono": "159632478",
+      "comentarios": "ggg ggg ggg ggg ola"
+    }
+  ],
+  "ContactData": [
+    {
+      "id": "6ee0",
+      "ciudad": "",
+      "nombre": "Luis Guzman",
+      "email": "luis@gmail.com",
+      "telefono": "021030112",
+      "comentarios": "Hola q ase valecita"
+    },
+    {
+      "id": "0d50",
+      "ciudad": "",
+      "nombre": "Luis Guzman",
+      "email": "luis@gmail.com",
+      "telefono": "021030112",
+      "comentarios": "Hola q ase valecita"
+    }
+  ],
+  "ProductsData": []
+}

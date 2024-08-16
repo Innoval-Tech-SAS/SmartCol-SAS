@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { Divider, Button, Checkbox } from "@nextui-org/react";
+import Swal from "sweetalert2";
 
 interface FormProps {
   children?: React.ReactNode;
@@ -8,11 +9,37 @@ interface FormProps {
 }
 
 const Form: React.FC<FormProps> = ({ children, idForm, onSubmit }) => {
+  const [termsAccepted, setTermsAccepted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!termsAccepted) {
+      Swal.fire({
+        title: "¡Ups!",
+        text: "Por favor acepta los términos y condiciones y la política de tratamiento de datos.",
+        icon: "warning",
+        showConfirmButton: true,
+        confirmButtonText: "Volver al formulario",
+        customClass: {
+          confirmButton:
+            "text-primary p-2 border border-primary bg-background rounded-3xl",
+        },
+        buttonsStyling: false,
+      });
+
+      return;
+    }
+    if (onSubmit) {
+      onSubmit(e);
+    }
+  };
+
   return (
     <div
-      className="container mx-auto p-20 mt-10 bg-black/15 dark:bg-white/20 border border-white/10  shadow-2xl"
-      id={`${idForm}-container`}>
-      <form action="" id={idForm} onSubmit={onSubmit}>
+      className="container mx-auto p-5 md:p-20 bg-black/15 dark:bg-white/20 border border-white/10  shadow-2xl"
+      id={`${idForm}-container`}
+    >
+      <form action="" id={idForm} onSubmit={handleSubmit}>
         <div className="text-center">
           <h3 className="text-primary my-5 font-semibold text-2xl">
             COMPLETA EL FORMULARIO
@@ -22,24 +49,24 @@ const Form: React.FC<FormProps> = ({ children, idForm, onSubmit }) => {
           {children}
           <div className="flex flex-col justify-center gap-5 my-5">
             <Checkbox
-              size="lg"
+              className="text-white"
+              size="sm"
               radius="none"
               color="primary"
               isRequired
-              defaultSelected>
-              HE LEÍDO Y ACEPTO LOS{" "}
+              isInvalid={!termsAccepted}
+              defaultSelected={termsAccepted}
+              onChange={(e) => setTermsAccepted(e.target.checked)}
+            >
+              ACEPTO LOS{" "}
               <span className="text-primary font-semibold">
-                TÉRMINOS Y CONDICIONES GENERALES
+                TÉRMINOS Y CONDICIONES
               </span>{" "}
               Y LA{" "}
               <span className="text-primary font-semibold">
                 {" "}
-                POLÍTICA DE TRATAMIENTO DE DATOS PERSONALES
+                POLÍTICA DE TRATAMIENTO DE DATOS
               </span>
-            </Checkbox>
-            <Checkbox size="lg" radius="none" color="primary" defaultSelected>
-              AUTORIZO EL TRATAMIENTO DE MIS DATOS DE CONFORMIDAD CON LA
-              POLÍTICA DE TRATAMIENTO DE DATOS PUBLICADOS EN WWW.SMARTCOL.COM.CO
             </Checkbox>
           </div>
           <div className="mt-10 flex items-center justify-center">
@@ -53,7 +80,8 @@ const Form: React.FC<FormProps> = ({ children, idForm, onSubmit }) => {
             className="text-background text-lg  font-semibold"
             variant="solid"
             radius="full"
-            type="submit">
+            type="submit"
+          >
             Enviar
           </Button>
         </div>

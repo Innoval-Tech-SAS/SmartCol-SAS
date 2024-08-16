@@ -32,7 +32,7 @@ export default function ContactPage() {
           </h3>
         </div>
       </section>
-      <section className="">
+      <section className="p-5">
         <ContactForm />
       </section>
     </DefaultLayout>

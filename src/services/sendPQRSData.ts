@@ -10,20 +10,26 @@ interface FormData {
   comentarios: string;
 }
 
-export const sendFormData = async (formData: FormData) => {
-  const url = "";
+export const sendPQRSData = async (formData: FormData) => {
+  const url = "http://localhost:5000/PQRData";
   const controller = new Controller();
   const response = await controller.create(url, formData);
-  showPQRSResponse(response.json());
+  console.log(response);
+  showPQRSResponse(response);
 };
 
 const showPQRSResponse = (response: any) => {
-  if (response.status === 201) {
+  if (response.id) {
+    // if (response.id > 999) { }
     Swal.fire({
-      title: `PQRS N° SMART-${response.data.id}`,
+      title: `PQRS N° SM-PQRS-${response.id.toUpperCase()}`,
       text: "Hemos recibido tu mensaje y pronto nos pondremos en contacto contigo.",
       icon: "success",
       confirmButtonText: "Aceptar",
+      customClass: {
+        confirmButton:
+          "text-primary p-3 font-semibold border border-primary bg-background rounded-3xl",
+      },
     });
   } else {
     Swal.fire({
@@ -31,6 +37,10 @@ const showPQRSResponse = (response: any) => {
       text: "Algo salió mal, por favor intenta de nuevo.",
       icon: "error",
       confirmButtonText: "Aceptar",
+      customClass: {
+        confirmButton:
+          "text-primary p-3 font-semibold border border-primary bg-background rounded-3xl",
+      },
     });
   }
 };

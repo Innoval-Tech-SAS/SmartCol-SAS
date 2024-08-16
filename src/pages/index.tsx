@@ -11,7 +11,7 @@ export default function IndexPage() {
   const [pageTitle, setPageTitle] = useState("");
   const bannerTitle = "SMARTCOL S.A.S.";
   const bannerSubTitle =
-    '"Somos una empresa dedicada a la comercialización e importación de una amplia variedad de materias primas para los principales sectores alimenticio, industrial y farmacéutico."';
+    '"Somos una empresa dedicada a la comercialización e importación de una amplia variedad de materias primas para los sectores alimenticio, industrial y farmacéutico."';
 
   useEffect(() => {
     setPageTitle("SmartCol S.A.S.");
