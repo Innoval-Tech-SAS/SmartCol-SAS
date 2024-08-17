@@ -42,8 +42,7 @@ const Categorys: React.FC = () => {
 
   return (
     <div
-      className={`mx-auto p-8 my-8
-         ${isDark ? "bg-gradient-to-tl from-background via-zinc-800 to-background" : "bg-gradient-to-tl from-success-700 via-primary to-success-700"}`}
+      className={`mx-auto p-8 my-8 bg-gradient-to-tl from-success-700 via-primary to-success-700 dark:bg-gradient-to-tl dark:from-background dark:via-zinc-800 dark:to-background`}
     >
       <h3 className="text-center p-6 mb-4 font-semibold text-white text-3xl">
         Explora Nuestra Gama de Productos
