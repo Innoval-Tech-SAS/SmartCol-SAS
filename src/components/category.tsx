@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import {
   Card,
@@ -15,31 +14,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const Categorys: React.FC = () => {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    const updateTheme = () => {
-      const theme = document.documentElement.classList.contains("dark");
-
-      setIsDark(theme);
-    };
-
-    updateTheme();
-
-    const observer = new MutationObserver(() => {
-      updateTheme();
-    });
-
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["class"],
-    });
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
-
   return (
     <div
       className={`mx-auto p-8 my-8 bg-gradient-to-tl from-success-700 via-primary to-success-700 dark:bg-gradient-to-tl dark:from-background dark:via-zinc-800 dark:to-background`}
