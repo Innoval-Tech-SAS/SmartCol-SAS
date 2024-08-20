@@ -1,6 +1,14 @@
-import React from "react";
-import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/card";
-import { Button, Tooltip } from "@nextui-org/react";
+import React, { useState, useEffect } from "react";
+import {
+  Card,
+  CardProps,
+  CardHeader,
+  CardBody,
+  CardFooter,
+} from "@nextui-org/card";
+import { Button } from "@nextui-org/button";
+import { Tooltip } from "@nextui-org/react";
+
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { MdAddShoppingCart } from "react-icons/md";
 import { VscGraph } from "react-icons/vsc";
