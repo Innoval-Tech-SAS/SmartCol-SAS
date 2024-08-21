@@ -23,7 +23,8 @@ const AsideMenu: React.FC<AsideMenuProps> = ({ asideItems }) => {
           <AccordionItem
             key={index}
             title={item.title}
-            subtitle={item.subtitle}>
+            subtitle={item.subtitle}
+          >
             {item.content && (
               <ul>
                 {item.content.map((contentItem, contentIndex) => (

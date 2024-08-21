@@ -1,69 +1,78 @@
-import React, { useState, useEffect } from "react";
-import {
-  Card,
-  CardProps,
-  CardHeader,
-  CardBody,
-  CardFooter,
-} from "@nextui-org/card";
-import { Button } from "@nextui-org/button";
+import React from "react";
+import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/card";
+
 import { Tooltip } from "@nextui-org/react";
+import { Code } from "@nextui-org/react";
 
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { MdAddShoppingCart } from "react-icons/md";
 import { VscGraph } from "react-icons/vsc";
 
 interface CardProductProps {
-  productName: string;
-  productImage: string;
+  name: string;
+  imgname: string;
+  um: string;
+  presentation: string;
 }
 
 const CardProduct: React.FC<CardProductProps> = ({
-  productName,
-  productImage,
+  name,
+  imgname,
+  um,
+  presentation,
 }) => {
-  const [firstWord, ...rest] = productName.split(" ");
-  const restOfName = rest.join(" ");
+  const [firstPart, secondPart] = splitText(name);
+  const ImageSrc = `/img/products/${imgname}.png`;
+
+  function splitText(text: string): [string, string] {
+    text = text.trim();
+    const words = text.split(" ");
+    const mid = Math.ceil(words.length / 3);
+    return [words.slice(0, mid).join(" "), words.slice(mid).join(" ")];
+  }
 
   return (
-    <Card className="px-6 py-1 bg-black/20 dark:bg-white/10 shadow-lg rounded-3xl">
-      <CardHeader className="flex flex-col pb-0">
+    <Card className="bg-black/20 dark:bg-white/10 shadow-lg rounded-3xl">
+      <CardHeader className="flex flex-col pb-0 text-center">
         <p
-          className="text-white text-3xl font-semibold"
-          style={{ WebkitTextStroke: "1px black" }}
+          className="text-white md:text-2xl sm:font-semibold"
+          style={{ WebkitTextStroke: "0.7px black" }}
         >
-          {firstWord.toUpperCase()}
+          {firstPart.toUpperCase()}
         </p>
         <span
-          className="text-primary text-3xl font-semibold"
-          style={{ WebkitTextStroke: "1px black" }}
+          className="text-primary md:text-2xl sm:font-semibold"
+          style={{ WebkitTextStroke: "0.7px black" }}
         >
-          {restOfName.toUpperCase()}
+          {secondPart.toUpperCase()}
         </span>
       </CardHeader>
-      <CardBody className="flex justify-center py-0">
+      <CardBody className="flex justify-center items-center py-0">
         <img
-          src={productImage}
-          alt={productName}
-          className="w-auto h-72 object-contain"
+          src={ImageSrc}
+          alt={`${name} - ${um} - ${presentation}`.toLowerCase()}
+          className="w-auto max-h-60 object-contain"
         />
+        {/* <span className="text-sm text-primary">
+          {um} - {presentation}
+        </span> */}
       </CardBody>
-      <CardFooter className="flex justify-center py-1 pb-3 gap-1">
+      <CardFooter className="flex justify-center py-1 pb-3 sm:gap-2 lg:gap-6 md:mt-5">
         <Tooltip
           className="text-white font-bold bg-primary/50"
           color="primary"
-          content="Agregar al Carrito"
+          content="Agregar a Cotización"
           size="sm"
         >
-          <Button
-            className=""
-            size="sm"
+          <Code
+            className="p-2"
+            size="lg"
             color="primary"
             radius="full"
-            variant="flat"
+            // variant="flat"
           >
-            <MdAddShoppingCart size={24} />
-          </Button>
+            <MdAddShoppingCart size={25} />
+          </Code>
         </Tooltip>
         <Tooltip
           className="text-white font-bold bg-primary/50"
@@ -71,15 +80,15 @@ const CardProduct: React.FC<CardProductProps> = ({
           content="Ficha Técnica"
           size="sm"
         >
-          <Button
-            className="font-semibold"
-            size="sm"
-            variant="flat"
+          <Code
+            className="p-2"
+            size="lg"
+            // variant="flat"
             color="primary"
             radius="full"
           >
-            <VscGraph size={24} />
-          </Button>
+            <VscGraph size={25} />
+          </Code>
         </Tooltip>
         <Tooltip
           className="text-white font-bold bg-primary/50"
@@ -87,15 +96,15 @@ const CardProduct: React.FC<CardProductProps> = ({
           content="Ver más"
           size="sm"
         >
-          <Button
-            className=""
-            size="sm"
+          <Code
+            className="p-2"
+            size="lg"
             color="primary"
             radius="full"
-            variant="flat"
+            // variant="flat"
           >
-            <IoIosAddCircleOutline size={24} />
-          </Button>
+            <IoIosAddCircleOutline size={25} />
+          </Code>
         </Tooltip>
       </CardFooter>
     </Card>
