@@ -1,11 +1,21 @@
 import React from "react";
+import { emailQueue } from "@/services/Queue";
 
-const AccountContact: React.FC = () => {
-  return (
-    <div className="">
-      <div className="w-50"></div>
-    </div>
-  );
+const ComercialContact: React.FC = () => {
+  const emails = [""];
+
+  emails.forEach((email) => {
+    emailQueue.enqueue(email);
+  });
+
+  const handleClick = () => {
+    const currentEmail: string | undefined = emailQueue.dequeue() as string;
+    const url = `mailto:${currentEmail}`;
+    window.open(url, "_blank");
+    emailQueue.enqueue(currentEmail);
+  };
+
+  return <div className=""></div>;
 };
 
-export default AccountContact;
+export default ComercialContact;

@@ -3,6 +3,7 @@ import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/card";
 
 import { Tooltip } from "@nextui-org/react";
 import { Code } from "@nextui-org/react";
+import { Image } from "@nextui-org/react";
 
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { MdAddShoppingCart } from "react-icons/md";
@@ -27,37 +28,37 @@ const CardProduct: React.FC<CardProductProps> = ({
   function splitText(text: string): [string, string] {
     text = text.trim();
     const words = text.split(" ");
-    const mid = Math.ceil(words.length / 3);
+    const mid = Math.ceil(words.length / 2);
     return [words.slice(0, mid).join(" "), words.slice(mid).join(" ")];
   }
 
   return (
-    <Card className="bg-black/20 dark:bg-white/10 shadow-lg rounded-3xl">
-      <CardHeader className="flex flex-col pb-0 text-center">
+    <Card className="bg-black/20 dark:bg-white/5 shadow-lg rounded-3xl">
+      <CardHeader className="flex flex-col text-center">
         <p
-          className="text-white md:text-2xl sm:font-semibold"
+          className="text-white md:text-lg sm:font-bold"
           style={{ WebkitTextStroke: "0.7px black" }}
         >
           {firstPart.toUpperCase()}
         </p>
         <span
-          className="text-primary md:text-2xl sm:font-semibold"
+          className="text-primary md:text-lg sm:font-bold"
           style={{ WebkitTextStroke: "0.7px black" }}
         >
-          {secondPart.toUpperCase()}
+          {`${secondPart.toUpperCase()} - ${presentation}`}
         </span>
       </CardHeader>
       <CardBody className="flex justify-center items-center py-0">
-        <img
+        <Image
           src={ImageSrc}
           alt={`${name} - ${um} - ${presentation}`.toLowerCase()}
-          className="w-auto max-h-60 object-contain"
+          className="w-auto max-h-48 object-contain"
         />
         {/* <span className="text-sm text-primary">
           {um} - {presentation}
         </span> */}
       </CardBody>
-      <CardFooter className="flex justify-center py-1 pb-3 sm:gap-2 lg:gap-6 md:mt-5">
+      <CardFooter className="flex justify-center pt-0 pb-3 sm:gap-2 lg:gap-6 md:mt-5">
         <Tooltip
           className="text-white font-bold bg-primary/50"
           color="primary"
@@ -65,13 +66,13 @@ const CardProduct: React.FC<CardProductProps> = ({
           size="sm"
         >
           <Code
-            className="p-2"
+            className="p-2 hover:cursor-pointer"
             size="lg"
             color="primary"
             radius="full"
             // variant="flat"
           >
-            <MdAddShoppingCart size={25} />
+            <MdAddShoppingCart size={20} />
           </Code>
         </Tooltip>
         <Tooltip
@@ -81,13 +82,13 @@ const CardProduct: React.FC<CardProductProps> = ({
           size="sm"
         >
           <Code
-            className="p-2"
+            className="p-2 hover:cursor-pointer"
             size="lg"
             // variant="flat"
             color="primary"
             radius="full"
           >
-            <VscGraph size={25} />
+            <VscGraph size={20} />
           </Code>
         </Tooltip>
         <Tooltip
@@ -97,13 +98,13 @@ const CardProduct: React.FC<CardProductProps> = ({
           size="sm"
         >
           <Code
-            className="p-2"
+            className="p-2 hover:cursor-pointer"
             size="lg"
             color="primary"
             radius="full"
             // variant="flat"
           >
-            <IoIosAddCircleOutline size={25} />
+            <IoIosAddCircleOutline size={20} />
           </Code>
         </Tooltip>
       </CardFooter>

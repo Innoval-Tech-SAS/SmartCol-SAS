@@ -32,7 +32,7 @@ const Vision: React.FC<VisionProps> = ({ iconName, textStyle }) => {
   }, [iconName, iconsRoute]);
 
   return (
-    <div className="w-50 flex flex-col items-center gap-10">
+    <div className="w-50 flex flex-col items-center gap-2 md:gap-5 md:px-6">
       <div className="w-1/3"></div>
       <h3 className="text-primary text-3xl font-semibold">Visión</h3>
       <img className="w-auto max-h-40" src={iconSrc} alt="" />

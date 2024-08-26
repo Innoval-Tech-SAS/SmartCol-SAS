@@ -11,6 +11,7 @@ import {
   NavbarMenu,
   NavbarMenuItem,
 } from "@nextui-org/navbar";
+import { Image } from "@nextui-org/react";
 import {
   Dropdown,
   DropdownTrigger,
@@ -30,7 +31,7 @@ export const Navbar: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsSticky(window.scrollY > 0);
+      setIsSticky(window.scrollY > 10);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -66,15 +67,17 @@ export const Navbar: React.FC = () => {
         "border-t-2 border-t-primary z-50",
         isSticky ? "fixed top-0 left-0 right-0" : "relative"
       )}
-      maxWidth="2xl">
+      maxWidth="2xl"
+    >
       <NavbarContent className="basis-2/5 sm:basis-full">
         {isSticky && (
           <NavbarBrand className="gap-3 max-w-fit">
             <NextUILink
               className="flex justify-start items-center gap-1"
               color="primary"
-              href="/">
-              <img alt="Logo" className="h-8" src="/img/logo.png" />
+              href="/"
+            >
+              <Image alt="Logo" className="h-8" src="/img/logo.png" />
             </NextUILink>
           </NavbarBrand>
         )}
@@ -90,29 +93,25 @@ export const Navbar: React.FC = () => {
                         "text-primary font-bold",
                         isActive(item.href) && "bg-primary/10"
                       )}
-                      color="primary">
+                      color="primary"
+                    >
                       {item.label}
                     </Button>
                   </DropdownTrigger>
                   <DropdownMenu aria-label="Contact Menu">
-                    <DropdownItem key="comercial">
-                      <a
-                        href="/contacto-comercial"
-                        className="block font-bold text-primary px-4 py-2">
-                        Contacta un Comercial
-                      </a>
-                    </DropdownItem>
                     <DropdownItem key="contact">
                       <a
                         href="/contact"
-                        className="block font-bold text-primary px-4 py-2">
+                        className="block font-bold text-primary px-4 py-2"
+                      >
                         Contacto
                       </a>
                     </DropdownItem>
                     <DropdownItem key="pqr">
                       <a
                         href="/contact/pqr"
-                        className="block font-bold text-primary px-4 py-2">
+                        className="block font-bold text-primary px-4 py-2"
+                      >
                         PQRS
                       </a>
                     </DropdownItem>
@@ -127,14 +126,16 @@ export const Navbar: React.FC = () => {
                     isActive(item.href) && "text-primary font-medium"
                   )}
                   color="primary"
-                  href={item.href}>
+                  href={item.href}
+                >
                   <Button
                     variant="light"
                     className={clsx(
                       "text-primary font-bold",
                       isActive(item.href) && "bg-primary/10"
                     )}
-                    color="primary">
+                    color="primary"
+                  >
                     {item.label}
                   </Button>
                 </NextUILink>
@@ -146,7 +147,8 @@ export const Navbar: React.FC = () => {
 
       <NavbarContent
         className="hidden md:flex basis-1/5 sm:basis-full"
-        justify="end">
+        justify="end"
+      >
         <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
         <NavbarItem className="hidden md:flex gap-2">
           <ThemeSwitch />

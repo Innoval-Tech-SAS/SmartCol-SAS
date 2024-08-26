@@ -35,10 +35,10 @@ const Contact: React.FC<ContactProps> = ({ title }) => {
   }, []);
 
   return (
-    <div className="flex flex-col sm:flex-row justify-evenly w-full my-5">
+    <div className="flex flex-col md:flex-row flex-wrap justify-evenly w-full my-5">
       <div className="flex flex-col p-5 w-full sm:w-1/2">
         <h3 className="text-center text-primary font-bold text-3xl">{title}</h3>
-        <div className="flex flex-col sm:flex-row gap-10 mx-auto my-10">
+        <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-5 mx-auto my-10">
           {cityContacts.map((contact, index) => (
             <div key={index} className="w-full sm:w-auto">
               <ul className="flex flex-col mx-6">
@@ -48,7 +48,8 @@ const Contact: React.FC<ContactProps> = ({ title }) => {
                 <Link
                   className="flex items-center my-1"
                   href=""
-                  title={`Direccion Sede ${contact.city}`}>
+                  title={`Direccion Sede ${contact.city}`}
+                >
                   <FaLocationDot
                     size={20}
                     style={{ marginRight: "8px", color: iconColor }}
@@ -61,7 +62,8 @@ const Contact: React.FC<ContactProps> = ({ title }) => {
                 {contact.phoneNumber && (
                   <Link
                     className="flex items-center my-1"
-                    href={`tel:${contact.phoneNumber.replace(/\s+/g, "")}`}>
+                    href={`tel:${contact.phoneNumber.replace(/\s+/g, "")}`}
+                  >
                     <FaPhone
                       size={18}
                       style={{ marginRight: "8px", color: iconColor }}
@@ -74,11 +76,13 @@ const Contact: React.FC<ContactProps> = ({ title }) => {
                 {contact.cellphoneNumbers.map((cellphone, phoneIndex) => (
                   <li
                     key={phoneIndex}
-                    className="flex my-1 items-center font-semibold whitespace-nowrap">
+                    className="flex my-1 items-center font-semibold whitespace-nowrap"
+                  >
                     <Link
                       isExternal
                       href={`https://wa.me/+57${cellphone.replace(/\s+/g, "")}`}
-                      title={`Contacto Comercial ${contact.city}`}>
+                      title={`Contacto Comercial ${contact.city}`}
+                    >
                       <FaWhatsapp
                         size={20}
                         style={{ marginRight: "8px", color: iconColor }}
@@ -92,7 +96,7 @@ const Contact: React.FC<ContactProps> = ({ title }) => {
           ))}
         </div>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 px-12 sm:w-1/2">
+      <div className="flex flex-wrap justify-evenly items-center py-4 px-6 sm:w-1/2">
         <IconButton
           iconName="caja.png"
           title="Productos"

@@ -14,8 +14,15 @@ const BussinesValues: React.FC<BussinesValuesProps> = () => {
     speed: 300,
     slidesToShow: 5,
     slidesToScroll: 1,
-    centerMode: false,
     responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          initialSlide: 1,
+        },
+      },
       {
         breakpoint: 600,
         settings: {
@@ -30,7 +37,7 @@ const BussinesValues: React.FC<BussinesValuesProps> = () => {
   const titleStyle: string =
     "text-center text-3xl font-bold text-primary my-10";
   return (
-    <div className="container mx-auto my-16 p-5">
+    <div className="container mx-auto my-10">
       <h3 className={`${titleStyle}`}>Nuestros Valores</h3>
       <div className="w-5/6 mx-auto">
         <Slider {...settings}>

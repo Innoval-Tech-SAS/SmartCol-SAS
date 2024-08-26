@@ -4,7 +4,8 @@ import Mision from "./mision";
 import Vision from "./vision";
 
 const Description: React.FC = () => {
-  const titleStyle: string = "text-center ${} text-3xl font-bold text-primary py-4";
+  const titleStyle: string =
+    "text-center ${} text-3xl font-bold text-primary py-4";
   const textStyle: string =
     "text-xl font-semibold text-justify text-indent py-2 px-10";
 
@@ -38,7 +39,7 @@ const Description: React.FC = () => {
         </div>
       </div>
 
-      <div className="flex flex-col sm:flex-row justify-around items-center my-10 gap-20">
+      <div className="flex flex-col sm:flex-row justify-around items-center my-5 gap-10">
         <Mision iconName="mision.png" textStyle={textStyle} />
         <Vision iconName="vision.png" textStyle={textStyle} />
       </div>
