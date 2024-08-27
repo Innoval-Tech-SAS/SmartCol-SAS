@@ -2,18 +2,20 @@ import React from "react";
 import IconButton from "./iconButton";
 import Mision from "./mision";
 import Vision from "./vision";
+import { Image } from "@nextui-org/react";
 
 const Description: React.FC = () => {
-  const titleStyle: string =
-    "text-center ${} text-3xl font-bold text-primary py-4";
+  const titleStyle: string = "text-center text-3xl font-bold text-primary py-4";
   const textStyle: string =
     "text-xl font-semibold text-justify text-indent py-2 px-10";
 
   return (
     <div className="container mx-auto my-8 px-4">
       <div className="flex flex-col sm:flex-row-reverse">
-        <div className="sm:w-full px-4 sm:px-10">
+        <div className="sm:w-full px-4 sm:px-10 flex flex-col items-center">
           <h2 className={titleStyle}>¿Quienes Somos?</h2>
+
+          <Image className="max-h-40" src="/img/logo.png" />
 
           <p className={textStyle}>
             Somos una empresa familiar con una vasta y sólida experiencia en la

@@ -87,27 +87,30 @@ const ProductsPage: React.FC = () => {
             </aside>
           </div>
 
-          <CartProvider>
-            <div className="w-full md:w-5/6 px-4">
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 lg:gap-3 px-5 mx-auto">
-                {products.map((product, index) => (
-                  <CardProduct
-                    key={index}
-                    name={product.name}
-                    imgname={product.imgname}
-                    um={product.um}
-                    presentation={product.presentation}
-                  />
-                ))}
+          <div className="w-full md:w-5/6 px-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 lg:gap-3 px-5 mx-auto">
+              <CartProvider>
+                {products.map(
+                  (product, index) =>
+                    product.imgname !== null && (
+                      <CardProduct
+                        key={index}
+                        name={product.name}
+                        imgname={product.imgname}
+                        um={product.um}
+                        presentation={product.presentation}
+                      />
+                    )
+                )}
                 <div
                   className="fixed bottom-36 right-12 z-50"
                   id="cart-container"
                 >
                   <Cart />
                 </div>
-              </div>
+              </CartProvider>
             </div>
-          </CartProvider>
+          </div>
         </div>
       </section>
     </DefaultLayout>

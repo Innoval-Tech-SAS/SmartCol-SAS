@@ -58,7 +58,7 @@ const CardProduct: React.FC<CardProductProps> = ({
           {um} - {presentation}
         </span> */}
       </CardBody>
-      <CardFooter className="flex justify-center pt-0 pb-3 sm:gap-2 lg:gap-6 md:mt-5">
+      <CardFooter className="flex justify-center pt-0 pb-3 gap-2 lg:gap-6 md:mt-5">
         <Tooltip
           className="text-white font-bold bg-primary/50"
           color="primary"
@@ -72,7 +72,7 @@ const CardProduct: React.FC<CardProductProps> = ({
             radius="full"
             // variant="flat"
           >
-            <MdAddShoppingCart size={20} />
+            <MdAddShoppingCart size={25} />
           </Code>
         </Tooltip>
         <Tooltip
@@ -88,7 +88,7 @@ const CardProduct: React.FC<CardProductProps> = ({
             color="primary"
             radius="full"
           >
-            <VscGraph size={20} />
+            <VscGraph size={25} />
           </Code>
         </Tooltip>
         <Tooltip
@@ -104,7 +104,7 @@ const CardProduct: React.FC<CardProductProps> = ({
             radius="full"
             // variant="flat"
           >
-            <IoIosAddCircleOutline size={20} />
+            <IoIosAddCircleOutline size={25} />
           </Code>
         </Tooltip>
       </CardFooter>

@@ -4,7 +4,7 @@ import { whatsAppQueue } from "@/services/Queue";
 
 const WhatsAppIcon: React.FC = () => {
   const whatsappNumbers = [
-    "3507902989",
+    "3504227733",
     "3160179783",
     "3164568409",
     "3504227737",

@@ -76,6 +76,7 @@ export const Navbar: React.FC = () => {
               className="flex justify-start items-center gap-1"
               color="primary"
               href="/"
+              aria-label="Home"
             >
               <Image alt="Logo" className="h-8" src="/img/logo.png" />
             </NextUILink>
@@ -88,6 +89,7 @@ export const Navbar: React.FC = () => {
                 <Dropdown className="bg-background/90">
                   <DropdownTrigger>
                     <Button
+                      aria-label={item.label}
                       variant="light"
                       className={clsx(
                         "text-primary font-bold",
@@ -99,7 +101,7 @@ export const Navbar: React.FC = () => {
                     </Button>
                   </DropdownTrigger>
                   <DropdownMenu aria-label="Contact Menu">
-                    <DropdownItem key="contact">
+                    <DropdownItem key="contact" textValue="Contact">
                       <a
                         href="/contact"
                         className="block font-bold text-primary px-4 py-2"
@@ -107,7 +109,7 @@ export const Navbar: React.FC = () => {
                         Contacto
                       </a>
                     </DropdownItem>
-                    <DropdownItem key="pqr">
+                    <DropdownItem key="pqr" textValue="PQRS">
                       <a
                         href="/contact/pqr"
                         className="block font-bold text-primary px-4 py-2"
@@ -121,6 +123,7 @@ export const Navbar: React.FC = () => {
             ) : (
               <NavbarItem key={item.href}>
                 <NextUILink
+                  aria-label={item.label}
                   className={clsx(
                     linkStyles({ color: "primary" }),
                     isActive(item.href) && "text-primary font-medium"
@@ -129,6 +132,7 @@ export const Navbar: React.FC = () => {
                   href={item.href}
                 >
                   <Button
+                    aria-label={item.label}
                     variant="light"
                     className={clsx(
                       "text-primary font-bold",

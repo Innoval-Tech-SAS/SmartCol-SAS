@@ -26,6 +26,7 @@ const Cart: React.FC<CartProps> = ({ products }) => {
       id="cartcontainer"
     >
       <Modal
+        className="bg-background/90"
         isOpen={isOpen}
         onOpenChange={onOpenChange}
         placement="bottom-center"
