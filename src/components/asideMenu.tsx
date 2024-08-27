@@ -1,16 +1,6 @@
 import React from "react";
 import { Accordion, AccordionItem } from "@nextui-org/accordion";
-
-interface ItemsMenu {
-  title?: string;
-  subtitle?: string;
-  url?: string;
-  content?: Array<string>;
-}
-
-export interface AsideMenuProps {
-  asideItems: ItemsMenu[];
-}
+import { AsideMenuProps } from "@/interfaces/ItemsMenu";
 
 const AsideMenu: React.FC<AsideMenuProps> = ({ asideItems }) => {
   const linkStyles =

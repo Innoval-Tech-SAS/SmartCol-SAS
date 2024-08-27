@@ -1,5 +1,5 @@
 import { tv } from "tailwind-variants";
-import { AsideMenuProps } from "./asideMenu";
+import { AsideMenuProps } from "@/interfaces/ItemsMenu";
 
 export const title = tv({
   base: "tracking-tight inline font-semibold",

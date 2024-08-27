@@ -1,6 +1,6 @@
 import React from "react";
 import { GiShoppingCart } from "react-icons/gi";
-import { Product } from "@/pages/products";
+import { Product } from "@/interfaces/Product";
 
 import {
   Modal,

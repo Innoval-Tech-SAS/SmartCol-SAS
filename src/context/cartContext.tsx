@@ -1,11 +1,5 @@
 import { createContext, useContext } from "react";
-import { Product } from "@/pages/products"; // Ajusta la ruta según tu estructura
-
-interface CartContextType {
-  cart: Product[];
-  addToCart: (product: Product) => void;
-}
-
+import { CartContextType } from "@/interfaces/CartContextType";
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const useCartContext = (): CartContextType => {

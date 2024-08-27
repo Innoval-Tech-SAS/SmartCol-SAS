@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from "react";
-
-interface MisionProps {
-  iconName?: string;
-  textStyle?: string;
-}
+import { MisionProps } from "@/interfaces/MisionProps";
 
 const Mision: React.FC<MisionProps> = ({ iconName, textStyle }) => {
   const [iconSrc, setIconSrc] = useState("");

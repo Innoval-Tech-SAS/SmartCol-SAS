@@ -1,26 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/card";
-
+import { CartContext } from "@/context/cartContext";
 import { Tooltip } from "@nextui-org/react";
 import { Code } from "@nextui-org/react";
 import { Image } from "@nextui-org/react";
-
+import { Product } from "@/interfaces/Product";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { MdAddShoppingCart } from "react-icons/md";
 import { VscGraph } from "react-icons/vsc";
 
-interface CardProductProps {
-  name: string;
-  imgname: string;
-  um: string;
-  presentation: string;
-}
-
-const CardProduct: React.FC<CardProductProps> = ({
+const CardProduct: React.FC<Product> = ({
+  id,
   name,
   imgname,
   um,
   presentation,
+  category,
+  subcategory,
+  description,
 }) => {
   const [firstPart, secondPart] = splitText(name);
   const ImageSrc = `/img/products/${imgname}.png`;
@@ -31,6 +28,14 @@ const CardProduct: React.FC<CardProductProps> = ({
     const mid = Math.ceil(words.length / 2);
     return [words.slice(0, mid).join(" "), words.slice(mid).join(" ")];
   }
+
+  // const { cart, addToCart } = useContext(CartContext);
+
+  // const addToCart = (product: Product) => {
+  //   if (!cart.find((item) => item.id === product.id)) {
+  //     setCart([...cart, product]);
+  //   }
+  // };
 
   return (
     <Card className="bg-black/20 dark:bg-white/5 shadow-lg rounded-3xl">
@@ -71,6 +76,18 @@ const CardProduct: React.FC<CardProductProps> = ({
             color="primary"
             radius="full"
             // variant="flat"
+            // onClick={() =>
+            //   addToCart({
+            //     id,
+            //     name,
+            //     imgname,
+            //     um,
+            //     presentation,
+            //     category,
+            //     subcategory,
+            //     description,
+            //   })
+            // }
           >
             <MdAddShoppingCart size={25} />
           </Code>

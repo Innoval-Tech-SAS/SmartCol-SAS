@@ -2,23 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "@nextui-org/link";
 import { Button } from "@nextui-org/button";
 import { Image } from "@nextui-org/react";
-
-interface IconButtonProps {
-  url?: string | undefined;
-  title: string;
-  iconName: string;
-  variant?:
-    | "solid"
-    | "ghost"
-    | "bordered"
-    | "light"
-    | "flat"
-    | "faded"
-    | "shadow"
-    | undefined;
-  textColor?: string;
-  darkTextColor?: string;
-}
+import { IconButtonProps } from "@/interfaces/IconButtonProps";
 
 const IconButton: React.FC<IconButtonProps> = ({
   darkTextColor,

@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { MisionProps } from "@/interfaces/MisionProps";
 
-interface VisionProps {
-  iconName?: string;
-  textStyle?: string;
-}
-
-const Vision: React.FC<VisionProps> = ({ iconName, textStyle }) => {
+const Vision: React.FC<MisionProps> = ({ iconName, textStyle }) => {
   const [iconSrc, setIconSrc] = useState("");
 
   const iconsRoute = "/icons/";

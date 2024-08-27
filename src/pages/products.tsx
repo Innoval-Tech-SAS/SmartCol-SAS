@@ -1,22 +1,13 @@
 import React, { useState, useEffect } from "react";
-import AsideMenu, { AsideMenuProps } from "@/components/asideMenu";
+import AsideMenu from "@/components/asideMenu";
 import DefaultLayout from "@/layouts/default";
+import { AsideMenuProps } from "@/interfaces/ItemsMenu";
 import Banner from "../components/banner";
 import CardProduct from "@/components/cardProduct";
 import Cart from "@/components/cart";
 import Controller from "../controllers/Controller";
-
+import { Product } from "@/interfaces/Product";
 import CartProvider from "@/context/cartProvider";
-
-export interface Product {
-  id?: number;
-  category: string;
-  subcategory: string;
-  name: string;
-  imgname: string;
-  um: string;
-  presentation: string;
-}
 
 const ProductsPage: React.FC = () => {
   const [pageTitle, setPageTitle] = useState("");
@@ -99,6 +90,8 @@ const ProductsPage: React.FC = () => {
                         imgname={product.imgname}
                         um={product.um}
                         presentation={product.presentation}
+                        category={product.category}
+                        subcategory={product.subcategory}
                       />
                     )
                 )}
