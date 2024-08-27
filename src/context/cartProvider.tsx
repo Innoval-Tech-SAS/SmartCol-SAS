@@ -1,24 +1,48 @@
-import React, { useState, ReactNode } from "react";
+import React, { useState, useEffect } from "react";
 import { CartContext } from "./cartContext";
-import { Product } from "@/pages/products"; // Ajusta la ruta según tu estructura
+import { Product } from "../interfaces/Product";
 
 interface CartProviderProps {
-  children: ReactNode;
+  children: React.ReactNode;
 }
 
 function CartProvider({ children }: CartProviderProps): React.ReactElement {
-  const [cart, setCart] = useState<Product[]>([]);
+  const [cart, setCart] = useState<Product[]>(() => {
+    const savedCart = localStorage.getItem("cart");
+    return savedCart ? JSON.parse(savedCart) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   const addToCart = (product: Product) => {
-    // Verifica si el producto ya está en el carrito usando una propiedad única, como 'id'
-    if (!cart.find((item) => item.id === product.id)) {
-      setCart([...cart, product]);
-    }
+    const updatedCart = cart.some((item) => item.name === product.name)
+      ? cart.map((item) =>
+          item.name === product.name
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        )
+      : [...cart, product];
+    setCart(updatedCart);
   };
 
-  console.log(children);
+  const deleteToCart = (product: Product) => {
+    const newCart = cart.filter((item) => item.name !== product.name);
+    setCart(newCart);
+  };
+
+  const updateProductQuantity = (index: number, quantity: number) => {
+    const updatedCart = cart.map((item, i) =>
+      i === index ? { ...item, quantity } : item
+    );
+    setCart(updatedCart);
+  };
+
   return (
-    <CartContext.Provider value={{ cart, addToCart }}>
+    <CartContext.Provider
+      value={{ cart, addToCart, deleteToCart, updateProductQuantity }}
+    >
       {children}
     </CartContext.Provider>
   );

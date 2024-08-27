@@ -52,7 +52,6 @@ const ProductsPage: React.FC = () => {
         menu.push(categoryItem);
       }
 
-      // Verificar si la subcategoría ya existe en el contenido
       if (!categoryItem.content?.includes(subcategory)) {
         categoryItem.content?.push(subcategory);
       }
@@ -92,6 +91,7 @@ const ProductsPage: React.FC = () => {
                         presentation={product.presentation}
                         category={product.category}
                         subcategory={product.subcategory}
+                        quantity={product.quantity || 0}
                       />
                     )
                 )}
@@ -99,7 +99,9 @@ const ProductsPage: React.FC = () => {
                   className="fixed bottom-36 right-12 z-50"
                   id="cart-container"
                 >
+                  {/* <Tooltip> */}
                   <Cart />
+                  {/* </Tooltip> */}
                 </div>
               </CartProvider>
             </div>

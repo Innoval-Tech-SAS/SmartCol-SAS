@@ -1,6 +1,5 @@
-import React, { useContext } from "react";
 import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/card";
-import { CartContext } from "@/context/cartContext";
+import { useCartContext } from "@/context/cartContext";
 import { Tooltip } from "@nextui-org/react";
 import { Code } from "@nextui-org/react";
 import { Image } from "@nextui-org/react";
@@ -29,14 +28,10 @@ const CardProduct: React.FC<Product> = ({
     return [words.slice(0, mid).join(" "), words.slice(mid).join(" ")];
   }
 
-  // const { cart, addToCart } = useContext(CartContext);
-
-  // const addToCart = (product: Product) => {
-  //   if (!cart.find((item) => item.id === product.id)) {
-  //     setCart([...cart, product]);
-  //   }
-  // };
-
+  const { addToCart } = useCartContext();
+  const handleCartClick = (product: Product) => {
+    addToCart(product);
+  };
   return (
     <Card className="bg-black/20 dark:bg-white/5 shadow-lg rounded-3xl">
       <CardHeader className="flex flex-col text-center">
@@ -75,19 +70,19 @@ const CardProduct: React.FC<Product> = ({
             size="lg"
             color="primary"
             radius="full"
-            // variant="flat"
-            // onClick={() =>
-            //   addToCart({
-            //     id,
-            //     name,
-            //     imgname,
-            //     um,
-            //     presentation,
-            //     category,
-            //     subcategory,
-            //     description,
-            //   })
-            // }
+            onClick={() =>
+              handleCartClick({
+                id,
+                name,
+                imgname,
+                um,
+                presentation,
+                category,
+                subcategory,
+                description,
+                quantity: 1,
+              })
+            }
           >
             <MdAddShoppingCart size={25} />
           </Code>
