@@ -12,17 +12,21 @@ class Queue<T> {
   dequeue(): T | undefined {
     if (this.isEmpty()) {
       console.error("Queue is empty");
+
       return undefined;
     }
     console.log("Now queue is empty");
+
     return this.items.shift();
   }
 
   front(): T | undefined {
     if (this.isEmpty()) {
       console.error("Queue is empty");
+
       return undefined;
     }
+
     return this.items[0];
   }
 

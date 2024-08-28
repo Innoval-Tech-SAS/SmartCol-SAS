@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
+
+import Banner from "../components/banner";
+import Controller from "../controllers/Controller";
+
 import AsideMenu from "@/components/asideMenu";
 import DefaultLayout from "@/layouts/default";
 import { AsideMenuProps } from "@/interfaces/ItemsMenu";
-import Banner from "../components/banner";
 import CardProduct from "@/components/cardProduct";
 import Cart from "@/components/cart";
-import Controller from "../controllers/Controller";
 import { Product } from "@/interfaces/Product";
 import CartProvider from "@/context/cartProvider";
 
@@ -26,10 +28,12 @@ const ProductsPage: React.FC = () => {
     const fetchProducts = async () => {
       const controller = new Controller();
       const data: Product[] = await controller.getAll(
-        "http://localhost:5000/ProductsData"
+        "http://localhost:5000/ProductsData",
       );
+
       setProducts(data);
       const transformedMenuItems = transformDataToMenu(data);
+
       setMenuItems(transformedMenuItems);
     };
 
@@ -85,15 +89,15 @@ const ProductsPage: React.FC = () => {
                     product.imgname !== null && (
                       <CardProduct
                         key={index}
-                        name={product.name}
-                        imgname={product.imgname}
-                        um={product.um}
-                        presentation={product.presentation}
                         category={product.category}
-                        subcategory={product.subcategory}
+                        imgname={product.imgname}
+                        name={product.name}
+                        presentation={product.presentation}
                         quantity={product.quantity || 0}
+                        subcategory={product.subcategory}
+                        um={product.um}
                       />
-                    )
+                    ),
                 )}
                 <div
                   className="fixed bottom-36 right-12 z-50"

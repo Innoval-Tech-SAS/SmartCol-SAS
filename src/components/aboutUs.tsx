@@ -1,8 +1,9 @@
 import React from "react";
+import { Image } from "@nextui-org/react";
+
 import IconButton from "./iconButton";
 import Mision from "./mision";
 import Vision from "./vision";
-import { Image } from "@nextui-org/react";
 
 const Description: React.FC = () => {
   const titleStyle: string = "text-center text-3xl font-bold text-primary py-4";
@@ -53,35 +54,35 @@ const Description: React.FC = () => {
 
         <div className=" flex flex-col sm:flex-row items-center justify-center gap-32">
           <IconButton
+            darkTextColor=""
             iconName="experiencia.png"
-            darkTextColor=""
             textColor=""
-            variant="light"
             title="Experiencia"
+            variant="light"
           />
 
           <IconButton
+            darkTextColor=""
             iconName="calidad.png"
-            darkTextColor=""
             textColor=""
-            variant="light"
             title="Calidad"
+            variant="light"
           />
 
           <IconButton
+            darkTextColor=""
             iconName="eficacia.png"
-            darkTextColor=""
             textColor=""
-            variant="light"
             title="Eficiencia"
+            variant="light"
           />
 
           <IconButton
-            iconName="servicio.png"
             darkTextColor=""
+            iconName="servicio.png"
             textColor=""
-            variant="light"
             title="Servicio"
+            variant="light"
           />
         </div>
       </div>

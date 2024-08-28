@@ -21,6 +21,7 @@ import {
 import { Button } from "@nextui-org/button";
 import { link as linkStyles } from "@nextui-org/theme";
 import clsx from "clsx";
+
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
 import { SearchIcon } from "@/components/icons";
@@ -65,7 +66,7 @@ export const Navbar: React.FC = () => {
     <NextUINavbar
       className={clsx(
         "border-t-2 border-t-primary z-50",
-        isSticky ? "fixed top-0 left-0 right-0" : "relative"
+        isSticky ? "fixed top-0 left-0 right-0" : "relative",
       )}
       maxWidth="2xl"
     >
@@ -73,10 +74,10 @@ export const Navbar: React.FC = () => {
         {isSticky && (
           <NavbarBrand className="gap-3 max-w-fit">
             <NextUILink
+              aria-label="Home"
               className="flex justify-start items-center gap-1"
               color="primary"
               href="/"
-              aria-label="Home"
             >
               <Image alt="Logo" className="h-8" src="/img/logo.png" />
             </NextUILink>
@@ -90,12 +91,12 @@ export const Navbar: React.FC = () => {
                   <DropdownTrigger>
                     <Button
                       aria-label={item.label}
-                      variant="light"
                       className={clsx(
                         "text-primary font-bold",
-                        isActive(item.href) && "bg-primary/10"
+                        isActive(item.href) && "bg-primary/10",
                       )}
                       color="primary"
+                      variant="light"
                     >
                       {item.label}
                     </Button>
@@ -103,16 +104,16 @@ export const Navbar: React.FC = () => {
                   <DropdownMenu aria-label="Contact Menu">
                     <DropdownItem key="contact" textValue="Contact">
                       <a
-                        href="/contact"
                         className="block font-bold text-primary px-4 py-2"
+                        href="/contact"
                       >
                         Contacto
                       </a>
                     </DropdownItem>
                     <DropdownItem key="pqr" textValue="PQRS">
                       <a
-                        href="/contact/pqr"
                         className="block font-bold text-primary px-4 py-2"
+                        href="/contact/pqr"
                       >
                         PQRS
                       </a>
@@ -126,25 +127,25 @@ export const Navbar: React.FC = () => {
                   aria-label={item.label}
                   className={clsx(
                     linkStyles({ color: "primary" }),
-                    isActive(item.href) && "text-primary font-medium"
+                    isActive(item.href) && "text-primary font-medium",
                   )}
                   color="primary"
                   href={item.href}
                 >
                   <Button
                     aria-label={item.label}
-                    variant="light"
                     className={clsx(
                       "text-primary font-bold",
-                      isActive(item.href) && "bg-primary/10"
+                      isActive(item.href) && "bg-primary/10",
                     )}
                     color="primary"
+                    variant="light"
                   >
                     {item.label}
                   </Button>
                 </NextUILink>
               </NavbarItem>
-            )
+            ),
           )}
         </div>
       </NavbarContent>

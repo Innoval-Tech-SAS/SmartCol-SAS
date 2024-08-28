@@ -1,4 +1,5 @@
 import { tv } from "tailwind-variants";
+
 import { AsideMenuProps } from "@/interfaces/ItemsMenu";
 
 export const title = tv({

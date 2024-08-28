@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+
 import { MisionProps } from "@/interfaces/MisionProps";
 
 const Vision: React.FC<MisionProps> = ({ iconName, textStyle }) => {
@@ -29,9 +30,9 @@ const Vision: React.FC<MisionProps> = ({ iconName, textStyle }) => {
 
   return (
     <div className="w-50 flex flex-col items-center gap-2 md:gap-5 md:px-6">
-      <div className="w-1/3"></div>
+      <div className="w-1/3" />
       <h3 className="text-primary text-3xl font-semibold">Visión</h3>
-      <img className="w-auto max-h-40" src={iconSrc} alt="" />
+      <img alt="" className="w-auto max-h-40" src={iconSrc} />
       <p className={textStyle}>
         Para el año 2027, aspiramos a ser una compañía reconocida tanto a nivel
         nacional como internacional en la comercialización de materias primas e

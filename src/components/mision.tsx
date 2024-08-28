@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+
 import { MisionProps } from "@/interfaces/MisionProps";
 
 const Mision: React.FC<MisionProps> = ({ iconName, textStyle }) => {
@@ -28,9 +29,9 @@ const Mision: React.FC<MisionProps> = ({ iconName, textStyle }) => {
 
   return (
     <div className="w-50 flex flex-col items-center gap-2 md:gap-5 md:px-6">
-      <div className="w-1/3"></div>
+      <div className="w-1/3" />
       <h3 className="text-primary text-3xl font-semibold">Misión</h3>
-      <img className="w-auto max-h-40" src={iconSrc} alt="" />
+      <img alt="" className="w-auto max-h-40" src={iconSrc} />
       <p className={textStyle}>
         Smartcol S.A.S. tiene como propósito brindar soluciones eficaces a
         nuestros clientes en sus procesos productivos. Ofrecemos una amplia

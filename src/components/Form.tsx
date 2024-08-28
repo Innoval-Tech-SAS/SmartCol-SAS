@@ -49,13 +49,13 @@ const Form: React.FC<FormProps> = ({ children, idForm, onSubmit }) => {
           {children}
           <div className="flex flex-col justify-center gap-5 my-5">
             <Checkbox
-              className="text-white"
-              size="sm"
-              radius="none"
-              color="primary"
               isRequired
-              isInvalid={!termsAccepted}
+              className="text-white"
+              color="primary"
               defaultSelected={termsAccepted}
+              isInvalid={!termsAccepted}
+              radius="none"
+              size="sm"
               onChange={(e) => setTermsAccepted(e.target.checked)}
             >
               ACEPTO LOS{" "}
@@ -76,11 +76,11 @@ const Form: React.FC<FormProps> = ({ children, idForm, onSubmit }) => {
 
         <div className="flex items-center justify-end pr-10">
           <Button
-            color="primary"
             className="text-background text-lg  font-semibold"
-            variant="solid"
+            color="primary"
             radius="full"
             type="submit"
+            variant="solid"
           >
             Enviar
           </Button>

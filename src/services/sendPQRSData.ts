@@ -1,5 +1,6 @@
-import Controller from "@/controllers/Controller";
 import Swal from "sweetalert2";
+
+import Controller from "@/controllers/Controller";
 
 interface FormData {
   nombre: string;
@@ -14,6 +15,7 @@ export const sendPQRSData = async (formData: FormData) => {
   const url = "http://localhost:5000/PQRData";
   const controller = new Controller();
   const response = await controller.create(url, formData);
+
   console.log(response);
   showPQRSResponse(response);
 };

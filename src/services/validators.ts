@@ -1,6 +1,7 @@
 export const validateName = (name: string) => {
   const nombreRegex =
     /^[a-zA-ZÁÉÍÓÚáéíóúÑñ]{2,}(\s+[a-zA-ZÁÉÍÓÚáéíóúÑñ]{2,})+$/;
+
   return nombreRegex.test(name);
 };
 

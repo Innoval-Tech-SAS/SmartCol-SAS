@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 
-import DefaultLayout from "@/layouts/default";
 import Banner from "../components/banner";
+
+import DefaultLayout from "@/layouts/default";
 
 export default function BlogPage() {
   const [pageTitle, setPageTitle] = useState("");
@@ -29,7 +30,7 @@ export default function BlogPage() {
             <p>Post</p>
           </aside>
           <div className="w-6/9">
-            <p></p>
+            <p />
           </div>
         </div>
       </section>

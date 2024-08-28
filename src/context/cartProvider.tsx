@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { CartContext } from "./cartContext";
+
 import { Product } from "../interfaces/Product";
+
+import { CartContext } from "./cartContext";
 
 interface CartProviderProps {
   children: React.ReactNode;
@@ -9,6 +11,7 @@ interface CartProviderProps {
 function CartProvider({ children }: CartProviderProps): React.ReactElement {
   const [cart, setCart] = useState<Product[]>(() => {
     const savedCart = localStorage.getItem("cart");
+
     return savedCart ? JSON.parse(savedCart) : [];
   });
 
@@ -21,21 +24,24 @@ function CartProvider({ children }: CartProviderProps): React.ReactElement {
       ? cart.map((item) =>
           item.name === product.name
             ? { ...item, quantity: item.quantity + 1 }
-            : item
+            : item,
         )
       : [...cart, product];
+
     setCart(updatedCart);
   };
 
   const deleteToCart = (product: Product) => {
     const newCart = cart.filter((item) => item.name !== product.name);
+
     setCart(newCart);
   };
 
   const updateProductQuantity = (index: number, quantity: number) => {
     const updatedCart = cart.map((item, i) =>
-      i === index ? { ...item, quantity } : item
+      i === index ? { ...item, quantity } : item,
     );
+
     setCart(updatedCart);
   };
 

@@ -98,28 +98,28 @@ const Contact: React.FC<ContactProps> = ({ title }) => {
       </div>
       <div className="flex flex-wrap justify-evenly items-center py-4 px-6 sm:w-1/2">
         <IconButton
+          darkTextColor="dark:text-background"
           iconName="caja.png"
+          textColor="text-white"
           title="Productos"
           url="/products"
           variant="solid"
-          darkTextColor="dark:text-background"
-          textColor="text-white"
         />
         <IconButton
+          darkTextColor="dark:text-background"
           iconName="camion.png"
+          textColor="text-white"
           title="Distribución"
           url="/"
           variant="solid"
-          darkTextColor="dark:text-background"
-          textColor="text-white"
         />
         <IconButton
+          darkTextColor="dark:text-background"
           iconName="logo.png"
+          textColor="text-white"
           title="¿Quienes Somos?"
           url="/aboutUs"
           variant="solid"
-          darkTextColor="dark:text-background"
-          textColor="text-white"
         />
       </div>
     </div>

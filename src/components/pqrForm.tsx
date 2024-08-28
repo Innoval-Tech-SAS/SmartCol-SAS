@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import Form from "./Form";
 import { Input, Textarea } from "@nextui-org/input";
 import { Select, SelectItem } from "@nextui-org/react";
+
+import Form from "./Form";
+
 import { capitalesColombia } from "@/config/site";
 import { sendPQRSData } from "@/services/sendPQRSData";
 import { validateEmail, validateName } from "@/services/validators";
@@ -41,9 +43,10 @@ const PQRForm: React.FC<PQRFormProps> = ({ inputGroupStyle }) => {
   };
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
+
     setFormData({
       ...formData,
       [name]: value,
@@ -103,12 +106,12 @@ const PQRForm: React.FC<PQRFormProps> = ({ inputGroupStyle }) => {
         <div className="mb-4">
           <Select
             color="primary"
-            label="Asunto"
-            variant="underlined"
-            value={asunto}
-            onChange={handleAsuntoChange}
-            isInvalid={errors.asunto !== ""}
             errorMessage={errors.asunto}
+            isInvalid={errors.asunto !== ""}
+            label="Asunto"
+            value={asunto}
+            variant="underlined"
+            onChange={handleAsuntoChange}
           >
             <SelectItem key="peticion" value="Petición">
               Petición
@@ -128,12 +131,12 @@ const PQRForm: React.FC<PQRFormProps> = ({ inputGroupStyle }) => {
         <div className="mb-4">
           <Select
             color="primary"
-            label="Ciudad"
-            variant="underlined"
-            value={ciudad}
-            onChange={handleCiudadChange}
-            isInvalid={errors.ciudad !== ""}
             errorMessage={errors.ciudad}
+            isInvalid={errors.ciudad !== ""}
+            label="Ciudad"
+            value={ciudad}
+            variant="underlined"
+            onChange={handleCiudadChange}
           >
             {capitalesColombia.map((capital, index) => (
               <SelectItem key={index} value={capital}>
@@ -147,72 +150,72 @@ const PQRForm: React.FC<PQRFormProps> = ({ inputGroupStyle }) => {
           <div className="flex flex-col gap-4 sm:flex-row sm:gap-8">
             <div className="flex-1 mb-4">
               <Input
-                variant="underlined"
-                type="text"
-                label="Nombre Completo"
                 color="primary"
-                name="nombre"
-                value={formData.nombre}
-                onChange={handleInputChange}
-                isInvalid={errors.nombre !== ""}
                 errorMessage={errors.nombre}
+                isInvalid={errors.nombre !== ""}
+                label="Nombre Completo"
+                name="nombre"
+                type="text"
+                value={formData.nombre}
+                variant="underlined"
+                onChange={handleInputChange}
               />
             </div>
             <div className="flex-1 mb-4">
               <Input
-                variant="underlined"
-                type="number"
-                label="Documento de Identidad"
                 color="primary"
-                name="documento"
-                value={formData.documento}
-                onChange={handleInputChange}
-                isInvalid={errors.documento !== ""}
                 errorMessage={errors.documento}
+                isInvalid={errors.documento !== ""}
+                label="Documento de Identidad"
+                name="documento"
+                type="number"
+                value={formData.documento}
+                variant="underlined"
+                onChange={handleInputChange}
               />
             </div>
           </div>
           <div className="mb-4">
             <Input
-              variant="underlined"
-              type="text"
-              label="Motivo"
-              color="primary"
               isRequired
+              color="primary"
+              errorMessage={errors.motivo}
+              isInvalid={errors.motivo !== ""}
+              label="Motivo"
               minLength={6}
               name="motivo"
+              type="text"
               value={formData.motivo}
+              variant="underlined"
               onChange={handleInputChange}
-              isInvalid={errors.motivo !== ""}
-              errorMessage={errors.motivo}
             />
           </div>
           <div className="flex flex-col gap-4 sm:flex-row sm:gap-8">
             <div className="flex-1 mb-4">
               <Input
-                variant="underlined"
-                type="email"
-                label="Email"
-                color="primary"
                 isRequired
-                name="email"
-                value={formData.email}
-                onChange={handleInputChange}
-                isInvalid={errors.email !== ""}
+                color="primary"
                 errorMessage={errors.email}
+                isInvalid={errors.email !== ""}
+                label="Email"
+                name="email"
+                type="email"
+                value={formData.email}
+                variant="underlined"
+                onChange={handleInputChange}
               />
             </div>
             <div className="flex-1 mb-4">
               <Input
-                variant="underlined"
-                type="text"
-                label="Número Telefónico"
                 color="primary"
-                name="telefono"
-                value={formData.telefono}
-                onChange={handleInputChange}
-                isInvalid={errors.telefono !== ""}
                 errorMessage={errors.telefono}
+                isInvalid={errors.telefono !== ""}
+                label="Número Telefónico"
+                name="telefono"
+                type="text"
+                value={formData.telefono}
+                variant="underlined"
+                onChange={handleInputChange}
               />
             </div>
           </div>
@@ -221,13 +224,13 @@ const PQRForm: React.FC<PQRFormProps> = ({ inputGroupStyle }) => {
         <div className="mb-4">
           <Textarea
             color="primary"
+            errorMessage={errors.comentarios}
+            isInvalid={errors.comentarios !== ""}
             label="Déjanos tus comentarios"
-            variant="underlined"
             name="comentarios"
             value={formData.comentarios}
+            variant="underlined"
             onChange={handleInputChange}
-            isInvalid={errors.comentarios !== ""}
-            errorMessage={errors.comentarios}
           />
         </div>
       </Form>

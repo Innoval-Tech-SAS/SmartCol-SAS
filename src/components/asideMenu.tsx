@@ -1,5 +1,6 @@
 import React from "react";
 import { Accordion, AccordionItem } from "@nextui-org/accordion";
+
 import { AsideMenuProps } from "@/interfaces/ItemsMenu";
 
 const AsideMenu: React.FC<AsideMenuProps> = ({ asideItems }) => {
@@ -10,14 +11,14 @@ const AsideMenu: React.FC<AsideMenuProps> = ({ asideItems }) => {
     "p-2 max-w-full hidden md:inline-block h-screen overflow-y-auto";
 
   return (
-    <aside id="aside-element" className={asideStyles}>
+    <aside className={asideStyles} id="aside-element">
       <Accordion variant="light">
         {asideItems?.map((item, index) => (
           <AccordionItem key={index} title={item.title}>
             {item.content && (
               <ul>
                 {item.content.map((contentItem, contentIndex) => (
-                  <li className={linkStyles} key={contentIndex}>
+                  <li key={contentIndex} className={linkStyles}>
                     {contentItem}
                   </li>
                 ))}

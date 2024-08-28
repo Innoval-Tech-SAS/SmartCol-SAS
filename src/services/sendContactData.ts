@@ -1,5 +1,6 @@
-import Controller from "@/controllers/Controller";
 import Swal from "sweetalert2";
+
+import Controller from "@/controllers/Controller";
 
 interface FormData {
   ciudad: string;
@@ -13,6 +14,7 @@ export const sendContactData = async (formData: FormData) => {
   const url = "http://localhost:5000/ContactData";
   const controller = new Controller();
   const response = await controller.create(url, formData);
+
   console.log(response);
   showContactResponse(response);
 };

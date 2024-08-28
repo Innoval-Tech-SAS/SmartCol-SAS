@@ -1,12 +1,13 @@
 import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/card";
-import { useCartContext } from "@/context/cartContext";
 import { Tooltip } from "@nextui-org/react";
 import { Code } from "@nextui-org/react";
 import { Image } from "@nextui-org/react";
-import { Product } from "@/interfaces/Product";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { MdAddShoppingCart } from "react-icons/md";
 import { VscGraph } from "react-icons/vsc";
+
+import { Product } from "@/interfaces/Product";
+import { useCartContext } from "@/context/cartContext";
 
 const CardProduct: React.FC<Product> = ({
   id,
@@ -25,6 +26,7 @@ const CardProduct: React.FC<Product> = ({
     text = text.trim();
     const words = text.split(" ");
     const mid = Math.ceil(words.length / 2);
+
     return [words.slice(0, mid).join(" "), words.slice(mid).join(" ")];
   }
 
@@ -32,6 +34,7 @@ const CardProduct: React.FC<Product> = ({
   const handleCartClick = (product: Product) => {
     addToCart(product);
   };
+
   return (
     <Card className="bg-black/20 dark:bg-white/5 shadow-lg rounded-3xl">
       <CardHeader className="flex flex-col text-center">
@@ -50,9 +53,9 @@ const CardProduct: React.FC<Product> = ({
       </CardHeader>
       <CardBody className="flex justify-center items-center py-0">
         <Image
-          src={ImageSrc}
           alt={`${name} - ${um} - ${presentation}`.toLowerCase()}
           className="w-auto max-h-48 object-contain"
+          src={ImageSrc}
         />
         {/* <span className="text-sm text-primary">
           {um} - {presentation}
@@ -67,9 +70,9 @@ const CardProduct: React.FC<Product> = ({
         >
           <Code
             className="p-2 hover:cursor-pointer"
-            size="lg"
             color="primary"
             radius="full"
+            size="lg"
             onClick={() =>
               handleCartClick({
                 id,
@@ -95,10 +98,10 @@ const CardProduct: React.FC<Product> = ({
         >
           <Code
             className="p-2 hover:cursor-pointer"
+            radius="full"
             size="lg"
             // variant="flat"
             color="primary"
-            radius="full"
           >
             <VscGraph size={25} />
           </Code>
@@ -111,8 +114,8 @@ const CardProduct: React.FC<Product> = ({
         >
           <Code
             className="p-2 hover:cursor-pointer"
-            size="lg"
             color="primary"
+            size="lg"
             radius="full"
             // variant="flat"
           >
