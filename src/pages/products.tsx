@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 
 import Banner from "../components/banner";
 import Controller from "../controllers/Controller";
-
 import AsideMenu from "@/components/asideMenu";
 import DefaultLayout from "@/layouts/default";
 import { AsideMenuProps } from "@/interfaces/ItemsMenu";
@@ -14,7 +13,12 @@ import CartProvider from "@/context/cartProvider";
 const ProductsPage: React.FC = () => {
   const [pageTitle, setPageTitle] = useState("");
   const [products, setProducts] = useState<Product[]>([]);
+  const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
   const [menuItems, setMenuItems] = useState<AsideMenuProps["asideItems"]>([]);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [selectedSubcategory, setSelectedSubcategory] = useState<string | null>(
+    null
+  );
 
   const bannerTitle = "SMARTCOL S.A.S.";
   const bannerSubTitle = "Conoce Nuestros Productos";
@@ -28,10 +32,11 @@ const ProductsPage: React.FC = () => {
     const fetchProducts = async () => {
       const controller = new Controller();
       const data: Product[] = await controller.getAll(
-        "http://localhost:5000/ProductsData",
+        "http://localhost:8080/products"
       );
 
       setProducts(data);
+      setFilteredProducts(data); // Initialize filtered products with all products
       const transformedMenuItems = transformDataToMenu(data);
 
       setMenuItems(transformedMenuItems);
@@ -39,6 +44,24 @@ const ProductsPage: React.FC = () => {
 
     fetchProducts();
   }, [setProducts]);
+
+  useEffect(() => {
+    let newFilteredProducts = products;
+
+    if (selectedCategory) {
+      newFilteredProducts = newFilteredProducts.filter(
+        (product) => product.category === selectedCategory
+      );
+    }
+
+    if (selectedSubcategory) {
+      newFilteredProducts = newFilteredProducts.filter(
+        (product) => product.subcategory === selectedSubcategory
+      );
+    }
+
+    setFilteredProducts(newFilteredProducts);
+  }, [selectedCategory, selectedSubcategory, products]);
 
   const transformDataToMenu = (data: Product[]) => {
     const menu: AsideMenuProps["asideItems"] = [];
@@ -77,14 +100,18 @@ const ProductsPage: React.FC = () => {
         <div className="flex flex-row">
           <div className="md:w-1/6 hidden md:block">
             <aside className="w-full h-full overflow-y-auto">
-              <AsideMenu asideItems={menuItems} />
+              <AsideMenu
+                asideItems={menuItems}
+                onCategorySelect={setSelectedCategory}
+                onSubcategorySelect={setSelectedSubcategory}
+              />
             </aside>
           </div>
 
           <div className="w-full md:w-5/6 px-4">
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 lg:gap-3 px-5 mx-auto">
               <CartProvider>
-                {products.map(
+                {filteredProducts.map(
                   (product, index) =>
                     product.imgname !== null && (
                       <CardProduct
@@ -97,15 +124,13 @@ const ProductsPage: React.FC = () => {
                         subcategory={product.subcategory}
                         um={product.um}
                       />
-                    ),
+                    )
                 )}
                 <div
                   className="fixed bottom-36 right-12 z-50"
                   id="cart-container"
                 >
-                  {/* <Tooltip> */}
                   <Cart />
-                  {/* </Tooltip> */}
                 </div>
               </CartProvider>
             </div>
