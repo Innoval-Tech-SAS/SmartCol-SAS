@@ -49,7 +49,7 @@ const Description: React.FC = () => {
 
       <div className="my-6">
         <div className="text-center pb-10">
-          <h2 className={titleStyle}>¿Porque Elegir SmartCol S.A.S.?</h2>
+          <h2 className={titleStyle}>¿Por qué Elegir SmartCol S.A.S.?</h2>
         </div>
 
         <div className=" flex flex-col sm:flex-row items-center justify-center gap-32">

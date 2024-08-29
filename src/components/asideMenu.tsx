@@ -15,6 +15,11 @@ const AsideMenu: React.FC<AsideMenuProps> = ({
 
   return (
     <aside className={asideStyles} id="aside-element">
+      <div className="text-center">
+        <h2 className="text-primary text-md my-1 font-semibold">
+          Filtrar por Categoría
+        </h2>
+      </div>
       <Accordion variant="light">
         {asideItems?.map((item, index) => (
           <AccordionItem key={index} title={item.title}>

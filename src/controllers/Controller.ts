@@ -63,4 +63,6 @@ class Controller {
   };
 }
 
-export default Controller;
+const controller = new Controller();
+
+export default controller;

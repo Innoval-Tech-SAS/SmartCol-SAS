@@ -11,6 +11,8 @@ import {
   useDisclosure,
 } from "@nextui-org/react";
 
+import sendCartToServer from "@/services/sendCartToServer";
+
 import { Product } from "@/interfaces/Product";
 import { useCartContext } from "@/context/cartContext";
 
@@ -20,12 +22,19 @@ interface CartProps {
 
 const Cart: React.FC<CartProps> = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
-  const { cart, deleteToCart, updateProductQuantity } = useCartContext();
+  let { cart } = useCartContext();
+  const { deleteToCart, updateProductQuantity, deleteAllToCart } =
+    useCartContext();
 
   const itemCount = cart.reduce(
     (total, product) => total + product.quantity,
-    0,
+    0
   );
+
+  const handleSendCart = () => {
+    sendCartToServer(cart);
+    deleteAllToCart();
+  };
 
   const handleQuantityChange = (index: number, newQuantity: number) => {
     const updatedCart = [...cart];
@@ -88,7 +97,7 @@ const Cart: React.FC<CartProps> = () => {
                               onChange={(e) =>
                                 handleQuantityChange(
                                   index,
-                                  Number(e.target.value),
+                                  Number(e.target.value)
                                 )
                               }
                             />
@@ -116,6 +125,7 @@ const Cart: React.FC<CartProps> = () => {
                 <Button
                   className="text-white font-bold bg-primary/80 text-center"
                   onPress={onClose}
+                  onClick={handleSendCart}
                 >
                   Enviar
                 </Button>

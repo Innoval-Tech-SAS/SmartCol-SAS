@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import Banner from "../components/banner";
-import Controller from "../controllers/Controller";
+import controller from "../controllers/Controller";
 import AsideMenu from "@/components/asideMenu";
 import DefaultLayout from "@/layouts/default";
 import { AsideMenuProps } from "@/interfaces/ItemsMenu";
@@ -30,7 +30,6 @@ const ProductsPage: React.FC = () => {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const controller = new Controller();
       const data: Product[] = await controller.getAll(
         "http://localhost:8080/products"
       );
