@@ -13,10 +13,12 @@ const sendCartToServer = async (cart: Product[]) => {
     if (response) {
       Swal.fire({
         title: response.message,
-        text: "Un comercial se pondrá en contacto contigo",
+        text: "Te contactaremos pronto para finalizar la compra.",
         icon: "success",
         confirmButtonText: "Aceptar",
-        confirmButtonColor: "#00A7AF",
+        customClass: {
+          confirmButton: "bg-primary font-semibold",
+        },
       });
     }
   } catch (error) {
