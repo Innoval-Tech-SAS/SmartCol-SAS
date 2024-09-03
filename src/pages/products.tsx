@@ -26,7 +26,7 @@ const ProductsPage: React.FC = () => {
   useEffect(() => {
     setPageTitle("SmartCol S.A.S. - Productos");
     document.title = pageTitle;
-  }, [setPageTitle, pageTitle]);
+  }, [pageTitle]);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -35,26 +35,28 @@ const ProductsPage: React.FC = () => {
       );
 
       setProducts(data);
-      setFilteredProducts(data); // Initialize filtered products with all products
+      setFilteredProducts(data);
       const transformedMenuItems = transformDataToMenu(data);
 
       setMenuItems(transformedMenuItems);
     };
 
     fetchProducts();
-  }, [setProducts]);
+  }, []);
 
   useEffect(() => {
-    let newFilteredProducts = products;
+    let newFilteredProducts = [...products]; // Clonar los productos originales para no mutar el estado
 
+    // Filtrar por categoría si se selecciona una
     if (selectedCategory) {
       newFilteredProducts = newFilteredProducts.filter(
         (product) => product.category === selectedCategory
       );
     }
 
+    // Filtrar por subcategoría, independientemente de la categoría seleccionada
     if (selectedSubcategory) {
-      newFilteredProducts = newFilteredProducts.filter(
+      newFilteredProducts = products.filter(
         (product) => product.subcategory === selectedSubcategory
       );
     }

@@ -1,20 +1,8 @@
 import React from "react";
 import { FaWhatsapp } from "react-icons/fa";
-
-import { whatsAppQueue } from "@/services/Queue";
+import { whatsAppQueue } from "@/services/whatsappQueue";
 
 const WhatsAppIcon: React.FC = () => {
-  const whatsappNumbers = [
-    "3504227733",
-    "3160179783",
-    "3164568409",
-    "3504227737",
-  ];
-
-  whatsappNumbers.forEach((number) => {
-    whatsAppQueue.enqueue(number);
-  });
-
   const handleClick = () => {
     const currentNumber: string | undefined = whatsAppQueue.dequeue() as string;
     const url = `https://wa.me/57${currentNumber}?text=Hola,%20estoy%20interesado%20en%20sus%20productos.`;

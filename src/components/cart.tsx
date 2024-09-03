@@ -10,6 +10,7 @@ import {
   Button,
   useDisclosure,
 } from "@nextui-org/react";
+import Swal from "sweetalert2";
 
 import sendCartToServer from "@/services/sendCartToServer";
 
@@ -31,9 +32,27 @@ const Cart: React.FC<CartProps> = () => {
     0
   );
 
-  const handleSendCart = () => {
-    sendCartToServer(cart);
-    deleteAllToCart();
+  const handleSendCart = async () => {
+    if (cart.length === 0) {
+      return;
+    }
+
+    const response = await sendCartToServer(cart);
+
+    response.message = "Cotización enviada con éxito";
+
+    if (response) {
+      Swal.fire({
+        title: response.message,
+        text: "Te contactaremos pronto para finalizar la compra.",
+        icon: "success",
+        confirmButtonText: "Aceptar",
+        customClass: {
+          confirmButton: "bg-primary font-semibold",
+        },
+      });
+      deleteAllToCart();
+    }
   };
 
   const handleQuantityChange = (index: number, newQuantity: number) => {

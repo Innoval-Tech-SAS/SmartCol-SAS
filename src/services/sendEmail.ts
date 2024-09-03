@@ -1,19 +1,52 @@
-import { emailQueue } from "@/services/Queue";
+import { emailQueue } from "@/services/emailQueue";
+import { Product } from "@/interfaces/Product";
+import { ClientData } from "@/interfaces/ClientData";
+import controller from "@/controllers/Controller";
 
-const ComercialContact = () => {
-  const emails = ["ventas1", "ventas", "ventas3", "ventas4"];
+let quotesCount: number = 0;
 
-  emails.forEach((email) => {
-    emailQueue.enqueue(email);
-  });
+const sendEmail = (cart: Product[], clientData: ClientData) => {
+  const emailBody = createEmailBody(cart, clientData);
 
-  // const handleClick = () => {
-  //   const currentEmail: string | undefined = emailQueue.dequeue() as string;
-  //   const url = `mailto:${currentEmail}`;
+  console.log(emailBody);
 
-  //   window.open(url, "_blank");
-  //   emailQueue.enqueue(currentEmail);
-  // };
+  const currentEmail: string | undefined = emailQueue.dequeue() as string;
+  if (currentEmail) {
+    quotesCount += 1;
+    const emailData = {
+      to: currentEmail,
+      subject: `Cotización N° ${quotesCount} desde Pag Web`,
+      text: emailBody,
+    };
+    emailQueue.enqueue(currentEmail);
+
+    return controller.create("http://localhost:8080/email", emailData);
+  } else {
+    console.error("No email available in the queue.");
+  }
 };
 
-export default ComercialContact;
+const createEmailBody = (cart: Product[], clientData: object) => {
+  const emailBody = `
+
+    Datos del Cliente:
+    
+    Nombre: ${clientData["name"]}
+    Email: ${clientData["email"]}
+    Teléfono: ${clientData["phone"]}
+    Ciudad: ${clientData["selectedCapital"]}
+
+    Productos:
+    ${cart
+      .map((product) => {
+        return `
+        Nombre: ${product.name},
+        Cantidad: ${product.quantity}
+      `;
+      })
+      .join("")}
+  `;
+  return emailBody;
+};
+
+export default sendEmail;
