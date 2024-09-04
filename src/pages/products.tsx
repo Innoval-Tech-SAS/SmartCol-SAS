@@ -32,7 +32,7 @@ const ProductsPage: React.FC = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       const data: Product[] = await controller.getAll(
-        "https://77.37.74.3:8080/api/products"
+        "https://localhost:8080/api/products"
       );
 
       setProducts(data);
