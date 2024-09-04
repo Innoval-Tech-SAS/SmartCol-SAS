@@ -14,7 +14,7 @@ const PostCard: React.FC<PostCardProps> = (
     // description,
     // imageCover,
     // imagesUrls,
-  }
+  },
 ) => {
   return (
     <div>
