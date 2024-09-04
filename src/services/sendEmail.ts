@@ -18,6 +18,7 @@ const sendEmail = async (cart: Product[], clientData: ClientData) => {
     };
 
     emailQueue.enqueue(currentEmail);
+
     return await controller.create("http://localhost:8080/email", emailData);
   } else {
     console.error("No email available in the queue.");
@@ -44,6 +45,7 @@ const createEmailBody = (cart: Product[], clientData: ClientData) => {
       })
       .join("")}
   `;
+
   return emailBody;
 };
 

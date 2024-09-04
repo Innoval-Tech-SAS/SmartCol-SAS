@@ -24,7 +24,7 @@ function CartProvider({ children }: CartProviderProps): React.ReactElement {
       ? cart.map((item) =>
           item.name === product.name
             ? { ...item, quantity: item.quantity + 1 }
-            : item
+            : item,
         )
       : [...cart, product];
 
@@ -43,7 +43,7 @@ function CartProvider({ children }: CartProviderProps): React.ReactElement {
 
   const updateProductQuantity = (index: number, quantity: number) => {
     const updatedCart = cart.map((item, i) =>
-      i === index ? { ...item, quantity } : item
+      i === index ? { ...item, quantity } : item,
     );
 
     setCart(updatedCart);

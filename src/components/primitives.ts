@@ -1,7 +1,5 @@
 import { tv } from "tailwind-variants";
 
-import { AsideMenuProps } from "@/interfaces/ItemsMenu";
-
 export const title = tv({
   base: "tracking-tight inline font-semibold",
   variants: {
@@ -53,38 +51,3 @@ export const subtitle = tv({
     fullWidth: true,
   },
 });
-
-export const exampleAsideMenuProps: AsideMenuProps = {
-  asideItems: [
-    {
-      title: "Granos",
-      subtitle: "Materias primas a base de granos",
-
-      content: ["Arroz", "Trigo", "Maíz", "Cebada"],
-    },
-    {
-      title: "Frutas",
-      subtitle: "Variedades de frutas frescas",
-
-      content: ["Manzanas", "Naranjas", "Bananas", "Fresas"],
-    },
-    {
-      title: "Verduras",
-      subtitle: "Opciones de verduras y hortalizas",
-
-      content: ["Zanahorias", "Tomates", "Brócoli", "Lechuga"],
-    },
-    {
-      title: "Lácteos",
-      subtitle: "Productos derivados de la leche",
-
-      content: ["Leche", "Queso", "Yogur", "Mantequilla"],
-    },
-    {
-      title: "Carnes",
-      subtitle: "Tipos de carne y sus cortes",
-
-      content: ["Pollo", "Res", "Cerdo", "Cordero"],
-    },
-  ],
-};

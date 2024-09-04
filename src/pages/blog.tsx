@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 import "../styles/blog.css";
 import Banner from "../components/banner";
+
 import DefaultLayout from "@/layouts/default";
 import PostCard from "@/components/post";
 
@@ -27,7 +28,7 @@ export default function BlogPage() {
 
       <section className="container mx-auto my-10">
         <div className="timeline">
-          <div className="timeline-line"></div>
+          <div className="timeline-line" />
           <div className="timeline-item">
             <PostCard />
           </div>

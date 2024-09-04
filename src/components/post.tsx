@@ -1,17 +1,5 @@
 import React from "react";
-import {
-  Card,
-  CardFooter,
-  CardHeader,
-  Image,
-  Button,
-  Modal,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  useDisclosure,
-} from "@nextui-org/react";
+import { Card, CardFooter, CardHeader, Image, Button } from "@nextui-org/react";
 
 interface PostCardProps {
   title?: string;
@@ -20,12 +8,14 @@ interface PostCardProps {
   imagesUrls?: string[];
 }
 
-const PostCard: React.FC<PostCardProps> = ({
-  title,
-  description,
-  imageCover,
-  imagesUrls,
-}) => {
+const PostCard: React.FC<PostCardProps> = (
+  {
+    // title,
+    // description,
+    // imageCover,
+    // imagesUrls,
+  }
+) => {
   return (
     <div>
       <Card isFooterBlurred className="h-[300px] col-span-12 sm:col-span-7">

@@ -13,7 +13,6 @@ import {
 import Swal from "sweetalert2";
 
 import sendCartToServer from "@/services/sendCartToServer";
-
 import { Product } from "@/interfaces/Product";
 import { useCartContext } from "@/context/cartContext";
 
@@ -29,7 +28,7 @@ const Cart: React.FC<CartProps> = () => {
 
   const itemCount = cart.reduce(
     (total, product) => total + product.quantity,
-    0
+    0,
   );
 
   const handleSendCart = async () => {
@@ -116,7 +115,7 @@ const Cart: React.FC<CartProps> = () => {
                               onChange={(e) =>
                                 handleQuantityChange(
                                   index,
-                                  Number(e.target.value)
+                                  Number(e.target.value),
                                 )
                               }
                             />
@@ -143,8 +142,8 @@ const Cart: React.FC<CartProps> = () => {
                 </Button>
                 <Button
                   className="text-white font-bold bg-primary/80 text-center"
-                  onPress={onClose}
                   onClick={handleSendCart}
+                  onPress={onClose}
                 >
                   Enviar
                 </Button>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import Banner from "../components/banner";
 import controller from "../controllers/Controller";
+
 import AsideMenu from "@/components/asideMenu";
 import DefaultLayout from "@/layouts/default";
 import { AsideMenuProps } from "@/interfaces/ItemsMenu";
@@ -17,7 +18,7 @@ const ProductsPage: React.FC = () => {
   const [menuItems, setMenuItems] = useState<AsideMenuProps["asideItems"]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedSubcategory, setSelectedSubcategory] = useState<string | null>(
-    null
+    null,
   );
 
   const bannerTitle = "SMARTCOL S.A.S.";
@@ -31,7 +32,7 @@ const ProductsPage: React.FC = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       const data: Product[] = await controller.getAll(
-        "http://localhost:8080/products"
+        "http://localhost:8080/products",
       );
 
       setProducts(data);
@@ -50,14 +51,14 @@ const ProductsPage: React.FC = () => {
     // Filtrar por categoría si se selecciona una
     if (selectedCategory) {
       newFilteredProducts = newFilteredProducts.filter(
-        (product) => product.category === selectedCategory
+        (product) => product.category === selectedCategory,
       );
     }
 
     // Filtrar por subcategoría, independientemente de la categoría seleccionada
     if (selectedSubcategory) {
       newFilteredProducts = products.filter(
-        (product) => product.subcategory === selectedSubcategory
+        (product) => product.subcategory === selectedSubcategory,
       );
     }
 
@@ -125,7 +126,7 @@ const ProductsPage: React.FC = () => {
                         subcategory={product.subcategory}
                         um={product.um}
                       />
-                    )
+                    ),
                 )}
                 <div
                   className="fixed bottom-36 right-12 z-50"

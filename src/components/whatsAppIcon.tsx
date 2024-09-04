@@ -1,5 +1,6 @@
 import React from "react";
 import { FaWhatsapp } from "react-icons/fa";
+
 import { whatsAppQueue } from "@/services/whatsappQueue";
 
 const WhatsAppIcon: React.FC = () => {

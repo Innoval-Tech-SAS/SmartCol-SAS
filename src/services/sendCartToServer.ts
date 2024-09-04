@@ -1,8 +1,8 @@
-import { Product } from "@/interfaces/Product";
-import controller from "@/controllers/Controller";
-
 import { getClientData } from "./getClientData";
 import sendEmail from "./sendEmail";
+
+import { Product } from "@/interfaces/Product";
+import controller from "@/controllers/Controller";
 
 const sendCartToServer = async (cart: Product[]) => {
   const clientData = await getClientData();
@@ -17,7 +17,7 @@ const sendCartToServer = async (cart: Product[]) => {
     try {
       const response = await controller.create(
         "http://localhost:8080/cart",
-        data
+        data,
       );
 
       return response;
