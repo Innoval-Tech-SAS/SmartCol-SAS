@@ -12,7 +12,7 @@ interface FormData {
 }
 
 export const sendPQRSData = async (formData: FormData) => {
-  const url = "http://localhost:5000/PQRData";
+  const url = "http://localhost:8080/pqrs";
 
   const response = await controller.create(url, formData);
 

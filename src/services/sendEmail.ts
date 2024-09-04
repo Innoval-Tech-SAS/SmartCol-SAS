@@ -5,12 +5,10 @@ import controller from "@/controllers/Controller";
 
 let quotesCount: number = 0;
 
-const sendEmail = (cart: Product[], clientData: ClientData) => {
-  const emailBody = createEmailBody(cart, clientData);
-
-  console.log(emailBody);
-
+const sendEmail = async (cart: Product[], clientData: ClientData) => {
+  const emailBody: string = createEmailBody(cart, clientData);
   const currentEmail: string | undefined = emailQueue.dequeue() as string;
+
   if (currentEmail) {
     quotesCount += 1;
     const emailData = {
@@ -18,23 +16,23 @@ const sendEmail = (cart: Product[], clientData: ClientData) => {
       subject: `Cotización N° ${quotesCount} desde Pag Web`,
       text: emailBody,
     };
-    emailQueue.enqueue(currentEmail);
 
-    return controller.create("http://localhost:8080/email", emailData);
+    emailQueue.enqueue(currentEmail);
+    return await controller.create("http://localhost:8080/email", emailData);
   } else {
     console.error("No email available in the queue.");
   }
 };
 
-const createEmailBody = (cart: Product[], clientData: object) => {
+const createEmailBody = (cart: Product[], clientData: ClientData) => {
   const emailBody = `
 
     Datos del Cliente:
     
-    Nombre: ${clientData["name"]}
-    Email: ${clientData["email"]}
-    Teléfono: ${clientData["phone"]}
-    Ciudad: ${clientData["selectedCapital"]}
+    Nombre: ${clientData.name}
+    Email: ${clientData.email}
+    Teléfono: ${clientData.phone}
+    Ciudad: ${clientData.selectedCapital}
 
     Productos:
     ${cart

@@ -11,7 +11,7 @@ interface FormData {
 }
 
 export const sendContactData = async (formData: FormData) => {
-  const url = "http://localhost:5000/ContactData";
+  const url = "http://localhost:8080/contact";
 
   const response = await controller.create(url, formData);
 
