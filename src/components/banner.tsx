@@ -39,7 +39,8 @@ const Banner: React.FC<BannerProps> = ({
   return (
     <div
       className="w-full flex flex-col items-center justify-center bg-cover  bg-center bg-no-repeat h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px] xl:h-[450px]"
-      style={{ backgroundImage: `url(${bannerRoute})` }}>
+      style={{ backgroundImage: `url(${bannerRoute})` }}
+    >
       <div className="rounded-xl py-1 px-6 text-center mb-4 lg:mb-0">
         <h1 className={` ${title()} text-white`}>{bannerTitle}</h1>
       </div>

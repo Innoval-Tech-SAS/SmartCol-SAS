@@ -1,5 +1,6 @@
-import Controller from "@/controllers/Controller";
 import Swal from "sweetalert2";
+
+import controller from "@/controllers/Controller";
 
 interface FormData {
   nombre: string;
@@ -11,9 +12,10 @@ interface FormData {
 }
 
 export const sendPQRSData = async (formData: FormData) => {
-  const url = "http://localhost:5000/PQRData";
-  const controller = new Controller();
+  const url = "http://localhost:8080/pqrs";
+
   const response = await controller.create(url, formData);
+
   console.log(response);
   showPQRSResponse(response);
 };
@@ -27,8 +29,7 @@ const showPQRSResponse = (response: any) => {
       icon: "success",
       confirmButtonText: "Aceptar",
       customClass: {
-        confirmButton:
-          "text-primary p-3 font-semibold border border-primary bg-background rounded-3xl",
+        confirmButton: "bg-primary font-semibold",
       },
     });
   } else {

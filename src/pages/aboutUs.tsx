@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 
-import DefaultLayout from "@/layouts/default";
 import Banner from "../components/banner";
+
+import DefaultLayout from "@/layouts/default";
 import Description from "@/components/aboutUs";
 import BussinesValues from "@/components/bussinesValues";
 

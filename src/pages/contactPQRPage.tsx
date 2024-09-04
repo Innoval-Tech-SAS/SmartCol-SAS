@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 
-import DefaultLayout from "@/layouts/default";
 import Banner from "../components/banner";
+
+import DefaultLayout from "@/layouts/default";
 import PQRForm from "@/components/pqrForm";
 
 export default function ContactPQR() {

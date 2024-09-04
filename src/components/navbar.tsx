@@ -11,6 +11,7 @@ import {
   NavbarMenu,
   NavbarMenuItem,
 } from "@nextui-org/navbar";
+import { Image } from "@nextui-org/react";
 import {
   Dropdown,
   DropdownTrigger,
@@ -20,6 +21,7 @@ import {
 import { Button } from "@nextui-org/button";
 import { link as linkStyles } from "@nextui-org/theme";
 import clsx from "clsx";
+
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
 import { SearchIcon } from "@/components/icons";
@@ -30,7 +32,7 @@ export const Navbar: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsSticky(window.scrollY > 0);
+      setIsSticky(window.scrollY > 10);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -64,17 +66,20 @@ export const Navbar: React.FC = () => {
     <NextUINavbar
       className={clsx(
         "border-t-2 border-t-primary z-50",
-        isSticky ? "fixed top-0 left-0 right-0" : "relative"
+        isSticky ? "fixed top-0 left-0 right-0" : "relative",
       )}
-      maxWidth="2xl">
+      maxWidth="2xl"
+    >
       <NavbarContent className="basis-2/5 sm:basis-full">
         {isSticky && (
           <NavbarBrand className="gap-3 max-w-fit">
             <NextUILink
+              aria-label="Home"
               className="flex justify-start items-center gap-1"
               color="primary"
-              href="/">
-              <img alt="Logo" className="h-8" src="/img/logo.png" />
+              href="/"
+            >
+              <Image alt="Logo" className="h-8" src="/img/logo.png" />
             </NextUILink>
           </NavbarBrand>
         )}
@@ -85,34 +90,31 @@ export const Navbar: React.FC = () => {
                 <Dropdown className="bg-background/90">
                   <DropdownTrigger>
                     <Button
-                      variant="light"
+                      aria-label={item.label}
                       className={clsx(
                         "text-primary font-bold",
-                        isActive(item.href) && "bg-primary/10"
+                        isActive(item.href) && "bg-primary/10",
                       )}
-                      color="primary">
+                      color="primary"
+                      variant="light"
+                    >
                       {item.label}
                     </Button>
                   </DropdownTrigger>
                   <DropdownMenu aria-label="Contact Menu">
-                    <DropdownItem key="comercial">
+                    <DropdownItem key="contact" textValue="Contact">
                       <a
-                        href="/contacto-comercial"
-                        className="block font-bold text-primary px-4 py-2">
-                        Contacta un Comercial
-                      </a>
-                    </DropdownItem>
-                    <DropdownItem key="contact">
-                      <a
+                        className="block font-bold text-primary px-4 py-2"
                         href="/contact"
-                        className="block font-bold text-primary px-4 py-2">
+                      >
                         Contacto
                       </a>
                     </DropdownItem>
-                    <DropdownItem key="pqr">
+                    <DropdownItem key="pqr" textValue="PQRS">
                       <a
+                        className="block font-bold text-primary px-4 py-2"
                         href="/contact/pqr"
-                        className="block font-bold text-primary px-4 py-2">
+                      >
                         PQRS
                       </a>
                     </DropdownItem>
@@ -122,31 +124,36 @@ export const Navbar: React.FC = () => {
             ) : (
               <NavbarItem key={item.href}>
                 <NextUILink
+                  aria-label={item.label}
                   className={clsx(
                     linkStyles({ color: "primary" }),
-                    isActive(item.href) && "text-primary font-medium"
+                    isActive(item.href) && "text-primary font-medium",
                   )}
                   color="primary"
-                  href={item.href}>
+                  href={item.href}
+                >
                   <Button
-                    variant="light"
+                    aria-label={item.label}
                     className={clsx(
                       "text-primary font-bold",
-                      isActive(item.href) && "bg-primary/10"
+                      isActive(item.href) && "bg-primary/10",
                     )}
-                    color="primary">
+                    color="primary"
+                    variant="light"
+                  >
                     {item.label}
                   </Button>
                 </NextUILink>
               </NavbarItem>
-            )
+            ),
           )}
         </div>
       </NavbarContent>
 
       <NavbarContent
         className="hidden md:flex basis-1/5 sm:basis-full"
-        justify="end">
+        justify="end"
+      >
         <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
         <NavbarItem className="hidden md:flex gap-2">
           <ThemeSwitch />

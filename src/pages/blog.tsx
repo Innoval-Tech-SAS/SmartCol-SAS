@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 
-import DefaultLayout from "@/layouts/default";
+import "../styles/blog.css";
 import Banner from "../components/banner";
+import DefaultLayout from "@/layouts/default";
+import PostCard from "@/components/post";
 
 export default function BlogPage() {
   const [pageTitle, setPageTitle] = useState("");
@@ -24,12 +26,22 @@ export default function BlogPage() {
       </section>
 
       <section className="container mx-auto my-10">
-        <div className="flex">
-          <aside className="w-3/9">
-            <p>Post</p>
-          </aside>
-          <div className="w-6/9">
-            <p></p>
+        <div className="timeline">
+          <div className="timeline-line"></div>
+          <div className="timeline-item">
+            <PostCard />
+          </div>
+          <div className="timeline-item">
+            <PostCard />
+          </div>
+          <div className="timeline-item">
+            <PostCard />
+          </div>
+          <div className="timeline-item">
+            <PostCard />
+          </div>
+          <div className="timeline-item">
+            <PostCard />
           </div>
         </div>
       </section>

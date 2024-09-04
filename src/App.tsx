@@ -1,11 +1,12 @@
 import { Route, Routes } from "react-router-dom";
 
+import ContactPage from "./pages/contactFormPage";
+
 import IndexPage from "@/pages/index";
 import AboutUsPage from "@/pages/aboutUs";
 import ProductsPage from "@/pages/products";
 import ContactPQR from "@/pages/contactPQRPage";
 import BlogPage from "@/pages/blog";
-import ContactPage from "./pages/contactFormPage";
 
 function App() {
   return (

@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import Form from "./Form";
 import { Input, Textarea } from "@nextui-org/input";
 import { Select, SelectItem } from "@nextui-org/react";
+
+import Form from "./Form";
+
 import { capitalesColombia } from "@/config/site";
 import { validateEmail, validateName } from "@/services/validators";
 import { sendContactData } from "@/services/sendContactData";
@@ -26,9 +28,10 @@ const ContactForm: React.FC = () => {
   });
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
+
     setFormData({
       ...formData,
       [name]: value,
@@ -79,12 +82,12 @@ const ContactForm: React.FC = () => {
       <Form onSubmit={handleSubmit}>
         <Select
           color="primary"
-          label="Selecciona una ciudad"
-          variant="underlined"
-          value={ciudad}
-          onChange={handleCiudadChange}
-          isInvalid={errors.ciudad !== ""}
           errorMessage={errors.ciudad}
+          isInvalid={errors.ciudad !== ""}
+          label="Selecciona una ciudad"
+          value={ciudad}
+          variant="underlined"
+          onChange={handleCiudadChange}
         >
           {capitalesColombia.map((capital, index) => (
             <SelectItem
@@ -100,55 +103,55 @@ const ContactForm: React.FC = () => {
         <div className={`flex flex-col gap-4`}>
           <div className="flex flex-col gap-4 sm:flex-row sm:gap-8">
             <Input
-              variant="underlined"
-              type="text"
+              className="flex-1"
+              color="primary"
+              errorMessage={errors.nombre}
+              isInvalid={errors.nombre !== ""}
               label="Nombre Completo"
               name="nombre"
+              type="text"
               value={formData.nombre}
+              variant="underlined"
               onChange={handleInputChange}
-              color="primary"
-              className="flex-1"
-              isInvalid={errors.nombre !== ""}
-              errorMessage={errors.nombre}
             />
           </div>
           <div className="flex flex-col gap-4 sm:flex-row sm:gap-8">
             <Input
-              variant="underlined"
-              type="email"
+              className="flex-1"
+              color="primary"
+              errorMessage={errors.email}
+              isInvalid={errors.email !== ""}
               label="Email"
               name="email"
+              type="email"
               value={formData.email}
+              variant="underlined"
               onChange={handleInputChange}
-              color="primary"
-              className="flex-1"
-              isInvalid={errors.email !== ""}
-              errorMessage={errors.email}
             />
             <Input
-              variant="underlined"
-              type="text"
+              className="flex-1"
+              color="primary"
+              errorMessage={errors.telefono}
+              isInvalid={errors.telefono !== ""}
               label="Número Telefónico"
               name="telefono"
+              type="text"
               value={formData.telefono}
+              variant="underlined"
               onChange={handleInputChange}
-              color="primary"
-              className="flex-1"
-              isInvalid={errors.telefono !== ""}
-              errorMessage={errors.telefono}
             />
           </div>
         </div>
 
         <Textarea
           color="primary"
+          errorMessage={errors.comentarios}
+          isInvalid={errors.comentarios !== ""}
           label="Déjanos tus comentarios"
           name="comentarios"
           value={formData.comentarios}
-          onChange={handleInputChange}
           variant="underlined"
-          isInvalid={errors.comentarios !== ""}
-          errorMessage={errors.comentarios}
+          onChange={handleInputChange}
         />
       </Form>
     </div>

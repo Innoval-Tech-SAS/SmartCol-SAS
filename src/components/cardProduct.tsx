@@ -1,85 +1,126 @@
-import React, { useState, useEffect } from "react";
-import {
-  Card,
-  CardProps,
-  CardHeader,
-  CardBody,
-  CardFooter,
-} from "@nextui-org/card";
-import { Button } from "@nextui-org/button";
+import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/card";
 import { Tooltip } from "@nextui-org/react";
-
+import { Code } from "@nextui-org/react";
+import { Image } from "@nextui-org/react";
 import { IoIosAddCircleOutline } from "react-icons/io";
-import { BsCart } from "react-icons/bs";
+import { MdAddShoppingCart } from "react-icons/md";
 import { VscGraph } from "react-icons/vsc";
 
-const CardProduct: React.FC<CardProps> = () => {
-  const [color, SetColor] = useState("");
+import { Product } from "@/interfaces/Product";
+import { useCartContext } from "@/context/cartContext";
 
-  useEffect(() => {}, []);
+const CardProduct: React.FC<Product> = ({
+  id,
+  name,
+  imgname,
+  um,
+  presentation,
+  category,
+  subcategory,
+  description,
+}) => {
+  const [firstPart, secondPart] = splitText(name);
+  const ImageSrc = `/img/products/${imgname}.png`;
+
+  function splitText(text: string): [string, string] {
+    text = text.trim();
+    const words = text.split(" ");
+    const mid = Math.ceil(words.length / 2);
+
+    return [words.slice(0, mid).join(" "), words.slice(mid).join(" ")];
+  }
+
+  const { addToCart } = useCartContext();
+  const handleCartClick = (product: Product) => {
+    addToCart(product);
+  };
+
   return (
-    <Card className="px-6 py-1 bg-black/20 dark:bg-white/10 shadow-lg rounded-3xl">
-      <CardHeader className="flex flex-col pb-0">
+    <Card className="bg-black/20 dark:bg-white/5 shadow-lg rounded-3xl">
+      <CardHeader className="flex flex-col text-center">
         <p
-          className="text-white text-3xl font-semibold"
-          style={{ WebkitTextStroke: "1px black" }}>
-          DEXTROSA
+          className="text-white md:text-lg sm:font-bold"
+          style={{ WebkitTextStroke: "0.7px black" }}
+        >
+          {firstPart.toUpperCase()}
         </p>
         <span
-          className="text-primary text-3xl font-semibold"
-          style={{ WebkitTextStroke: "1px black" }}>
-          ANHIDRA
+          className="text-primary md:text-lg sm:font-bold"
+          style={{ WebkitTextStroke: "0.7px black" }}
+        >
+          {`${secondPart.toUpperCase()} - ${presentation}`}
         </span>
       </CardHeader>
-      <CardBody className="flex justify-center py-0">
-        <img
-          src="/img/products/dextrosa-anhidra.png"
-          alt="Dextrosa Anhidra"
-          className="w-auto h-72 object-contain"
+      <CardBody className="flex justify-center items-center py-0">
+        <Image
+          alt={`${name} - ${um} - ${presentation}`.toLowerCase()}
+          className="w-auto max-h-48 object-contain"
+          src={ImageSrc}
         />
+        {/* <span className="text-sm text-primary">
+          {um} - {presentation}
+        </span> */}
       </CardBody>
-      <CardFooter className="flex justify-center py-1 pb-3 gap-1">
+      <CardFooter className="flex justify-center pt-0 pb-3 gap-2 lg:gap-6 md:mt-5">
         <Tooltip
           className="text-white font-bold bg-primary/50"
           color="primary"
-          content="Agregar al Carrito"
-          size="sm">
-          <Button
-            className=""
-            size="sm"
+          content="Agregar a Cotización"
+          size="sm"
+        >
+          <Code
+            className="p-2 hover:cursor-pointer"
             color="primary"
             radius="full"
-            variant="flat">
-            <BsCart size={24} />
-          </Button>
+            size="lg"
+            onClick={() =>
+              handleCartClick({
+                id,
+                name,
+                imgname,
+                um,
+                presentation,
+                category,
+                subcategory,
+                description,
+                quantity: 1,
+              })
+            }
+          >
+            <MdAddShoppingCart size={25} />
+          </Code>
         </Tooltip>
         <Tooltip
           className="text-white font-bold bg-primary/50"
           color="primary"
           content="Ficha Técnica"
-          size="sm">
-          <Button
-            className="font-semibold"
-            size="sm"
-            variant="flat"
+          size="sm"
+        >
+          <Code
+            className="p-2 hover:cursor-pointer"
+            radius="full"
+            size="lg"
+            // variant="flat"
             color="primary"
-            radius="full">
-            <VscGraph size={24} />
-          </Button>
+          >
+            <VscGraph size={25} />
+          </Code>
         </Tooltip>
         <Tooltip
           className="text-white font-bold bg-primary/50"
           color="primary"
           content="Ver más"
-          size="sm">
-          <Button
-            className=""
-            size="sm"
+          size="sm"
+        >
+          <Code
+            className="p-2 hover:cursor-pointer"
             color="primary"
+            size="lg"
             radius="full"
-            variant="flat">
-            <IoIosAddCircleOutline size={24} />
-          </Button>
+            // variant="flat"
+          >
+            <IoIosAddCircleOutline size={25} />
+          </Code>
         </Tooltip>
       </CardFooter>
     </Card>

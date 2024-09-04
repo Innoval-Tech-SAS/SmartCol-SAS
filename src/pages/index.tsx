@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 
-import DefaultLayout from "@/layouts/default";
 import Banner from "../components/banner";
+
+import DefaultLayout from "@/layouts/default";
 import Catalogue from "@/components/catalogue";
 import Categorys from "@/components/category";
 import FrequentlyQuestions from "@/components/frequentlyQuestions";

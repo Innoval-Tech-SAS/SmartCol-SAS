@@ -1,5 +1,6 @@
-import Controller from "@/controllers/Controller";
 import Swal from "sweetalert2";
+
+import controller from "@/controllers/Controller";
 
 interface FormData {
   ciudad: string;
@@ -10,9 +11,10 @@ interface FormData {
 }
 
 export const sendContactData = async (formData: FormData) => {
-  const url = "http://localhost:5000/ContactData";
-  const controller = new Controller();
+  const url = "http://localhost:8080/contact";
+
   const response = await controller.create(url, formData);
+
   console.log(response);
   showContactResponse(response);
 };
@@ -25,8 +27,7 @@ const showContactResponse = (response: any) => {
       icon: "success",
       confirmButtonText: "Aceptar",
       customClass: {
-        confirmButton:
-          "text-primary p-3 font-semibold border border-primary bg-background rounded-3xl",
+        confirmButton: "bg-primary font-semibold",
       },
     });
   } else {

@@ -10,9 +10,11 @@ class Controller {
         },
         body: JSON.stringify(data),
       });
+
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
+
       return await response.json();
     } catch (error) {
       console.error("There was a problem with the fetch operation:", error);
@@ -28,9 +30,11 @@ class Controller {
           "Content-Type": "application/json",
         },
       });
+
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
+
       return await response.json();
     } catch (error) {
       console.error("There was a problem with the fetch operation:", error);
@@ -46,9 +50,11 @@ class Controller {
           "Content-Type": "application/json",
         },
       });
+
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
+
       return await response.json();
     } catch (error) {
       console.error("There was a problem with the fetch operation:", error);
@@ -57,4 +63,6 @@ class Controller {
   };
 }
 
-export default Controller;
+const controller = new Controller();
+
+export default controller;

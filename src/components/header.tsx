@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React, { useState, useEffect } from "react";
 import clsx from "clsx";
+import { Image } from "@nextui-org/react";
 
 interface HeaderProps {
   bannerFileName: string;
@@ -38,9 +39,9 @@ const Header: React.FC<HeaderProps> = () => {
 
   return (
     <div className={logoContainerClassNames}>
-      <img
+      <Image
         alt="Logo SmartCol SAS"
-        className="max-h-24 mt-4"
+        className="max-h-36 mt-2"
         src="/img/logo.png"
       />
       <h3 className="text-lg font-semibold foreground">

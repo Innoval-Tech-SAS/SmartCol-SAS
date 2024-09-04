@@ -1,18 +1,22 @@
 import React from "react";
+import { Image } from "@nextui-org/react";
+
 import IconButton from "./iconButton";
 import Mision from "./mision";
 import Vision from "./vision";
 
 const Description: React.FC = () => {
-  const titleStyle: string = "text-center ${} text-3xl font-bold text-primary py-4";
+  const titleStyle: string = "text-center text-3xl font-bold text-primary py-4";
   const textStyle: string =
     "text-xl font-semibold text-justify text-indent py-2 px-10";
 
   return (
     <div className="container mx-auto my-8 px-4">
       <div className="flex flex-col sm:flex-row-reverse">
-        <div className="sm:w-full px-4 sm:px-10">
+        <div className="sm:w-full px-4 sm:px-10 flex flex-col items-center">
           <h2 className={titleStyle}>¿Quienes Somos?</h2>
+
+          <Image className="max-h-40" src="/img/logo.png" />
 
           <p className={textStyle}>
             Somos una empresa familiar con una vasta y sólida experiencia en la
@@ -38,47 +42,47 @@ const Description: React.FC = () => {
         </div>
       </div>
 
-      <div className="flex flex-col sm:flex-row justify-around items-center my-10 gap-20">
+      <div className="flex flex-col sm:flex-row justify-around items-center my-5 gap-10">
         <Mision iconName="mision.png" textStyle={textStyle} />
         <Vision iconName="vision.png" textStyle={textStyle} />
       </div>
 
       <div className="my-6">
         <div className="text-center pb-10">
-          <h2 className={titleStyle}>¿Porque Elegir SmartCol S.A.S.?</h2>
+          <h2 className={titleStyle}>¿Por qué Elegir SmartCol S.A.S.?</h2>
         </div>
 
         <div className=" flex flex-col sm:flex-row items-center justify-center gap-32">
           <IconButton
+            darkTextColor=""
             iconName="experiencia.png"
-            darkTextColor=""
             textColor=""
-            variant="light"
             title="Experiencia"
+            variant="light"
           />
 
           <IconButton
+            darkTextColor=""
             iconName="calidad.png"
-            darkTextColor=""
             textColor=""
-            variant="light"
             title="Calidad"
+            variant="light"
           />
 
           <IconButton
+            darkTextColor=""
             iconName="eficacia.png"
-            darkTextColor=""
             textColor=""
-            variant="light"
             title="Eficiencia"
+            variant="light"
           />
 
           <IconButton
-            iconName="servicio.png"
             darkTextColor=""
+            iconName="servicio.png"
             textColor=""
-            variant="light"
             title="Servicio"
+            variant="light"
           />
         </div>
       </div>
