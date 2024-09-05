@@ -31,9 +31,7 @@ const ProductsPage: React.FC = () => {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const data: Product[] = await controller.getAll(
-        "https://localhost:8080/api/products"
-      );
+      const data: Product[] = await controller.getAll("/api/products");
 
       setProducts(data);
       setFilteredProducts(data);
