@@ -48,6 +48,7 @@ class Controller {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
         },
       });
 
@@ -55,6 +56,7 @@ class Controller {
         throw new Error("Network response was not ok");
       }
 
+      console.log("response", response);
       return await response.json();
     } catch (error) {
       console.error("There was a problem with the fetch operation:", error);
