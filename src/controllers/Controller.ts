@@ -56,7 +56,7 @@ class Controller {
         throw new Error("Network response was not ok");
       }
 
-      console.log("response", response);
+      console.log("response", response.json());
       return await response.json();
     } catch (error) {
       console.error("There was a problem with the fetch operation:", error);

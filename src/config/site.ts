@@ -226,7 +226,7 @@ export const smartcolFAQ: FAQ = {
     "Deberías elegir a Smartcol S.A.S. porque tienen 10 años de experiencia en el mercado nacional, ofrecen una amplia variedad de productos de alta calidad, cuentan con un equipo de ingenieros entrenados para asesorar y guiar en la selección de productos, se comprometen con la calidad, seguridad, entregas oportunas y precios competitivos, y poseen un fuerte sentido de pertenencia y dedicación al trabajo.",
 };
 
-export const capitalesColombia = [
+export const capitalesColombia: string[] = [
   "Arauca", // Arauca
   "Armenia", // Quindío
   "Barranquilla", // Atlántico

@@ -1,28 +1,31 @@
 import Swal from "sweetalert2";
-
 import controller from "@/controllers/Controller";
+import { FormData } from "@/interfaces/FormData";
+import { setFormToEmail } from "./sendEmail";
 
-interface FormData {
-  ciudad: string;
-  nombre: string;
-  email: string;
-  telefono: string;
-  comentarios: string;
-}
+let contactCount: number = 0;
 
 export const sendContactData = async (formData: FormData) => {
-  const url = "http://localhost:8080/contact";
+  const url = "/api/email";
 
-  const response = await controller.create(url, formData);
+  const emailBody = setFormToEmail(formData);
 
-  console.log(response);
+  console.log(emailBody);
+
+  const emailData = {
+    to: "redes@smartcol.com.co",
+    subject: `Contacto desde Pag Web N° SMART-${(contactCount = +1)}`,
+    text: emailBody,
+  };
+
+  const response = await controller.create(url, emailData);
   showContactResponse(response);
 };
 
 const showContactResponse = (response: any) => {
-  if (response.id) {
+  if (response.status === 200) {
     Swal.fire({
-      title: `Mensaje N° SM-MS-${response.id.toUpperCase()}`,
+      title: `Mensaje N° SMART-${response.id.toUpperCase()}`,
       text: "Hemos recibido tu mensaje y pronto nos pondremos en contacto contigo.",
       icon: "success",
       confirmButtonText: "Aceptar",

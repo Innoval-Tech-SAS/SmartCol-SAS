@@ -9,26 +9,24 @@ import { validateEmail, validateName } from "@/services/validators";
 import { sendContactData } from "@/services/sendContactData";
 
 const ContactForm: React.FC = () => {
-  const [ciudad, setCiudad] = useState<string>("");
-
   const [formData, setFormData] = useState({
-    ciudad: "",
-    nombre: "",
+    selectedCapital: "",
+    name: "",
     email: "",
-    telefono: "",
-    comentarios: "",
+    phone: "",
+    text: "",
   });
 
   const [errors, setErrors] = useState({
-    ciudad: "",
-    nombre: "",
+    selectedCapital: "",
+    name: "",
     email: "",
-    telefono: "",
-    comentarios: "",
+    phone: "",
+    text: "",
   });
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
 
@@ -38,24 +36,27 @@ const ContactForm: React.FC = () => {
     });
   };
 
-  const handleCiudadChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setCiudad(e.target.value);
+  const handleCiudadChange = (value: string) => {
+    setFormData({
+      ...formData,
+      selectedCapital: value,
+    });
   };
 
   const validateForm = () => {
     const emailValid = validateEmail(formData.email);
-    const nombreValid = validateName(formData.nombre);
-    const telefonoValid = formData.telefono.length >= 6;
-    const comentariosValid = formData.comentarios.length > 0;
-    const ciudadValid = ciudad !== "";
+    const nombreValid = validateName(formData.name);
+    const telefonoValid = formData.phone.length >= 6;
+    const comentariosValid = formData.text.length > 0;
+    const ciudadValid = formData.selectedCapital !== "";
 
     setErrors({
       ...errors,
       email: emailValid ? "" : "Ingresa un correo válido",
-      nombre: nombreValid ? "" : "Ingresa un nombre válido",
-      telefono: telefonoValid ? "" : "Ingresa un teléfono válido",
-      comentarios: comentariosValid ? "" : "Ingresa un comentario",
-      ciudad: ciudadValid ? "" : "Selecciona una ciudad",
+      name: nombreValid ? "" : "Ingresa un nombre válido",
+      phone: telefonoValid ? "" : "Ingresa un teléfono válido",
+      text: comentariosValid ? "" : "Ingresa un comentario",
+      selectedCapital: ciudadValid ? "" : "Selecciona una ciudad",
     });
 
     return (
@@ -70,7 +71,6 @@ const ContactForm: React.FC = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (validateForm()) {
-      console.log("Formulario válido");
       sendContactData(formData);
     } else {
       console.log("Formulario inválido");
@@ -82,20 +82,16 @@ const ContactForm: React.FC = () => {
       <Form onSubmit={handleSubmit}>
         <Select
           color="primary"
-          errorMessage={errors.ciudad}
-          isInvalid={errors.ciudad !== ""}
+          errorMessage={errors.selectedCapital}
+          isInvalid={errors.selectedCapital !== ""}
           label="Selecciona una ciudad"
-          value={ciudad}
+          value={formData.selectedCapital}
           variant="underlined"
-          onChange={handleCiudadChange}
+          onChange={(e) => handleCiudadChange(e.target.value)}
         >
-          {capitalesColombia.map((capital, index) => (
-            <SelectItem
-              key={index}
-              className="text-lg text-gray-800 font-semibold"
-              value={capital}
-            >
-              {capital}
+          {capitalesColombia.map((ciudad) => (
+            <SelectItem key={ciudad} value={ciudad}>
+              {ciudad}
             </SelectItem>
           ))}
         </Select>
@@ -105,12 +101,12 @@ const ContactForm: React.FC = () => {
             <Input
               className="flex-1"
               color="primary"
-              errorMessage={errors.nombre}
-              isInvalid={errors.nombre !== ""}
+              errorMessage={errors.name}
+              isInvalid={errors.name !== ""}
               label="Nombre Completo"
-              name="nombre"
+              name="name"
               type="text"
-              value={formData.nombre}
+              value={formData.name}
               variant="underlined"
               onChange={handleInputChange}
             />
@@ -131,12 +127,12 @@ const ContactForm: React.FC = () => {
             <Input
               className="flex-1"
               color="primary"
-              errorMessage={errors.telefono}
-              isInvalid={errors.telefono !== ""}
+              errorMessage={errors.phone}
+              isInvalid={errors.phone !== ""}
               label="Número Telefónico"
-              name="telefono"
+              name="phone"
               type="text"
-              value={formData.telefono}
+              value={formData.phone}
               variant="underlined"
               onChange={handleInputChange}
             />
@@ -145,11 +141,11 @@ const ContactForm: React.FC = () => {
 
         <Textarea
           color="primary"
-          errorMessage={errors.comentarios}
-          isInvalid={errors.comentarios !== ""}
+          errorMessage={errors.text}
+          isInvalid={errors.text !== ""}
           label="Déjanos tus comentarios"
-          name="comentarios"
-          value={formData.comentarios}
+          name="text"
+          value={formData.text}
           variant="underlined"
           onChange={handleInputChange}
         />

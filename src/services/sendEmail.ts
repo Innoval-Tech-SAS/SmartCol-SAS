@@ -2,6 +2,7 @@ import { emailQueue } from "@/services/emailQueue";
 import { Product } from "@/interfaces/Product";
 import { ClientData } from "@/interfaces/ClientData";
 import controller from "@/controllers/Controller";
+import { FormData } from "@/interfaces/FormData";
 
 let quotesCount: number = 0;
 
@@ -19,7 +20,7 @@ const sendEmail = async (cart: Product[], clientData: ClientData) => {
 
     emailQueue.enqueue(currentEmail);
 
-    return await controller.create("http://localhost:8080/email", emailData);
+    return await controller.create("/api/email", emailData);
   } else {
     console.error("No email available in the queue.");
   }
@@ -44,6 +45,25 @@ const createEmailBody = (cart: Product[], clientData: ClientData) => {
       `;
       })
       .join("")}
+  `;
+
+  return emailBody;
+};
+
+export const setFormToEmail = (formData: FormData): string => {
+  const emailBody = `
+    Datos del Cliente:
+    
+    Nombre: ${formData.name}
+    Email: ${formData.email}
+    Teléfono: ${formData.phone}
+    Ciudad: ${formData.selectedCapital}
+    ${formData.documentType && formData.document ? `Documento: ${formData.documentType} ${formData.document}\n` : ""}
+
+    Mensaje:
+    ${formData.text}
+
+    ${formData.comments ? `Comentarios:\n${formData.comments}` : ""}
   `;
 
   return emailBody;

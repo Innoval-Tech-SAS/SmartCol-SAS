@@ -1,28 +1,22 @@
 import Swal from "sweetalert2";
-
+import { FormData } from "@/interfaces/FormData";
 import controller from "@/controllers/Controller";
-
-interface FormData {
-  nombre: string;
-  documento: string;
-  motivo: string;
-  email: string;
-  telefono: string;
-  comentarios: string;
-}
+import { setFormToEmail } from "./sendEmail";
 
 export const sendPQRSData = async (formData: FormData) => {
-  const url = "http://localhost:8080/pqrs";
-
-  const response = await controller.create(url, formData);
-
-  console.log(response);
+  const url = "/api/email";
+  const emailBody = setFormToEmail(formData);
+  const pqrsData = {
+    to: "gestion.smartcol@gmail.com",
+    subject: formData.subject,
+    text: emailBody,
+  };
+  const response = await controller.create(url, pqrsData);
   showPQRSResponse(response);
 };
 
 const showPQRSResponse = (response: any) => {
-  if (response.id) {
-    // if (response.id > 999) { }
+  if (response.status === 200) {
     Swal.fire({
       title: `PQRS N° SM-PQRS-${response.id.toUpperCase()}`,
       text: "Hemos recibido tu mensaje y pronto nos pondremos en contacto contigo.",
