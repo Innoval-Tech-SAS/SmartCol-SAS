@@ -31,7 +31,11 @@ const ProductsPage: React.FC = () => {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const data: Product[] = await controller.getAll("/api/products");
+      const data = await controller.getAll(
+        "https://smartcol.com.co/api/products"
+      );
+
+      console.log("data: ", data);
 
       setProducts(data);
       setFilteredProducts(data);

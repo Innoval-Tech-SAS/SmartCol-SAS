@@ -7,6 +7,7 @@ class Controller {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
         },
         body: JSON.stringify(data),
       });
@@ -28,12 +29,15 @@ class Controller {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
         },
       });
 
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
+
+      console.log(response);
 
       return await response.json();
     } catch (error) {
@@ -56,7 +60,6 @@ class Controller {
         throw new Error("Network response was not ok");
       }
 
-      console.log("response", response.json());
       return await response.json();
     } catch (error) {
       console.error("There was a problem with the fetch operation:", error);
