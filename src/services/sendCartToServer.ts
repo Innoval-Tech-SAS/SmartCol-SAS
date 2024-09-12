@@ -15,10 +15,7 @@ const sendCartToServer = async (cart: Product[]) => {
     };
 
     try {
-      const response = await controller.create(
-        "http://localhost:8080/cart",
-        data,
-      );
+      const response = await controller.create("/api/email", data);
 
       return response;
     } catch (error) {

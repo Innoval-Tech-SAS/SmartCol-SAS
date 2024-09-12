@@ -13,7 +13,7 @@ export const sendContactData = async (formData: FormData) => {
   console.log(emailBody);
 
   const emailData = {
-    to: "redes@smartcol.com.co",
+    // to: "redes@smartcol.com.co",
     subject: `Contacto desde Pag Web N° SMART-${(contactCount = +1)}`,
     text: emailBody,
   };
