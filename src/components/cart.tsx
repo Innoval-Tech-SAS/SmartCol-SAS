@@ -38,11 +38,9 @@ const Cart: React.FC<CartProps> = () => {
 
     const response = await sendCartToServer(cart);
 
-    response.message = "Cotización enviada con éxito";
-
-    if (response) {
+    if (response.id === 200) {
       Swal.fire({
-        title: response.message,
+        title: "Cotización enviada con éxito",
         text: "Te contactaremos pronto para finalizar la compra.",
         icon: "success",
         confirmButtonText: "Aceptar",

@@ -1,7 +1,9 @@
 import Swal from "sweetalert2";
+
+import { setFormToEmail } from "./sendEmail";
+
 import controller from "@/controllers/Controller";
 import { FormData } from "@/interfaces/FormData";
-import { setFormToEmail } from "./sendEmail";
 
 let contactCount: number = 0;
 
@@ -10,15 +12,14 @@ export const sendContactData = async (formData: FormData) => {
 
   const emailBody = setFormToEmail(formData);
 
-  console.log(emailBody);
-
   const emailData = {
-    // to: "redes@smartcol.com.co",
+    receiver: "redes@smartcol.com.co",
     subject: `Contacto desde Pag Web N° SMART-${(contactCount = +1)}`,
     text: emailBody,
   };
 
   const response = await controller.create(url, emailData);
+
   showContactResponse(response);
 };
 
@@ -40,8 +41,7 @@ const showContactResponse = (response: any) => {
       icon: "error",
       confirmButtonText: "Aceptar",
       customClass: {
-        confirmButton:
-          "text-primary p-3 font-semibold border border-primary bg-background rounded-3xl",
+        confirmButton: "bg-primary font-semibold",
       },
     });
   }

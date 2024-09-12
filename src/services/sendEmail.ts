@@ -5,10 +5,12 @@ import { FormData } from "@/interfaces/FormData";
 
 let quotesCount: number = 0;
 
-const sendEmail = async (cart: Product[], clientData: ClientData) => {
+export const sendCart = async (cart: Product[], clientData: ClientData) => {
   const emailBody: string = createEmailBody(cart, clientData);
+
   if (emailBody) {
     quotesCount += 1;
+
     const emailData = {
       subject: `Cotización N° ${quotesCount} desde Pag Web`,
       text: emailBody,
@@ -62,5 +64,3 @@ export const setFormToEmail = (formData: FormData): string => {
 
   return emailBody;
 };
-
-export default sendEmail;

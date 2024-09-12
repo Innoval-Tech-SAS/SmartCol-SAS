@@ -46,9 +46,10 @@ const PQRForm: React.FC<PQRFormProps> = ({ inputGroupStyle }) => {
   });
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
+
     setFormData({
       ...formData,
       [name]: value,
@@ -57,6 +58,7 @@ const PQRForm: React.FC<PQRFormProps> = ({ inputGroupStyle }) => {
 
   const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const { name, value } = e.target;
+
     setFormData({
       ...formData,
       [name]: value,
