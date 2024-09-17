@@ -79,11 +79,6 @@ export const FiltersProvider: React.FC<{ children: ReactNode }> = ({
               .replace(/[^a-z0-9]/g, "")
           )
         );
-        usesArray?.forEach((use) => {
-          console.log("En la url: ", normalizedSelectedUse);
-          console.log("En el Producto: ", use);
-          console.log("Son iguales: ", use == normalizedSelectedUse);
-        });
 
         return usesArray?.some((use) => use === normalizedSelectedUse);
       });

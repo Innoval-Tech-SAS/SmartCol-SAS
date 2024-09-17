@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { useFilters } from "@/context/filterContext"; // Ajusta el path según sea necesario
+import { useFilters } from "@/context/filterContext";
 import Banner from "../components/banner";
 import AsideMenu from "@/components/asideMenu";
 import DefaultLayout from "@/layouts/default";
@@ -20,7 +20,7 @@ const ProductsPage: React.FC = () => {
   useEffect(() => {
     const queryParams = new URLSearchParams(search);
     const use = queryParams.get("use");
-    console.log("use", use);
+
     if (use) {
       setSelectedUse(use);
     }
