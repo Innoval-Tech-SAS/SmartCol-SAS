@@ -1,16 +1,9 @@
 class Controller {
   constructor() {}
 
-  public create = async (url: string, data: object) => {
+  private async request(url: string, options: RequestInit): Promise<any> {
     try {
-      const response = await fetch(`${url}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*",
-        },
-        body: JSON.stringify(data),
-      });
+      const response = await fetch(url, options);
 
       if (!response.ok) {
         throw new Error("Network response was not ok");
@@ -21,50 +14,28 @@ class Controller {
       console.error("There was a problem with the fetch operation:", error);
       throw error;
     }
+  }
+
+  public create = (url: string, data: object) => {
+    return this.request(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
   };
 
-  public getOne = async (url: string, id: number) => {
-    try {
-      const response = await fetch(`${url}/${id}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*",
-        },
-      });
-
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-
-      console.log(response);
-
-      return await response.json();
-    } catch (error) {
-      console.error("There was a problem with the fetch operation:", error);
-      throw error;
-    }
+  public getOne = (url: string, id: number) => {
+    return this.request(`${url}/${id}`, {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    });
   };
 
-  public getAll = async (url: string) => {
-    try {
-      const response = await fetch(`${url}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*",
-        },
-      });
-
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-
-      return await response.json();
-    } catch (error) {
-      console.error("There was a problem with the fetch operation:", error);
-      throw error;
-    }
+  public getAll = (url: string) => {
+    return this.request(url, {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    });
   };
 }
 

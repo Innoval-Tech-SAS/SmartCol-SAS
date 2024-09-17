@@ -24,9 +24,10 @@ export const sendContactData = async (formData: FormData) => {
 };
 
 const showContactResponse = (response: any) => {
-  if (response.status === 200) {
+  if (response.message === "Email sent successfully") {
+    contactCount += 1;
     Swal.fire({
-      title: `Mensaje N° SMART-${response.id.toUpperCase()}`,
+      title: `Mensaje N° SMART-${contactCount}`,
       text: "Hemos recibido tu mensaje y pronto nos pondremos en contacto contigo.",
       icon: "success",
       confirmButtonText: "Aceptar",

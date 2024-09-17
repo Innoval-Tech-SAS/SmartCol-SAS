@@ -1,3 +1,5 @@
+import React from "react";
+// import { useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 import {
   Card,
@@ -7,13 +9,17 @@ import {
   Image,
 } from "@nextui-org/react";
 import { Button } from "@nextui-org/react";
-
 import { categories, settings } from "../config/site";
-
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const Categorys: React.FC = () => {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>, use: string) => {
+    e.preventDefault();
+    const encodedUse = encodeURIComponent(use);
+    window.location.href = `/products?use=${encodedUse}`;
+  };
+
   return (
     <div
       className={`mx-auto p-8 my-8 bg-gradient-to-tl from-success-700 via-primary to-success-700 dark:bg-gradient-to-tl dark:from-background dark:via-zinc-800 dark:to-background`}
@@ -45,6 +51,7 @@ const Categorys: React.FC = () => {
                     className="font-bold text-white hover:text-gray dark:border-primary"
                     radius="full"
                     variant="ghost"
+                    onClick={(e) => handleClick(e, category.title)}
                   >
                     Conoce Más
                   </Button>

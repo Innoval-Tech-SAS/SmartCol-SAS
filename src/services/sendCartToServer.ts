@@ -7,7 +7,7 @@ const sendCartToServer = async (cart: Product[]) => {
   const clientData = await getClientData();
 
   try {
-    return await sendCart(cart, clientData);
+    return sendCart(cart, clientData);
   } catch (error) {
     console.error("Error al enviar el carrito:", error);
   }

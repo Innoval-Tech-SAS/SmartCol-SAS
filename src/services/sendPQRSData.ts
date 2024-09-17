@@ -23,7 +23,7 @@ export const sendPQRSData = async (formData: FormData) => {
 };
 
 const showPQRSResponse = (response: any) => {
-  if (response.status === 200) {
+  if (response.message === "Email sent successfully") {
     Swal.fire({
       title: `PQRS N° SM-PQRS-${count}`,
       text: "Hemos recibido tu mensaje y pronto nos pondremos en contacto contigo.",

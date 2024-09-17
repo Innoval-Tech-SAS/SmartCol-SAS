@@ -46,7 +46,7 @@ const PQRForm: React.FC<PQRFormProps> = ({ inputGroupStyle }) => {
   });
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
 
@@ -106,7 +106,7 @@ const PQRForm: React.FC<PQRFormProps> = ({ inputGroupStyle }) => {
     e.preventDefault();
     if (validateForm()) {
       sendPQRSData(formData);
-      console.log("Formulario enviado: ", formData);
+      // console.log("Formulario enviado: ", formData);
     } else {
       console.log("Errores en el formulario");
     }

@@ -28,7 +28,7 @@ const Cart: React.FC<CartProps> = () => {
 
   const itemCount = cart.reduce(
     (total, product) => total + product.quantity,
-    0,
+    0
   );
 
   const handleSendCart = async () => {
@@ -36,19 +36,36 @@ const Cart: React.FC<CartProps> = () => {
       return;
     }
 
-    const response = await sendCartToServer(cart);
+    try {
+      const response = await sendCartToServer(cart);
 
-    if (response.id === 200) {
+      if (response?.message === "Email sent successfully") {
+        Swal.fire({
+          title: "Cotización enviada con éxito",
+          text: "Te contactaremos pronto para finalizar la compra.",
+          icon: "success",
+          confirmButtonText: "Aceptar",
+          customClass: {
+            confirmButton: "bg-primary font-semibold",
+          },
+        });
+        deleteAllToCart();
+      } else {
+        Swal.fire({
+          title: "Error",
+          text: "Hubo un problema al enviar la cotización.",
+          icon: "error",
+          confirmButtonText: "Aceptar",
+        });
+      }
+    } catch (error) {
+      console.error("Error al enviar el carrito:", error);
       Swal.fire({
-        title: "Cotización enviada con éxito",
-        text: "Te contactaremos pronto para finalizar la compra.",
-        icon: "success",
+        title: "Error",
+        text: "Hubo un problema al procesar la solicitud.",
+        icon: "error",
         confirmButtonText: "Aceptar",
-        customClass: {
-          confirmButton: "bg-primary font-semibold",
-        },
       });
-      deleteAllToCart();
     }
   };
 
@@ -113,7 +130,7 @@ const Cart: React.FC<CartProps> = () => {
                               onChange={(e) =>
                                 handleQuantityChange(
                                   index,
-                                  Number(e.target.value),
+                                  Number(e.target.value)
                                 )
                               }
                             />

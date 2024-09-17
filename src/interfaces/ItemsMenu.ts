@@ -5,8 +5,13 @@ export interface ItemsMenu {
   content: Array<string>;
 }
 
+// interfaces/ItemsMenu.ts
 export interface AsideMenuProps {
-  asideItems: ItemsMenu[];
-  onCategorySelect: (category: string) => void;
-  onSubcategorySelect: (subcategory: string) => void;
+  asideItems: {
+    title: string;
+    content: string[];
+  }[];
+  onCategorySelect: (category: string | null) => void;
+  onSubcategorySelect: (subcategory: string | null) => void;
+  onUseSelect?: (use: string | null) => void;
 }

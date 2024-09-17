@@ -16,7 +16,12 @@ export const sendCart = async (cart: Product[], clientData: ClientData) => {
       text: emailBody,
     };
 
-    return await controller.create("/api/email", emailData);
+    try {
+      return await controller.create("/api/email", emailData);
+    } catch (error) {
+      console.error("Error al enviar la cotización por email:", error);
+      throw new Error("No se pudo enviar la cotización.");
+    }
   } else {
     console.error("No email body was created");
   }
