@@ -14,7 +14,7 @@ const Description: React.FC = () => {
     <div className="container mx-auto my-8 px-4">
       <div className="flex flex-col sm:flex-row-reverse">
         <div className="sm:w-full px-4 sm:px-10 flex flex-col items-center">
-          <h2 className={titleStyle}>¿Quienes Somos?</h2>
+          <p className={titleStyle}>¿Quienes Somos?</p>
 
           <Image className="max-h-40" src="/img/logo.png" />
 

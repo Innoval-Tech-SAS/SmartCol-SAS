@@ -44,10 +44,10 @@ const Header: React.FC<HeaderProps> = () => {
         className="max-h-36 mt-2"
         src="/img/logo.png"
       />
-      <h3 className="text-lg font-semibold foreground">
+      <p className="text-lg font-semibold foreground">
         La base de tu éxito, nuestra diversidad de{" "}
         <span className="text-primary">materias primas.</span>
-      </h3>
+      </p>
     </div>
   );
 };

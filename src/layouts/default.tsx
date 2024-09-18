@@ -20,7 +20,7 @@ export default function DefaultLayout({
         {children}
 
         <div className="fixed  bottom-12 right-12 z-50" id="cart-container">
-          <WhatsAppIcon />
+          <WhatsAppIcon size={40} />
         </div>
       </main>
       <footer className="w-full flex flex-col items-center justify-center py-3">

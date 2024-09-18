@@ -40,7 +40,7 @@ const BussinesValues: React.FC<BussinesValuesProps> = () => {
 
   return (
     <div className="container mx-auto my-10">
-      <h3 className={`${titleStyle}`}>Nuestros Valores</h3>
+      <p className={`${titleStyle}`}>Nuestros Valores</p>
       <div className="w-5/6 mx-auto">
         <Slider {...settings}>
           <div className="" id="">

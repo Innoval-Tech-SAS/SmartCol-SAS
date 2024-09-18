@@ -1,8 +1,8 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "",
-  description: ".",
+  name: "SmartCol SAS",
+  description: "website",
   navItems: [
     {
       label: "Inicio",
@@ -10,50 +10,20 @@ export const siteConfig = {
     },
     {
       label: "Productos",
-      href: "/products",
+      href: "/productos?page=1",
     },
     {
       label: "Nosotros",
-      href: "/aboutUs",
+      href: "/nosotros",
     },
     {
       label: "Contacto",
-      href: "/contact",
+      href: "/contacto",
     },
-    {
-      label: "Blog",
-      href: "/blog",
-    },
-  ],
-  navItemsMobile: [
-    {
-      label: "Inicio",
-      href: "/",
-    },
-    {
-      label: "Productos",
-      href: "/products",
-    },
-    {
-      label: "Nosotros",
-      href: "/aboutUs",
-    },
-    {
-      label: "Contacto Comercial",
-      href: "/contact-comercial",
-    },
-    {
-      label: "Contacto",
-      href: "/contact",
-    },
-    {
-      label: "PQRS",
-      href: "/contact/pqr",
-    },
-    {
-      label: "Blog",
-      href: "/blog",
-    },
+    // {
+    //   label: "Blog",
+    //   href: "/blog",
+    // },
   ],
   links: {
     facebook: "https://www.facebook.com/profile.php?id=61562468776130",
@@ -68,7 +38,6 @@ export const siteConfig = {
 export const cityContacts = [
   {
     city: "Bogotá",
-    cellphoneNumbers: [],
     phoneNumber: "601 573 6413",
     address: "Cl. 66 #75 - 11",
   },
@@ -259,49 +228,3 @@ export const capitalesColombia: string[] = [
   "Villavicencio", // Meta
   "Yopal", // Casanare
 ];
-
-export const colombiaCities = {
-  Paula: [
-    "Medellín",
-    "Manizales",
-    "Armenia",
-    "Pereira",
-    "Neiva",
-    "Ibagué",
-    "Arauca",
-    "Yopal",
-    "Villavicencio",
-  ],
-  Anna: [
-    "Bogotá",
-    "Tunja",
-    "Pasto",
-    "Popayán",
-    "Leticia",
-    "Florencia",
-    "Inírida",
-    "San José del Guaviare",
-    "Mocoa",
-  ],
-  Erick: [
-    "Barranquilla",
-    "Cartagena",
-    "Valledupar",
-    "Montería",
-    "Riohacha",
-    "Santa Marta",
-    "Sincelejo",
-    "San Andrés",
-  ],
-  William: [
-    "Cali",
-    "Quibdó",
-    "Puerto Carreño",
-    "Mitu",
-    "Guaviare",
-    "Putumayo",
-    "Guainía",
-    "Meta",
-    "Amazonas",
-  ],
-};

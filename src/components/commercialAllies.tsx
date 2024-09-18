@@ -28,9 +28,9 @@ const CommercialAllies: React.FC = () => {
 
   return (
     <>
-      <h3 className="text-3xl font-bold text-primary text-center">
+      <p className="text-3xl font-bold text-primary text-center">
         Nuestros Aliados Comerciales
-      </h3>
+      </p>
       <div className="w-full flex justify-center p-10">
         <div className="w-full max-w-3xl">
           <Slider {...settings}>

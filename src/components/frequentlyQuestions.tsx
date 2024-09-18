@@ -40,9 +40,9 @@ const FrequentlyQuestions: React.FC = () => {
   return (
     <>
       <div className="pt-5">
-        <h2 className="text-3xl font-bold text-primary text-center">
+        <p className="text-3xl font-bold text-primary text-center">
           Preguntas Frecuentes
-        </h2>
+        </p>
       </div>
       <div className="flex flex-col lg:flex-row items-center justify-center bg-black/20 border-white/10 rounded-3xl border my-12 mx-10 p-10 gap-10 dark:bg-white/10 shadow-xl">
         <Accordion className="w-full lg:w-1/2" variant="light">

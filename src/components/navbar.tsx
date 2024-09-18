@@ -66,7 +66,7 @@ export const Navbar: React.FC = () => {
     <NextUINavbar
       className={clsx(
         "border-t-2 border-t-primary z-50",
-        isSticky ? "fixed top-0 left-0 right-0" : "relative",
+        isSticky ? "fixed top-0 left-0 right-0" : "relative"
       )}
       maxWidth="2xl"
     >
@@ -93,7 +93,7 @@ export const Navbar: React.FC = () => {
                       aria-label={item.label}
                       className={clsx(
                         "text-primary font-bold",
-                        isActive(item.href) && "bg-primary/10",
+                        isActive(item.href) && "bg-primary/10"
                       )}
                       color="primary"
                       variant="light"
@@ -105,7 +105,7 @@ export const Navbar: React.FC = () => {
                     <DropdownItem key="contact" textValue="Contact">
                       <a
                         className="block font-bold text-primary px-4 py-2"
-                        href="/contact"
+                        href="/contacto"
                       >
                         Contacto
                       </a>
@@ -113,7 +113,7 @@ export const Navbar: React.FC = () => {
                     <DropdownItem key="pqr" textValue="PQRS">
                       <a
                         className="block font-bold text-primary px-4 py-2"
-                        href="/contact/pqr"
+                        href="/contacto/pqr"
                       >
                         PQRS
                       </a>
@@ -127,7 +127,7 @@ export const Navbar: React.FC = () => {
                   aria-label={item.label}
                   className={clsx(
                     linkStyles({ color: "primary" }),
-                    isActive(item.href) && "text-primary font-medium",
+                    isActive(item.href) && "text-primary font-medium"
                   )}
                   color="primary"
                   href={item.href}
@@ -136,7 +136,7 @@ export const Navbar: React.FC = () => {
                     aria-label={item.label}
                     className={clsx(
                       "text-primary font-bold",
-                      isActive(item.href) && "bg-primary/10",
+                      isActive(item.href) && "bg-primary/10"
                     )}
                     color="primary"
                     variant="light"
@@ -145,7 +145,7 @@ export const Navbar: React.FC = () => {
                   </Button>
                 </NextUILink>
               </NavbarItem>
-            ),
+            )
           )}
         </div>
       </NavbarContent>
@@ -168,7 +168,7 @@ export const Navbar: React.FC = () => {
       <NavbarMenu>
         {searchInput}
         <div className="mx-4 mt-2 flex flex-col gap-2">
-          {siteConfig.navItemsMobile.map((item, index) => (
+          {siteConfig.navItems.map((item, index) => (
             <NavbarMenuItem key={`${item}-${index}`}>
               <NextUILink color="primary" href={item.href} size="lg">
                 {item.label}

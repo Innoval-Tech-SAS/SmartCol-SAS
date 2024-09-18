@@ -9,5 +9,7 @@ export interface Product {
   technicalsheet?: string;
   description?: string;
   uses?: string;
+  isActive?: boolean;
   quantity: number;
+  productName?: string;
 }

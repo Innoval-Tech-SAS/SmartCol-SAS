@@ -1,6 +1,7 @@
 import Swal from "sweetalert2";
 
 import { validateEmail, validateName, validatePhone } from "./validators";
+
 import { capitalesColombia } from "@/config/site";
 
 export const getClientData = async () => {
@@ -37,18 +38,22 @@ export const getClientData = async () => {
       // Validaciones
       if (!name || !email || !phone || !selectedCapital) {
         Swal.showValidationMessage("Por favor complete todos los campos");
+
         return false;
       }
       if (!validateName(name)) {
         Swal.showValidationMessage("Por favor ingrese un nombre válido");
+
         return false;
       }
       if (!validateEmail(email)) {
         Swal.showValidationMessage("Por favor ingrese un email válido");
+
         return false;
       }
       if (!validatePhone(phone)) {
         Swal.showValidationMessage("Por favor ingrese un teléfono válido");
+
         return false;
       }
 

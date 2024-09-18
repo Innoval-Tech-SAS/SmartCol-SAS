@@ -9,6 +9,7 @@ import {
   Image,
 } from "@nextui-org/react";
 import { Button } from "@nextui-org/react";
+
 import { categories, settings } from "../config/site";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -17,16 +18,17 @@ const Categorys: React.FC = () => {
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>, use: string) => {
     e.preventDefault();
     const encodedUse = encodeURIComponent(use);
-    window.location.href = `/products?use=${encodedUse}`;
+
+    window.location.href = `/productos?use=${encodedUse}`;
   };
 
   return (
     <div
       className={`mx-auto p-8 my-8 bg-gradient-to-tl from-success-700 via-primary to-success-700 dark:bg-gradient-to-tl dark:from-background dark:via-zinc-800 dark:to-background`}
     >
-      <h3 className="text-center p-6 mb-4 font-semibold text-white text-3xl">
+      <p className="text-center p-6 mb-4 font-semibold text-white text-3xl">
         Explora Nuestra Gama de Productos
-      </h3>
+      </p>
       <div className="slider-wrapper mx-auto mb-4 text-center w-auto px-5">
         <Slider {...settings}>
           {categories.map((category, index) => (

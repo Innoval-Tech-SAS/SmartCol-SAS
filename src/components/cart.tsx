@@ -28,7 +28,7 @@ const Cart: React.FC<CartProps> = () => {
 
   const itemCount = cart.reduce(
     (total, product) => total + product.quantity,
-    0
+    0,
   );
 
   const handleSendCart = async () => {
@@ -130,7 +130,7 @@ const Cart: React.FC<CartProps> = () => {
                               onChange={(e) =>
                                 handleQuantityChange(
                                   index,
-                                  Number(e.target.value)
+                                  Number(e.target.value),
                                 )
                               }
                             />

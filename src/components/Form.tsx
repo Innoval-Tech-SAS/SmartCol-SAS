@@ -41,9 +41,9 @@ const Form: React.FC<FormProps> = ({ children, idForm, onSubmit }) => {
     >
       <form action="" id={idForm} onSubmit={handleSubmit}>
         <div className="text-center">
-          <h3 className="text-primary my-5 font-semibold text-2xl">
+          <p className="text-primary my-5 font-semibold text-2xl">
             COMPLETA EL FORMULARIO
-          </h3>
+          </p>
         </div>
         <div className="p-10" id={`${idForm}-inputs-container`}>
           {children}

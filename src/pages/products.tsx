@@ -1,11 +1,12 @@
-import React, { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useFilters } from "@/context/filterContext";
 import Banner from "../components/banner";
 import AsideMenu from "@/components/asideMenu";
 import DefaultLayout from "@/layouts/default";
 import CardProduct from "@/components/cardProduct";
 import Cart from "@/components/cart";
+import { Pagination, PaginationCursor } from "@nextui-org/pagination";
 
 const ProductsPage: React.FC = () => {
   const { search } = useLocation();
@@ -16,26 +17,53 @@ const ProductsPage: React.FC = () => {
     setSelectedSubcategory,
     setSelectedUse,
   } = useFilters();
+  const navigate = useNavigate();
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
+  const [totalPages, setTotalPages] = useState(0);
+
+  useEffect(() => {
+    const totalItems = filteredProducts.length;
+    setTotalPages(Math.ceil(totalItems / itemsPerPage));
+  }, [filteredProducts, itemsPerPage]);
 
   useEffect(() => {
     const queryParams = new URLSearchParams(search);
     const use = queryParams.get("use");
+    const page = queryParams.get("page");
 
     if (use) {
       setSelectedUse(use);
     }
+
+    if (page) {
+      window.scrollTo({
+        top: 400,
+      });
+      setCurrentPage(Number(page));
+    }
   }, [search, setSelectedUse]);
 
-  const bannerTitle = "SMARTCOL S.A.S.";
-  const bannerSubTitle = "Conoce Nuestros Productos";
+  const handlePageChange = (page: number) => {
+    window.scrollTo({
+      top: 690,
+    });
+    setCurrentPage(page);
+    navigate(`/productos?page=${page}`);
+  };
+
+  const productsToDisplay = filteredProducts.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
 
   return (
     <DefaultLayout>
       <section>
         <Banner
           bannerName="banner.jpg"
-          bannerSubtitle={bannerSubTitle}
-          bannerTitle={bannerTitle}
+          bannerSubtitle="Conoce Nuestros Productos"
+          bannerTitle="SMARTCOL S.A.S."
         />
       </section>
       <section className="my-4 mx-auto">
@@ -46,27 +74,15 @@ const ProductsPage: React.FC = () => {
                 asideItems={menuItems}
                 onCategorySelect={setSelectedCategory}
                 onSubcategorySelect={setSelectedSubcategory}
-                // onUseSelect={setSelectedUse}
               />
             </aside>
           </div>
 
           <div className="w-full md:w-5/6 px-4">
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 lg:gap-3 px-5 mx-auto">
-              {filteredProducts.map(
+              {productsToDisplay.map(
                 (product, index) =>
-                  product.imgname !== null && (
-                    <CardProduct
-                      key={index}
-                      category={product.category}
-                      imgname={product.imgname}
-                      name={product.name}
-                      presentation={product.presentation}
-                      quantity={product.quantity || 0}
-                      subcategory={product.subcategory}
-                      um={product.um}
-                    />
-                  )
+                  product.imgname && <CardProduct key={index} {...product} />
               )}
               <div
                 className="fixed bottom-36 right-12 z-50"
@@ -74,6 +90,21 @@ const ProductsPage: React.FC = () => {
               >
                 <Cart />
               </div>
+            </div>
+            <div className="flex items-center justify-center p-5">
+              <Pagination
+                className="text-white font-semibold"
+                total={totalPages}
+                page={currentPage} // Asegura que el componente de paginación tenga el valor actual
+                onChange={handlePageChange}
+                variant="bordered"
+                color="primary"
+                size="md"
+                siblings={3}
+                boundaries={1}
+              >
+                <PaginationCursor />
+              </Pagination>
             </div>
           </div>
         </div>

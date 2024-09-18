@@ -6,6 +6,7 @@ import React, {
   useEffect,
   ReactNode,
 } from "react";
+
 import { Product } from "@/interfaces/Product";
 import controller from "@/controllers/Controller";
 import { AsideMenuProps } from "@/interfaces/ItemsMenu";
@@ -29,7 +30,7 @@ export const FiltersProvider: React.FC<{ children: ReactNode }> = ({
 }) => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedSubcategory, setSelectedSubcategory] = useState<string | null>(
-    null
+    null,
   );
   const [selectedUse, setSelectedUse] = useState<string | null>(null);
   const [products, setProducts] = useState<Product[]>([]);
@@ -39,8 +40,10 @@ export const FiltersProvider: React.FC<{ children: ReactNode }> = ({
   useEffect(() => {
     const fetchProducts = async () => {
       const data = await controller.getAll("/api/products");
+
       setProducts(data);
       const transformedMenuItems = transformDataToMenu(data);
+
       setMenuItems(transformedMenuItems);
     };
 
@@ -52,13 +55,13 @@ export const FiltersProvider: React.FC<{ children: ReactNode }> = ({
 
     if (selectedCategory) {
       newFilteredProducts = newFilteredProducts.filter(
-        (product) => product.category === selectedCategory
+        (product) => product.category === selectedCategory,
       );
     }
 
     if (selectedSubcategory) {
       newFilteredProducts = newFilteredProducts.filter(
-        (product) => product.subcategory === selectedSubcategory
+        (product) => product.subcategory === selectedSubcategory,
       );
     }
 
@@ -68,7 +71,7 @@ export const FiltersProvider: React.FC<{ children: ReactNode }> = ({
           selectedUse
             .toLowerCase()
             .trim()
-            .replace(/[^a-z0-9]/g, "")
+            .replace(/[^a-z0-9]/g, ""),
         );
 
         const usesArray = product.uses?.split(",").map((use) =>
@@ -76,8 +79,8 @@ export const FiltersProvider: React.FC<{ children: ReactNode }> = ({
             use
               .trim()
               .toLowerCase()
-              .replace(/[^a-z0-9]/g, "")
-          )
+              .replace(/[^a-z0-9]/g, ""),
+          ),
         );
 
         return usesArray?.some((use) => use === normalizedSelectedUse);
@@ -88,7 +91,7 @@ export const FiltersProvider: React.FC<{ children: ReactNode }> = ({
   }, [selectedCategory, selectedSubcategory, selectedUse, products]);
 
   const transformDataToMenu = (
-    data: Product[]
+    data: Product[],
   ): AsideMenuProps["asideItems"] => {
     const menu: AsideMenuProps["asideItems"] = [];
 
@@ -134,9 +137,11 @@ export const FiltersProvider: React.FC<{ children: ReactNode }> = ({
 
 export const useFilters = (): FiltersContextType => {
   const context = useContext(FiltersContext);
+
   if (!context) {
     throw new Error("useFilters must be used within a FiltersProvider");
   }
+
   return context;
 };
 
