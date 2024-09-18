@@ -24,6 +24,7 @@ const ProductsPage: React.FC = () => {
 
   useEffect(() => {
     const totalItems = filteredProducts.length;
+    setItemsPerPage(12);
     setTotalPages(Math.ceil(totalItems / itemsPerPage));
   }, [filteredProducts, itemsPerPage]);
 
