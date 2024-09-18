@@ -171,13 +171,19 @@ const CardProduct: React.FC<Product> = ({
         </CardFooter>
       </Card>
 
-      <Modal isOpen={isOpen} size="3xl" onOpenChange={onOpenChange}>
+      <Modal
+        className="bg-background/80"
+        isOpen={isOpen}
+        size="3xl"
+        onOpenChange={onOpenChange}
+      >
         <ModalContent>
           {() => (
             <ModalBody>
-              <div className="flex justify-center items-center w-full gap-4 p-4">
+              <div className="flex flex-col md:flex-row justify-center items-center w-full gap-4 p-4">
                 <div className="p-5">
-                  <img
+                  <Image
+                    className="max-h-40 md:max-h-full w-auto object-contain"
                     src={ImageSrc}
                     alt={`comprar ${name} - ${presentation}`}
                   />
