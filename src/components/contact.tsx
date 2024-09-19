@@ -18,7 +18,6 @@ const Contact: React.FC<ContactProps> = ({ title }) => {
     const updateIconColor = () => {
       const isDark = document.documentElement.classList.contains("dark");
       const color = isDark ? "#E6D38E" : "#456E2A";
-
       setIconColor(color);
     };
 
@@ -84,7 +83,7 @@ const Contact: React.FC<ContactProps> = ({ title }) => {
           iconName="caja.png"
           textColor="text-white"
           title="Productos"
-          url="/products"
+          url="/productos?page=1"
           variant="solid"
         />
         <IconButton
@@ -100,7 +99,7 @@ const Contact: React.FC<ContactProps> = ({ title }) => {
           iconName="logo.png"
           textColor="text-white"
           title="¿Quienes Somos?"
-          url="/aboutUs"
+          url="/nosotros"
           variant="solid"
         />
       </div>

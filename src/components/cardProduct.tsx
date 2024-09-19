@@ -105,7 +105,7 @@ const CardProduct: React.FC<Product> = ({
               className="text-white md:text-lg sm:font-bold"
               style={{ WebkitTextStroke: "0.7px black" }}
             >
-              {firstPart.toUpperCase()}.
+              {firstPart.toUpperCase()}
             </span>
             <span
               className="text-primary md:text-lg sm:font-bold"
