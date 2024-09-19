@@ -35,9 +35,9 @@ const Categorys: React.FC = () => {
             <div key={index} className="p-2 my-4">
               <Card className="bg-white/10 backdrop-blur-lg border border-white/30 rounded-3xl shadow-2xl mx-4 opacity-100 z-0">
                 <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-                  <h4 className="text-white font-bold text-lg line-clamp-2">
+                  <h2 className="text-white font-bold text-lg line-clamp-2">
                     {category.title}
-                  </h4>
+                  </h2>
                 </CardHeader>
                 <CardBody className="overflow-visible py-2">
                   <Image

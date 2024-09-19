@@ -1,7 +1,13 @@
 import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/card";
-import { Tooltip } from "@nextui-org/react";
-import { Code } from "@nextui-org/react";
-import { Image } from "@nextui-org/react";
+import {
+  Tooltip,
+  Code,
+  Image,
+  Modal,
+  ModalContent,
+  ModalBody,
+  useDisclosure,
+} from "@nextui-org/react";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { MdAddShoppingCart } from "react-icons/md";
 import { Product } from "@/interfaces/Product";
@@ -10,12 +16,6 @@ import WhatsAppIcon from "./whatsAppIcon";
 import { FaRegHandPointRight } from "react-icons/fa";
 import { useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import {
-  Modal,
-  ModalContent,
-  ModalBody,
-  useDisclosure,
-} from "@nextui-org/react";
 import { title } from "./primitives";
 
 const CardProduct: React.FC<Product> = ({
@@ -41,7 +41,19 @@ const CardProduct: React.FC<Product> = ({
 
   const [firstPart, secondPart] = splitText(name);
   const ImageSrc = `/img/products/${imgname}.png`;
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+
+  // Define handleModalClose antes de usarlo
+  const handleModalClose = () => {
+    const params = new URLSearchParams(location.search);
+    params.delete("product");
+    const page = params.get("page") || "1";
+    const newUrl = `${location.pathname}?page=${page}`;
+    navigate(newUrl, { replace: true });
+  };
+
+  const { isOpen, onOpenChange, onOpen } = useDisclosure({
+    onClose: handleModalClose,
+  });
 
   const { addToCart } = useCartContext();
 
@@ -75,7 +87,6 @@ const CardProduct: React.FC<Product> = ({
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const modalParam = params.get("product");
-
     if (modalParam === urlName(name)) {
       onOpen();
     }
@@ -86,14 +97,12 @@ const CardProduct: React.FC<Product> = ({
   };
 
   const handleModalClick = () => {
-    const normalizedName = urlName(name);
-
+    const normalizedName = `${urlName(name)}-${urlName(presentation)}`;
     const params = new URLSearchParams(location.search);
-    const page = params.get("page") || "1"; // Si 'page' es undefined, usa "1" como valor predeterminado
-
-    const newUrl = `${location.pathname}?page=${page}&product=${normalizedName}`;
+    const page = params.get("page") || "1";
+    const newUrl = `${location.pathname}?page=${page}&product=${encodeURIComponent(normalizedName)}`;
     navigate(newUrl, { replace: true });
-    onOpen(); // Abre el modal
+    onOpen();
   };
 
   return (
