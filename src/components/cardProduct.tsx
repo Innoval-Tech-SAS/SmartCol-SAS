@@ -84,10 +84,12 @@ const CardProduct: React.FC<Product> = ({
       .replace(/\s+/g, "-");
   };
 
+  const normalizedName = `${urlName(name)}-${urlName(presentation)}`;
+
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const modalParam = params.get("product");
-    if (modalParam === urlName(name)) {
+    if (modalParam === normalizedName) {
       onOpen();
     }
   }, [location.search, name, onOpen]);
@@ -97,7 +99,6 @@ const CardProduct: React.FC<Product> = ({
   };
 
   const handleModalClick = () => {
-    const normalizedName = `${urlName(name)}-${urlName(presentation)}`;
     const params = new URLSearchParams(location.search);
     const page = params.get("page") || "1";
     const newUrl = `${location.pathname}?page=${page}&product=${encodeURIComponent(normalizedName)}`;
