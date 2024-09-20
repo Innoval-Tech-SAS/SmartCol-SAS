@@ -42,6 +42,8 @@ const createEmailBody = (cart: Product[], clientData: ClientData) => {
       .map((product) => {
         return `
         Nombre: ${product.name},
+        Presentacion: ${product.presentation}
+        Unidad de Medida: ${product.um}
         Cantidad: ${product.quantity}
       `;
       })
