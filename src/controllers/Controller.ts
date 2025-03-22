@@ -1,11 +1,12 @@
 class Controller {
-  constructor() {}
+  constructor() { }
 
   private async request(url: string, options: RequestInit): Promise<any> {
     try {
       const response = await fetch(url, options);
 
       if (!response.ok) {
+        console.log("response", response);
         throw new Error("Network response was not ok");
       }
 

@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "http://77.37.74.3:8080",
+        target: "https://smartcol.innoval.tech/api",
         changeOrigin: true,
         secure: false,
       },
