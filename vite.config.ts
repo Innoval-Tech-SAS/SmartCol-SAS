@@ -7,8 +7,8 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "https://smartcol.innoval.tech/api",
-        changeOrigin: true,
+        target: "http://smartcolapi.innoval.tech",
+        changeOrigin: false,
         secure: false,
       },
     },

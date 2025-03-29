@@ -8,7 +8,7 @@ import { FormData } from "@/interfaces/FormData";
 let contactCount: number = 0;
 
 export const sendContactData = async (formData: FormData) => {
-  const url = "/api/email";
+  const url = "/email";
 
   const emailBody = setFormToEmail(formData);
 

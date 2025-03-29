@@ -17,7 +17,7 @@ export const sendCart = async (cart: Product[], clientData: ClientData) => {
     };
 
     try {
-      return await controller.create("/api/email", emailData);
+      return await controller.create("/email", emailData);
     } catch (error) {
       console.error("Error al enviar la cotización por email:", error);
       throw new Error("No se pudo enviar la cotización.");

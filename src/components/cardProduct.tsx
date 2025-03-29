@@ -24,7 +24,6 @@ const CardProduct: React.FC<Product> = ({
   imgname,
   um,
   presentation,
-  category,
   subcategory,
   description,
 }) => {
@@ -42,7 +41,6 @@ const CardProduct: React.FC<Product> = ({
   const [firstPart, secondPart] = splitText(name);
   const ImageSrc = `/img/products/${imgname}.png`;
 
-  // Define handleModalClose antes de usarlo
   const handleModalClose = () => {
     const params = new URLSearchParams(location.search);
     params.delete("product");
@@ -152,11 +150,10 @@ const CardProduct: React.FC<Product> = ({
                   imgname,
                   um,
                   presentation,
-                  category,
                   subcategory,
                   description,
                   quantity: 1,
-                })
+                } as Product)
               }
             >
               <MdAddShoppingCart size={25} />

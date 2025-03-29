@@ -39,10 +39,13 @@ export const FiltersProvider: React.FC<{ children: ReactNode }> = ({
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const data = await controller.getAll("/api/products");
+      const data = await controller.getAll("/products");
+      console.log(data.data);
 
-      setProducts(data);
-      const transformedMenuItems = transformDataToMenu(data);
+      console.log(data.data);
+
+      setProducts(data.data);
+      const transformedMenuItems = transformDataToMenu(data.data);
 
       setMenuItems(transformedMenuItems);
     };
@@ -55,13 +58,13 @@ export const FiltersProvider: React.FC<{ children: ReactNode }> = ({
 
     if (selectedCategory) {
       newFilteredProducts = newFilteredProducts.filter(
-        (product) => product.category === selectedCategory,
+        (product) => product.subcategory.name === selectedCategory,
       );
     }
 
     if (selectedSubcategory) {
       newFilteredProducts = newFilteredProducts.filter(
-        (product) => product.subcategory === selectedSubcategory,
+        (product) => product.subcategory.name === selectedSubcategory,
       );
     }
 
@@ -94,10 +97,10 @@ export const FiltersProvider: React.FC<{ children: ReactNode }> = ({
     data: Product[],
   ): AsideMenuProps["asideItems"] => {
     const menu: AsideMenuProps["asideItems"] = [];
-
+    console.log("data", data);
     data.forEach((product) => {
-      const { category, subcategory } = product;
-
+      const { subcategory } = product;
+      const category = subcategory.category.name;
       let categoryItem = menu.find((item) => item.title === category);
 
       if (!categoryItem) {
@@ -108,8 +111,8 @@ export const FiltersProvider: React.FC<{ children: ReactNode }> = ({
         menu.push(categoryItem);
       }
 
-      if (!categoryItem.content?.includes(subcategory)) {
-        categoryItem.content?.push(subcategory);
+      if (!categoryItem.content?.includes(subcategory.name)) {
+        categoryItem.content?.push(subcategory.name);
       }
     });
 

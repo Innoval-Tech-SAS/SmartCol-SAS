@@ -9,7 +9,7 @@ let count = 0;
 
 export const sendPQRSData = async (formData: FormData) => {
   count += 1;
-  const url = "/api/email";
+  const url = "/pqrs";
   const emailBody = setFormToEmail(formData);
 
   const pqrsData = {

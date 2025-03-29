@@ -1,23 +1,27 @@
 import React from "react";
 import { FaWhatsapp } from "react-icons/fa";
-
-import { whatsAppQueue } from "@/services/whatsappQueue";
 import { WhatsAppIconProps } from "@/interfaces/WhatsappIconProps";
+import controller from "@/controllers/Controller";
 
 const WhatsAppIcon: React.FC<WhatsAppIconProps> = ({ productName, size }) => {
-  const handleClick = () => {
-    const currentNumber: string | undefined = whatsAppQueue.dequeue() as string;
+  const handleClick = async () => {
+    try {
+      const res = await controller.getWhatsAppNumber();
+      if (!res.whatsAppLink) {
+        console.error("WhatsApp link not found in response");
+        return;
+      }
+      const data = res as { whatsAppLink: string };
+      const currentNumber = data.whatsAppLink as string;
+      const text = productName
+        ? `Hola,%20estoy%20interesado%20en%20este%20producto:%20${productName}%20de%20su%20pág%20web.`
+        : "Hola,%20estoy%20interesado%20en%20los%20productos%20de%20su%20pág%20web.";
 
-    if (!productName) {
-      const url = `https://wa.me/57${currentNumber}?text=Hola,%20estoy%20interesado%20en%20los%20productos%20de%20su%20pág%20web.`;
-
+      const url = `${currentNumber}?text=${text}`;
+      console.log("WhatsApp URL:", url);
       window.open(url, "_blank");
-      whatsAppQueue.enqueue(currentNumber);
-    } else {
-      const text = `Hola,%20estoy%20interesado%20en%20este%20producto:%20${productName}%20de%20su%20pág%20web.`;
-      const url = `https://wa.me/57${currentNumber}?text=${text}`;
-
-      window.open(url, "_blank");
+    } catch (err) {
+      console.error("Error:", err);
     }
   };
 

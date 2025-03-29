@@ -1,15 +1,27 @@
+export interface Category {
+  id: number;
+  name: string;
+}
+
+export interface Subcategory {
+  id: number;
+  name: string;
+  categoryId: number;
+  category: Category;
+}
+
 export interface Product {
   id?: number;
-  category: string;
-  subcategory: string;
   name: string;
+  price: number | null;
   imgname: string;
+  technicalSheet: string | null;
   um: string;
   presentation: string;
-  technicalsheet?: string;
-  description?: string;
-  uses?: string;
+  description: string;
+  uses: string;
+  subCategoryId: number;
+  subcategory: Subcategory;
+  quantity?: number;
   isActive?: boolean;
-  quantity: number;
-  productName?: string;
 }
