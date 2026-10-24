@@ -1,50 +1,36 @@
-# Vite & NextUI Template
+# SmartCol S.A.S. – Sitio web corporativo
 
-This is a template for creating applications using Vite and NextUI (v2).
+Sitio web corporativo con **catálogo de productos y carrito de cotización** para SmartCol S.A.S. Incluye filtros por categoría, formulario de contacto y de PQR, preguntas frecuentes, políticas, aliados comerciales, botón de WhatsApp y modo claro/oscuro.
 
-[Try it on CodeSandbox](https://githubbox.com/nextui-org/vite-template)
+## Stack
 
-## Technologies Used
+React 18 · TypeScript · Vite · NextUI · Tailwind CSS · Framer Motion · React Router · Vercel
 
-- [Vite](https://vitejs.dev/guide/)
-- [NextUI](https://nextui.org)
-- [Tailwind CSS](https://tailwindcss.com)
-- [Tailwind Variants](https://tailwind-variants.org)
-- [TypeScript](https://www.typescriptlang.org)
-- [Framer Motion](https://www.framer.com/motion)
+## Estructura
 
-## How to Use
+| Carpeta | Contenido |
+| --- | --- |
+| `src/components` | Secciones y componentes de UI (catálogo, carrito, formularios, navbar…) |
+| `src/context` | Estado global del carrito y de los filtros (Context API) |
+| `src/controllers` | Cliente HTTP hacia la API (`VITE_API_BASE_URL`) |
+| `src/interfaces` | Tipos de TypeScript |
+| `src/config` | Configuración del sitio |
 
-To clone the project, run the following command:
-
-```bash
-git clone https://github.com/nextui-org/vite-template.git
-```
-
-### Install dependencies
-
-You can use one of them `npm`, `yarn`, `pnpm`, `bun`, Example using `npm`:
+## Cómo correrlo
 
 ```bash
-npm install
-```
-
-### Run the development server
-
-```bash
+npm ci
 npm run dev
 ```
 
-### Setup pnpm (optional)
-
-If you are using `pnpm`, you need to add the following code to your `.npmrc` file:
+Build de producción:
 
 ```bash
-public-hoist-pattern[]=*@nextui-org/*
+npm run build
 ```
 
-After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
+La URL de la API se define en `.env.development` / `.env.production` con `VITE_API_BASE_URL`.
 
-## License
+## Licencia
 
-Licensed under the [MIT license](https://github.com/nextui-org/vite-template/blob/main/LICENSE).
+Ver [LICENSE](LICENSE).
